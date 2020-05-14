@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { staffRole } = require('../../config.json');
+const { staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
 	name: 'boot',
@@ -13,9 +13,10 @@ module.exports = {
 		
         const target = message.mentions.members.first();
 		const channel = message.channel;
-		
+		const logChannel = message.guild.channels.cache.get(loggingChannel);
+
         if (target.roles.cache.has(staffRole))
-			return message.reply(' **you cannot boot a staff member** :warning: '); 
+			return message.reply(` **can't do that to a staff member** :warning: `); 
 					
 		if (channel.permissionOverwrites.get(target.id)) 
 			return message.reply(' **this user has already been booted** :warning: ');
@@ -30,12 +31,13 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#48C9B0')
-			.setAuthor(`${target.user.tag} has been boot from #${channel.name} ⛔`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}`)
+			.setAuthor(`${target.user.tag} has been booted from #${channel.name} ⛔`, target.user.displayAvatarURL({dynamic: true}))
+			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
 			.setTimestamp();       
 		
 		channel.updateOverwrite(target, { SEND_MESSAGES: false }).then(() => {
 			message.channel.send(exampleEmbed);
+			logChannel.send(exampleEmbed);
 		}).catch(error => {
 			message.channel.send(" **something unexpected happened, try again later** :warning: ");
 		});        

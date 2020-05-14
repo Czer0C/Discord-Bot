@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { chatRole } = require('../../config.json');
+const { chatRole, loggingChannel } = require('../../config.json');
 module.exports = {
 	name: 'unlock',
 	description: 'Unlock the current channel.',
@@ -9,6 +9,7 @@ module.exports = {
 	execute(message, args) {
 		const channel = message.channel;
         const channelPermission = channel.permissionOverwrites.get(chatRole);
+        const logChannel = message.guild.channels.cache.get(loggingChannel);
         let reason = "";
 
         if (channelPermission) {            
@@ -21,11 +22,12 @@ module.exports = {
             const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#A569BD')
                 .setAuthor(`This channel has been unlocked. ✅`)
-                .setDescription(`**Reason:** ${reason}`)
+                .setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
                 .setTimestamp();    
 
             channelPermission.delete().then(() => {
-                 message.channel.send(exampleEmbed);	
+                message.channel.send(exampleEmbed);	
+                logChannel.send(exampleEmbed);
             }).catch(error => {
                 console.log(error);
                 message.channel.send(" **something unexpected happened, try again later** :warning: ");

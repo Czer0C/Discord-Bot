@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { muteRole, staffRole } = require('../../config.json');
+const { muteRole, staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
 	name: 'mute',
@@ -13,9 +13,10 @@ module.exports = {
 
 		const target = message.mentions.members.first();
         const role = message.guild.roles.cache.find(role => role.id === muteRole);
-        
+		const logChannel = message.guild.channels.cache.get(loggingChannel);
+		
         if (target.roles.cache.has(staffRole))
-            return message.reply(' **you cannot mute a staff member** :warning: '); 
+            return message.reply(` **can't do that to a staff member** :warning: `); 
 		else if (target.roles.cache.has(muteRole))
 			return message.reply(' **this user has already been muted** :warning: ');
 
@@ -30,11 +31,12 @@ module.exports = {
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#5499C7')
 			.setAuthor(`${target.user.tag} has been muted 🔇`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}`)
+			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
 			.setTimestamp();       
         
         target.roles.add(role).then(target => {
 			message.channel.send(exampleEmbed);
+			logChannel.send(exampleEmbed);
 		}).catch(error => {		
 			console.log(error);
 		   	message.channel.send(" something unexpected happened, try again later :warning:");

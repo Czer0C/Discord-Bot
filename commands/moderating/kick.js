@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { staffRole } = require('../../config.json');
+const { staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
 	name: 'kick',
@@ -12,9 +12,10 @@ module.exports = {
 			return message.reply('you need to tag a user to use this command!');
 
 		const target = message.mentions.members.first();
+		const logChannel = message.guild.channels.cache.get(loggingChannel);
 
 		if (target.roles.cache.has(staffRole))
-			return message.reply(' **you cannot kick a staff member** :warning: ');
+			return message.reply(` **can't do that to a staff member** :warning: `);
 			
 		let reason = ""
 
@@ -27,11 +28,12 @@ module.exports = {
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#EB984E')
 			.setAuthor(`${target.user.tag} has been kicked 👢`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}`)
+			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
 			.setTimestamp();
 
 		target.kick().then(target => {
 			message.channel.send(exampleEmbed);
+			logChannel.send(exampleEmbed);
 		}).catch(error => {		
 			console.log(error);
 		   	message.channel.send(" something unexpected happened, try again later :warning:");

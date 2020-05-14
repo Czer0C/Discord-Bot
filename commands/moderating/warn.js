@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-
+const { loggingChannel } = require('../../config.json');
 module.exports = {
 	name: 'warn',
 	description: 'Warn a user.',
@@ -10,10 +10,11 @@ module.exports = {
 		if (!message.mentions.users.size)
 			return message.reply(' **you need to tag a user to use this command** :warning:');
 	
-        const target = message.mentions.members.first();
-        
+		const target = message.mentions.members.first();		
+		const logChannel = message.guild.channels.cache.get(loggingChannel);
+		
         if (target.roles.cache.has('643435170162278438'))
-            return message.reply(' **you cannot warn a staff member** :warning: '); 
+            return message.reply(` **can't do that to a staff member** :warning: `); 
 
         let reason = ""
 
@@ -26,9 +27,10 @@ module.exports = {
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#F4D03F')
 			.setAuthor(`${target.user.tag} has been warned ⚠️`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}`)
+			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
 			.setTimestamp();       
         
-        message.channel.send(exampleEmbed);		
+		message.channel.send(exampleEmbed);
+		logChannel.send(exampleEmbed);
 	},
 };

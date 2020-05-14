@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { staffRole } = require('../../config.json');
+const { staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
 	name: 'unboot',
@@ -13,9 +13,10 @@ module.exports = {
 
         const target = message.mentions.members.first();
 		const channel = message.channel;
-		
+        const logChannel = message.guild.channels.cache.get(loggingChannel);
+        
         if (target.roles.cache.has(staffRole))
-			return message.reply(' **you cannot boot a staff member** :warning: '); 
+			return message.reply(` **can't do that to a staff member** :warning: `); 
             
         const channelPermission = channel.permissionOverwrites.get(target.id);
 
@@ -31,11 +32,12 @@ module.exports = {
             const exampleEmbed = new Discord.MessageEmbed()
                 .setColor('#45B39D')
                 .setAuthor(`${target.user.tag} has been unbooted from #${channel.name} ✅`, target.user.displayAvatarURL({dynamic: true}))
-                .setDescription(`**Reason:** ${reason}`)
+                .setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
                 .setTimestamp();       
             
             channelPermission.delete().then(()=> {
                 message.channel.send(exampleEmbed);
+                logChannel.send(exampleEmbed);
             }).catch(error => {		
                 message.channel.send(" **something unexpected happened, try again later** :warning: ");
             });
