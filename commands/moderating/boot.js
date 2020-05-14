@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { staffRole } = require('../../config.json');
 
 module.exports = {
 	name: 'boot',
@@ -13,7 +14,7 @@ module.exports = {
         const target = message.mentions.members.first();
 		const channel = message.channel;
 		
-        if (target.roles.cache.has('643435170162278438'))
+        if (target.roles.cache.has(staffRole))
 			return message.reply(' **you cannot boot a staff member** :warning: '); 
 					
 		if (channel.permissionOverwrites.get(target.id)) 
@@ -29,12 +30,12 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#48C9B0')
-			.setAuthor(`${target.user.tag} has been boot from #${channel.name}`, target.user.displayAvatarURL({dynamic: true}))
+			.setAuthor(`${target.user.tag} has been boot from #${channel.name} ⛔`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
 		
 		channel.updateOverwrite(target, { SEND_MESSAGES: false }).then(() => {
-			message.channel.send(exampleEmbed);	
+			message.channel.send(exampleEmbed);
 		}).catch(error => {
 			message.channel.send(" **something unexpected happened, try again later** :warning: ");
 		});        

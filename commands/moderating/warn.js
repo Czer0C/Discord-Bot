@@ -25,7 +25,7 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#F4D03F')
-			.setAuthor(`${target.user.tag} has been warned`, target.user.displayAvatarURL({dynamic: true}))
+			.setAuthor(`${target.user.tag} has been warned ⚠️`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
         

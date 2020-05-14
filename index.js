@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { prefix, token, staffRole, modRole } = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -36,33 +36,26 @@ client.on('message', message => {
     
 	if (!command) return;
 
-	if (command.guildOnly && message.channel.type !== 'text') {
+	if (command.guildOnly && message.channel.type !== 'text')
 		return message.reply('I can\'t execute that command inside DMs!');
-	}
 
-    if (command.staffOnly && !message.member.roles.cache.has('643435170162278438')) {
+    if (command.staffOnly && !message.member.roles.cache.has(staffRole))
         return message.reply(`you don't have permission to use this command! :warning:`);
-        
-    }
-    else if (command.modOnly && message.member.roles.cache.has('710103204024549546')) {
+    else if (command.modOnly && message.member.roles.cache.has(modRole))
         return message.reply('this command is only accessible to higher rank staff.'); 
-    }
-
     
 	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 
-		if (command.usage) {
+		if (command.usage) 
 			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
-		}
 
 		return message.channel.send(reply);
 	}
 
-	if (!cooldowns.has(command.name)) {
+	if (!cooldowns.has(command.name))
 		cooldowns.set(command.name, new Discord.Collection());
-	}
-
+	
 	const now = Date.now();
 	const timestamps = cooldowns.get(command.name);
 	const cooldownAmount = (command.cooldown || 5) * 1000;

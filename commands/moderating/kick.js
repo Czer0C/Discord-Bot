@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { staffRole } = require('../../config.json');
 
 module.exports = {
 	name: 'kick',
@@ -10,7 +11,11 @@ module.exports = {
 		if (!message.mentions.users.size)
 			return message.reply('you need to tag a user to use this command!');
 
-		const target = message.mentions.members.first();		
+		const target = message.mentions.members.first();
+
+		if (target.roles.cache.has(staffRole))
+			return message.reply(' **you cannot kick a staff member** :warning: ');
+			
 		let reason = ""
 
 		if (args.length > 1)
@@ -21,7 +26,7 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#EB984E')
-			.setAuthor(`${target.user.tag} has been kicked`, target.user.displayAvatarURL({dynamic: true}))
+			.setAuthor(`${target.user.tag} has been kicked 👢`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();
 

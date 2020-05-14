@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { muteRole, staffRole } = require('../../config.json');
 
 module.exports = {
 	name: 'mute',
@@ -11,11 +12,11 @@ module.exports = {
 			return message.reply(' **you need to tag a user to use this command** :warning:');
 
 		const target = message.mentions.members.first();
-        const role = message.guild.roles.cache.find(role => role.id === '505188874163585025');
+        const role = message.guild.roles.cache.find(role => role.id === muteRole);
         
-        if (target.roles.cache.has('643435170162278438'))
+        if (target.roles.cache.has(staffRole))
             return message.reply(' **you cannot mute a staff member** :warning: '); 
-		else if (target.roles.cache.has('505188874163585025'))
+		else if (target.roles.cache.has(muteRole))
 			return message.reply(' **this user has already been muted** :warning: ');
 
 		let reason = ""
@@ -28,7 +29,7 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#5499C7')
-			.setAuthor(`${target.user.tag} has been muted`, target.user.displayAvatarURL({dynamic: true}))
+			.setAuthor(`${target.user.tag} has been muted 🔇`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
         

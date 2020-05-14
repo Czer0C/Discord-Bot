@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { muteRole, staffRole } = require('../../config.json');
 
 module.exports = {
 	name: 'unmute',
@@ -12,10 +13,12 @@ module.exports = {
 
         const target = message.mentions.members.first();
         
-        if (!target.roles.cache.has('505188874163585025'))
+        if (!target.roles.cache.has(muteRole))
             return message.reply(' **this member has not been muted** :warning:');
-        
-        const role = message.guild.roles.cache.find(role => role.id === '505188874163585025');
+		if (target.roles.cache.has(staffRole))
+			return message.reply(' **you cannot kick a staff member** :warning: ');
+			
+        const role = message.guild.roles.cache.find(role => role.id === muteRole);
 		let reason = ""
 
 		if (args.length > 1)
@@ -26,7 +29,7 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#5DADE2')
-			.setAuthor(`${target.user.tag} has been unmuted`, target.user.displayAvatarURL({dynamic: true}))
+			.setAuthor(`${target.user.tag} has been unmuted 🔈`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
         

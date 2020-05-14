@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-
+const { chatRole } = require('../../config.json');
 module.exports = {
 	name: 'lock',
 	description: 'Lock the current channel.',
@@ -8,10 +8,10 @@ module.exports = {
 	staffOnly: true,
 	execute(message, args) {
 		const channel = message.channel;
-        const role = message.guild.roles.cache.find(role => role.id === '579274582431891466');
+        const role = message.guild.roles.cache.find(role => role.id === chatRole);
 		let reason = "";
 		
-        if (channel.permissionOverwrites.get('579274582431891466')) 
+        if (channel.permissionOverwrites.get(chatRole)) 
             return message.reply(' **this channel has already been locked** :warning:'); 
 
         if (args.length === 0)
@@ -22,7 +22,7 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#AF7AC5')
-			.setAuthor(`#${channel.name} has been locked.`)
+			.setAuthor(`This channel has been locked. ⛔`)
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
 		

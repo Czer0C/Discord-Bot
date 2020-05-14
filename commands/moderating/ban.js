@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { staffRole } = require('../../config.json');
 
 module.exports = {
 	name: 'ban',
@@ -11,6 +12,10 @@ module.exports = {
 			return message.reply('you need to tag a user to use this command!');
 
 		const target = message.mentions.members.first();
+
+		if (target.roles.cache.has(staffRole))
+			return message.reply(' **you cannot ban a staff member** :warning: ');
+		
 		let reason = ""
 
 		if (args.length > 1)
@@ -21,7 +26,7 @@ module.exports = {
 
 		const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#E74C3C')
-			.setAuthor(`${target.user.tag} has been banned`, target.user.displayAvatarURL({dynamic: true}))
+			.setAuthor(`${target.user.tag} has been banned 🔨`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();
 
