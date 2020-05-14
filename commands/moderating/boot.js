@@ -7,17 +7,17 @@ module.exports = {
 	modOnly: false,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size) {
+		if (!message.mentions.users.size)
 			return message.reply(' **you need to tag a user to use this command** :warning:');
-		}
-
+		
         const target = message.mentions.members.first();
-        
-        if (target.roles.cache.has('643435170162278438')) {
-            return message.reply(' **you cannot boot a staff member** :warning: '); 
-        }
-
-        const channel = message.channel;
+		const channel = message.channel;
+		
+        if (target.roles.cache.has('643435170162278438'))
+			return message.reply(' **you cannot boot a staff member** :warning: '); 
+					
+		if (channel.permissionOverwrites.get(target.id)) 
+			return message.reply(' **this user has already been booted** :warning: ');
 		
         let reason = ""
 
@@ -28,13 +28,15 @@ module.exports = {
 			reason = "unspecified."
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#3385ff')
+			.setColor('#48C9B0')
 			.setAuthor(`${target.user.tag} has been boot from #${channel.name}`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
 		
-		channel.updateOverwrite(target, { VIEW_CHANNEL: false });
-
-        message.channel.send(exampleEmbed);	
+		channel.updateOverwrite(target, { SEND_MESSAGES: false }).then(() => {
+			message.channel.send(exampleEmbed);	
+		}).catch(error => {
+			message.channel.send(" **something unexpected happened, try again later** :warning: ");
+		});        
 	},
 };

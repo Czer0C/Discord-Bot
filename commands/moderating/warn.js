@@ -7,15 +7,13 @@ module.exports = {
 	modOnly: false,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size) {
+		if (!message.mentions.users.size)
 			return message.reply(' **you need to tag a user to use this command** :warning:');
-		}
-
+	
         const target = message.mentions.members.first();
         
-        if (target.roles.cache.has('643435170162278438')) {
+        if (target.roles.cache.has('643435170162278438'))
             return message.reply(' **you cannot warn a staff member** :warning: '); 
-        }
 
         let reason = ""
 
@@ -26,12 +24,11 @@ module.exports = {
 			reason = "unspecified."
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#DAA520')
+			.setColor('#F4D03F')
 			.setAuthor(`${target.user.tag} has been warned`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
         
-        message.channel.send(exampleEmbed);
-		
+        message.channel.send(exampleEmbed);		
 	},
 };

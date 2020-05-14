@@ -8,10 +8,9 @@ module.exports = {
 	staffOnly: true,
 	execute(message, args) {
 		const channel = message.channel;
-        let reason = "";
-
         const role = message.guild.roles.cache.find(role => role.id === '579274582431891466');
-        
+		let reason = "";
+		
         if (channel.permissionOverwrites.get('579274582431891466')) 
             return message.reply(' **this channel has already been locked** :warning:'); 
 
@@ -22,13 +21,16 @@ module.exports = {
                 reason += args[i] + " ";
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#df80ff')
+			.setColor('#AF7AC5')
 			.setAuthor(`#${channel.name} has been locked.`)
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
 		
-		channel.updateOverwrite(role, { SEND_MESSAGES: false });
-
-        message.channel.send(exampleEmbed);	
+		channel.updateOverwrite(role, { SEND_MESSAGES: false }).then(() => {
+			message.channel.send(exampleEmbed);	
+		}).catch(error => {
+			console.log(error);
+			message.channel.send(" **something unexpected happened, try again later** :warning: ");
+		});        
 	},
 };

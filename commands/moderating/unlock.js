@@ -8,12 +8,10 @@ module.exports = {
 	staffOnly: true,
 	execute(message, args) {
 		const channel = message.channel;
+        const channelPermission = channel.permissionOverwrites.get('579274582431891466');
         let reason = "";
-        
-        const channelPermission = channel.permissionOverwrites.get('579274582431891466')
 
-        if (channelPermission) {
-            channelPermission.delete();
+        if (channelPermission) {            
             if (args.length === 0)
                 reason = "unspecified.";
             else 
@@ -21,12 +19,17 @@ module.exports = {
                     reason += args[i] + " ";
 
             const exampleEmbed = new Discord.MessageEmbed()
-                .setColor('#df80ff')
+                .setColor('#A569BD')
                 .setAuthor(`#${channel.name} has been unlocked.`)
                 .setDescription(`**Reason:** ${reason}`)
-                .setTimestamp();       
+                .setTimestamp();    
 
-            message.channel.send(exampleEmbed);	
+            channelPermission.delete().then(() => {
+                 message.channel.send(exampleEmbed);	
+            }).catch(error => {
+                console.log(error);
+                message.channel.send(" **something unexpected happened, try again later** :warning: ");
+            });           
         }
         else {
             return message.reply(' **this channel has not been locked yet** :warning:'); 

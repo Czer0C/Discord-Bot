@@ -7,12 +7,10 @@ module.exports = {
 	modOnly: true,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size) {
+		if (!message.mentions.users.size)
 			return message.reply('you need to tag a user to use this command!');
-		}
 
-		const target = message.mentions.members.first();
-		
+		const target = message.mentions.members.first();		
 		let reason = ""
 
 		if (args.length > 1)
@@ -22,7 +20,7 @@ module.exports = {
 			reason = "unspecified."
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#FFFF00')
+			.setColor('#EB984E')
 			.setAuthor(`${target.user.tag} has been kicked`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();
@@ -30,8 +28,8 @@ module.exports = {
 		target.kick().then(target => {
 			message.channel.send(exampleEmbed);
 		}).catch(error => {		
+			console.log(error);
 		   	message.channel.send(" something unexpected happened, try again later :warning:");
-	   	});
-		
+	   	});		
 	},
 };

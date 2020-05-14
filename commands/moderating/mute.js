@@ -7,16 +7,16 @@ module.exports = {
 	modOnly: false,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size) {
+		if (!message.mentions.users.size)
 			return message.reply(' **you need to tag a user to use this command** :warning:');
-		}
 
 		const target = message.mentions.members.first();
         const role = message.guild.roles.cache.find(role => role.id === '505188874163585025');
         
-        if (target.roles.cache.has('643435170162278438')) {
+        if (target.roles.cache.has('643435170162278438'))
             return message.reply(' **you cannot mute a staff member** :warning: '); 
-        }
+		else if (target.roles.cache.has('505188874163585025'))
+			return message.reply(' **this user has already been muted** :warning: ');
 
 		let reason = ""
 
@@ -27,7 +27,7 @@ module.exports = {
 			reason = "unspecified."
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#FF7F50')
+			.setColor('#5499C7')
 			.setAuthor(`${target.user.tag} has been muted`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
@@ -35,6 +35,7 @@ module.exports = {
         target.roles.add(role).then(target => {
 			message.channel.send(exampleEmbed);
 		}).catch(error => {		
+			console.log(error);
 		   	message.channel.send(" something unexpected happened, try again later :warning:");
 	   	});
 		

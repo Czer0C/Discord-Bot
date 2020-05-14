@@ -7,12 +7,10 @@ module.exports = {
 	modOnly: true,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size) {
+		if (!message.mentions.users.size) 
 			return message.reply('you need to tag a user to use this command!');
-		}
 
 		const target = message.mentions.members.first();
-		
 		let reason = ""
 
 		if (args.length > 1)
@@ -22,7 +20,7 @@ module.exports = {
 			reason = "unspecified."
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#DC143C')
+			.setColor('#E74C3C')
 			.setAuthor(`${target.user.tag} has been banned`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();

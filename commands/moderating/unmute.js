@@ -7,9 +7,8 @@ module.exports = {
 	modOnly: false,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size) {
+		if (!message.mentions.users.size) 
 			return message.reply(' **you need to tag a user to use this command** :warning');
-		}
 
         const target = message.mentions.members.first();
         
@@ -17,7 +16,6 @@ module.exports = {
             return message.reply(' **this member has not been muted** :warning:');
         
         const role = message.guild.roles.cache.find(role => role.id === '505188874163585025');
-
 		let reason = ""
 
 		if (args.length > 1)
@@ -27,7 +25,7 @@ module.exports = {
 			reason = "unspecified."
 
 		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#00FF00')
+			.setColor('#5DADE2')
 			.setAuthor(`${target.user.tag} has been unmuted`, target.user.displayAvatarURL({dynamic: true}))
 			.setDescription(`**Reason:** ${reason}`)
 			.setTimestamp();       
@@ -35,6 +33,7 @@ module.exports = {
         target.roles.remove(role).then(target => {
 			message.channel.send(exampleEmbed);
 		}).catch(error => {		
+			console.log(error);
 		   	message.channel.send(" **something unexpected happened, try again later** :warning: ");
 	   	});
 		
