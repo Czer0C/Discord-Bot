@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { loggingChannel } = require('../../config.json');
+
 module.exports = {
 	name: 'warn',
 	description: 'Warn a user.',

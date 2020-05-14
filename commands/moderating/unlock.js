@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const { chatRole, loggingChannel } = require('../../config.json');
+
 module.exports = {
 	name: 'unlock',
 	description: 'Unlock the current channel.',
