@@ -3,7 +3,7 @@ module.exports = {
     description: 'Let the bot speak in your stead.',
     args: true,
     staffOnly: true,
-    usage: '\nE.g: .say <content here>',
+    usage: '<content here>',
 	execute(message, args) {
         let content = ""
 
