@@ -26,8 +26,7 @@ module.exports = {
 			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
 			.setTimestamp();       
         
-		
-
+		message.delete();
 		message.channel.bulkDelete(amount, true).then(() => {
 			message.channel.send(exampleEmbed);
 			logChannel.send(exampleEmbed);

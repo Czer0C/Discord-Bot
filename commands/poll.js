@@ -30,11 +30,13 @@ module.exports = {
             .setAuthor(`${message.author.username} started a poll`, message.author.displayAvatarURL({dynamic: true}))
             .setTitle(`**${aStr[0]}**\n\n`)
 			.setDescription(detail)
-			.setTimestamp();      
-
+            .setTimestamp();      
+            
+        message.delete();
         message.channel.send(exampleEmbed).then(async m => {
             for (let n = 0; n < aStr.length - 1; n++)
                 await m.react(options[n]);
+            
         });
         
 	},

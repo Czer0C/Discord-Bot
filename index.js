@@ -1,5 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const Canvas = require('canvas');
 const { prefix, token, staffRole, modRole } = require('./config.json');
 
 const client = new Discord.Client();
@@ -59,7 +60,7 @@ client.on('message', message => {
 	
 	const now = Date.now();
 	const timestamps = cooldowns.get(command.name);
-	const cooldownAmount = (command.cooldown || 5) * 1000;
+	const cooldownAmount = (command.cooldown || 2) * 1000;
 
 	if (timestamps.has(message.author.id)) {
 		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
