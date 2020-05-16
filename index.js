@@ -36,8 +36,8 @@ client.on('message', message => {
 		if (!channel) return message.reply(" **invalid message link** :warning:");
 		else {
 			channel.messages.fetch(quoteMessageURL.message).then(m => {
-				let content = `**[Jump to message](${message.content})** in <#${m.channel.id}>\n${m.content}`
-				let embed = utility.embed(undefined, m, undefined, undefined, undefined, content, undefined)
+				let content = `**[Jump to message](${message.content})** in <#${m.channel.id}>\n${m.content}`;
+				let embed = utility.embed(undefined, m, undefined, undefined, undefined, content, message.author.username, undefined)
 				message.delete();
 				return message.channel.send(embed);
 			}).catch(error => {

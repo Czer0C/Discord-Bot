@@ -17,13 +17,13 @@ checkMessageURL = (URL) => {
     return result;  
 }
 
-embed = (color = "#7289DA", message, author, icon, title, content, timestamp) => {
+embed = (color = "#7289DA", message, author, icon, title, content, by, timestamp) => {
     const embedQuote = new Discord.MessageEmbed()
         .setColor(color)
         .setAuthor(author ? author : message.author.username, icon ? icon : message.author.displayAvatarURL({dynamic: true}))
         .setTitle(title ? title : "")
         .setDescription(content ? content : message.content)
-        .setTimestamp(timestamp ? timestamp : message.createdTimestamp)
+        .setFooter(`${by ? `Requested by ${by} - Quote from:` : ""} ${timestamp ? timestamp : message.createdAt.toLocaleString()}`)
 
     return embedQuote;
 }
