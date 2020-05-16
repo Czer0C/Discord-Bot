@@ -6,7 +6,7 @@
   "dependencies": {
     "canvas": "^2.6.1",
     "discord.js": "^12.2.0",
-    "nodemon": "^2.0.3"
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {

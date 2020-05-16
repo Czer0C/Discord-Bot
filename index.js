@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const Canvas = require('canvas');
+const utility = require('./utility/utility.js');
 const { prefix, token, staffRole, modRole } = require('./config.json');
 
 const client = new Discord.Client();
@@ -27,8 +27,27 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
-
+    if (!message.content.startsWith(prefix) || message.author.bot) {
+		let quoteMessageURL = utility.checkMessageURL(message.content);
+		if (!quoteMessageURL.isValid) return;
+		
+		const channel = message.guild.channels.cache.find(ch => ch.id === quoteMessageURL.channel)
+    
+		if (!channel) return message.reply(" **invalid message link** :warning:");
+		else {
+			channel.messages.fetch(quoteMessageURL.message).then(m => {
+				let content = `**[Jump to message](${message.content})** in <#${m.channel.id}>\n${m.content}`
+				let embed = utility.embed(undefined, m, undefined, undefined, undefined, content, undefined)
+				message.delete();
+				return message.channel.send(embed);
+			}).catch(error => {
+				console.log(error);
+				return message.reply(" **invalid message link** :warning:");
+			});
+			return;
+		}  			
+	}
+	
 	const args = message.content.slice(prefix.length).split(/ +/);
 
 	const commandName = args.shift().toLowerCase();
