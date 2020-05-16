@@ -14,6 +14,8 @@ module.exports = {
 		const target = message.mentions.members.first();
 		const logChannel = message.guild.channels.cache.get(loggingChannel);
 		
+		if (!message.guild.member(target)) return message.reply(` **this user isn't a member of the server** :warning:`);
+
 		if (target.roles.cache.has(staffRole))
 			return message.reply(` **can't do that to a staff member** :warning: `);
 		
