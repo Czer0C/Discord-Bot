@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
+const utility = require('../utility/utility.js');
 
 module.exports = {
 	name: 'poll',
     description: 'Make a poll.',
     args: true,
-    poll: true,
     usage: "Poll <Topic:Text - Description of the poll> <Option1:Text> <Option2:Text> [Option3:Text] [Option4:Text] [Option5:Text] [Option6:Text] [Option7:Text] [Option8:Text] [Option9:Text] [Option10:Text]",
 	execute(message, args) {  
         if (args.length < 3) 
@@ -17,24 +17,21 @@ module.exports = {
         for (let j = 0; j < args.length; j++)
             restructure += args[j] + " ";
 
-        let aStr = restructure.match(/\w+|"[^"]+"/g), i = aStr.length;
+        realArgs = utility.processArguments(restructure);
 
-        while (i--) 
-            aStr[i] = aStr[i].replace(/"/g,"");   
-
-        for (let k = 1; k < aStr.length; k++) 
-            detail += `${options[k - 1]} : ${aStr[k]}\n`;
+        for (let k = 1; k < realArgs.length; k++) 
+            detail += `${options[k - 1]} : ${realArgs[k]}\n`;
 
         const exampleEmbed = new Discord.MessageEmbed()
 			.setColor('#F4D03F')
             .setAuthor(`${message.author.username} started a poll`, message.author.displayAvatarURL({dynamic: true}))
-            .setTitle(`**${aStr[0]}**\n\n`)
+            .setTitle(`**${realArgs[0]}**\n\n`)
 			.setDescription(detail)
             .setTimestamp();      
             
         message.delete();
         message.channel.send(exampleEmbed).then(async m => {
-            for (let n = 0; n < aStr.length - 1; n++)
+            for (let n = 0; n < realArgs.length - 1; n++)
                 await m.react(options[n]);
             
         });

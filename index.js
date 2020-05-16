@@ -37,7 +37,8 @@ client.on('message', message => {
 		else {
 			channel.messages.fetch(quoteMessageURL.message).then(m => {
 				let content = `**[Jump to message](${message.content})** in <#${m.channel.id}>\n${m.content}`;
-				let embed = utility.embed(undefined, m, undefined, undefined, undefined, content, message.author.username, undefined)
+				let footer = `Quoted by ${message.author.username} - ${m.createdAt.toLocaleString()}`;
+				let embed = utility.embed(undefined, undefined, undefined, undefined, content, footer, m);
 				message.delete();
 				return message.channel.send(embed);
 			}).catch(error => {
