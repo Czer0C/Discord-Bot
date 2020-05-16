@@ -2,8 +2,9 @@ const utility = require('../utility/utility.js');
 module.exports = {
 	name: 'embed',
     description: 'Custom embed',
-    usage: '<color> <author> <hasIcon?> <title> <content> <footer>',
+    usage: '<color> <author> <hasIcon?> <title> <content> <footer> <channel>',
     args: true,
+    staffOnly: true,
 	execute(message, args) {
         let restructure = "";
         
@@ -19,11 +20,21 @@ module.exports = {
             icon = realArgs[2] === "yes" ? true : false,
             title = realArgs[3],
             content = realArgs[4],
-            footer = realArgs[5]
-        console.log(icon);
+            footer = realArgs[5],
+            channelID = realArgs[6]
+        
         const ce = utility.embed(color, author, icon, title, content, footer, message);
+        
+        if (channelID) {
+            channel = message.guild.channels.cache.find(ch => ch.toString() === channelID);
 
-        message.delete();
-        message.channel.send(ce)
+            if (!channel) return message.reply(" **invalid channel input** :warning:");
+
+            channel.send(ce);           
+        }
+        else {
+            message.channel.send(ce)
+        }   
+        message.delete();    
 	},
 };
