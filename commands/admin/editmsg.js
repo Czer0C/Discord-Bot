@@ -1,4 +1,4 @@
-const utility = require('../utility/utility.js');
+const utility = require('../../utility/utility.js');
 
 module.exports = {
 	name: 'editmsg',

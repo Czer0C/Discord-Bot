@@ -1,12 +1,13 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const utility = require('./utility/utility.js');
-const { prefix, token, staffRole, modRole } = require('./config.json');
+const { prefix, token, staffRole, modRole, adminRole } = require('./config.json');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 const moderatingCommandFiles = fs.readdirSync('./commands/moderating').filter(file => file.endsWith('.js'));
+const adminCommandFiles = fs.readdirSync('./commands/admin').filter(file => file.endsWith('.js'));
 const otherCommandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of moderatingCommandFiles) {
@@ -14,6 +15,10 @@ for (const file of moderatingCommandFiles) {
 	client.commands.set(command.name, command);
 }
 
+for (const file of adminCommandFiles) {
+	const command = require(`./commands/admin/${file}`);
+	client.commands.set(command.name, command);
+}
 
 for (const file of otherCommandFiles) {
 	const command = require(`./commands/${file}`);
@@ -27,6 +32,7 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+	
     if (!message.content.startsWith(prefix) || message.author.bot) {
 		let quoteMessageURL = utility.checkMessageURL(message.content);
 		if (!quoteMessageURL.isValid) return;
@@ -52,7 +58,7 @@ client.on('message', message => {
 	const args = message.content.slice(prefix.length).split(/ +/);
 
 	const commandName = args.shift().toLowerCase();
-
+	
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
     
@@ -60,17 +66,21 @@ client.on('message', message => {
 
 	if (command.guildOnly && message.channel.type !== 'text')
 		return message.reply('I can\'t execute that command inside DMs!');
-
-    if (command.staffOnly && !message.member.roles.cache.has(staffRole))
-        return message.reply(`you don't have permission to use this command! :warning:`);
-    else if (command.modOnly && message.member.roles.cache.has(modRole))
-        return message.reply('this command is only accessible to higher rank staff.'); 
-    
+	
+    if (command.staffOnly) {
+		if (!message.member.roles.cache.has(staffRole))
+			return message.reply(` **this command is only accesible to staff** :warning:`);
+		else if (command.modOnly && !message.member.roles.cache.has(modRole))
+			return message.reply(' **this command is only accessible to moderators** :warning:');
+		else if (command.adminOnly && !message.member.roles.cache.has(adminRole))
+        	return message.reply(' **this command is only accessible to admins** :warning:');
+	}
+   
 	if (command.args && !args.length) {
-		let reply = `You didn't provide any arguments, ${message.author}!`;
+		let reply = `**You didn't provide any arguments**, ${message.author}!`;
 
 		if (command.usage) 
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			reply += `\n**The proper usage would be:** \`${prefix}${command.name} ${command.usage}\``;
 
 		return message.channel.send(reply);
 	}
@@ -87,7 +97,7 @@ client.on('message', message => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			return message.reply(` **please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command** ⏳`);
 		}
 	}
 
@@ -95,10 +105,10 @@ client.on('message', message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		command.execute(message, args);
+		command.execute(message, args, client);
 	} catch (error) {
 		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+		message.reply(' **there was an error trying to execute that command** ❌');
 	}
 });
 

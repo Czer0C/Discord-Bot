@@ -6,7 +6,7 @@ module.exports = {
     description: 'Make a poll.',
     args: true,
     usage: "Poll <Topic:Text - Description of the poll> <Option1:Text> <Option2:Text> [Option3:Text] [Option4:Text] [Option5:Text] [Option6:Text] [Option7:Text] [Option8:Text] [Option9:Text] [Option10:Text]",
-	execute(message, args) {  
+	async execute(message, args) {  
         if (args.length < 3) 
             return message.reply(' **insufficient arugments for this command** :warning:\n\n**Command usage:**\n' + this.usage);
 

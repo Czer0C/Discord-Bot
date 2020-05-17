@@ -47,6 +47,14 @@ processArguments = (args) => {
     return result;
 }
 
+argsToString = (args) => {
+    let result = "";
+    for (let i = 0; i < args.length; i++)
+        result += args[i] + " ";
+    return result;
+}
+
 module.exports.checkMessageURL = checkMessageURL;
 module.exports.embed = embed;
 module.exports.processArguments = processArguments;
+module.exports.argsToString = argsToString;

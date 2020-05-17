@@ -30,7 +30,7 @@ module.exports = {
             if (page < page_count) {
                 const page_url = `${chapter_info.server}/${chapter_info.hash}/${chapter_info.page_array[page]}`;
                 //const attachment = new Discord.MessageAttachment(page_url);
-
+                console.log(page_url)
 
                 const exampleEmbed = {
                     title: `Chapter ${chapter_info.chapter} - ${chapter_info.title}`,

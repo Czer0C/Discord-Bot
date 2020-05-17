@@ -9,7 +9,7 @@ module.exports = {
 	staffOnly: true,
 	execute(message, args) {
 		if (!message.mentions.users.size)
-			return message.reply('you need to tag a user to use this command!');
+			return message.reply(' **you need to tag a user to use this command** :warning:');
 
 		const target = message.mentions.members.first();
 		const logChannel = message.guild.channels.cache.get(loggingChannel);
@@ -38,7 +38,7 @@ module.exports = {
 			logChannel.send(exampleEmbed);
 		}).catch(error => {		
 			console.log(error);
-		   	message.channel.send(" something unexpected happened, try again later :warning:");
+		   	message.channel.send(" **something unexpected happened, try again later** :warning:");
 	   	});		
 	},
 };
