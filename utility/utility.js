@@ -22,14 +22,14 @@ embed = (color = "#7289DA", author, icon = true, title, content, footer, message
     if (icon) icon = message.author.displayAvatarURL({dynamic: true});
     else icon = null;
     if (!footer) footer = message.createdAt.toLocaleString();
-    const embedQuote = new Discord.MessageEmbed()
+    const customEmbed = new Discord.MessageEmbed()
         .setColor(color)
         .setAuthor(author, icon)
         .setTitle(title ? title : "")
         .setDescription(content ? content : message.content)
         .setFooter(footer);
 
-    return embedQuote;
+    return customEmbed;
 }
 
 processArguments = (args) => {

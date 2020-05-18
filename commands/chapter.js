@@ -19,10 +19,12 @@ module.exports = {
 
 
         // console.log(pages.length);
-        fetch(api, {method: 'GET',
-        headers: {
-          Accept: 'application/json',
-        }}).then(response => response.text()).then(body  => {
+        fetch(api, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+            }
+        }).then(response => response.text()).then(body  => {
             let chapter_info = JSON.parse(body);
             let page_count = chapter_info.page_array.length;
             const page = args[1] ? args[1] : 0;
@@ -38,17 +40,8 @@ module.exports = {
                     image: {
                         url: page_url,
                     },
-                };
-        
+                };        
                 message.channel.send({ embed: exampleEmbed });
-            }
-                
-        })
-    
-
-        
-
-        
-
+            }})
 	},
 };

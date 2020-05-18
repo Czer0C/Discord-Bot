@@ -25,7 +25,7 @@ module.exports = {
             message.delete(); 
         }).catch(error => {
             console.log(error);
-            message.channel.send("**Something unexpected happened, try again later :x:");
+            message.channel.send("**Something unexpected happened**, try again later :x:");
         });
 	},
 };
