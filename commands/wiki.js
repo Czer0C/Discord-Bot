@@ -16,14 +16,14 @@ module.exports = {
         });
         
         const wikiPages = result.data.items;
-        let title = `Pages for '${query}':`;
+        let title = `Results for '${query}':`;
         let content = "";
         let searchLimit = wikiPages.length > 10 ? 10 : wikiPages.length;
-        if (searchLimit === 0) content = `No result found.`;
+        if (searchLimit === 0) content = `Nothing found.`;
         else
             for (let i = 0; i < searchLimit; i++)
                 content += `[${wikiPages[i].title}](${wikiPages[i].url})\n`;
-        const response = embed("#541f1f", undefined, true, title, content, undefined, message);
+        const response = embed("#541f1f", title, false, undefined, content, undefined, message);
 
         message.channel.send(response);        
 	},
