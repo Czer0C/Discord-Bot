@@ -28,9 +28,9 @@ embed = (color = "#7289DA", author, icon = true, title, content, footer, message
         .setTitle(title ? title : "")
         .setDescription(content ? content : message.content)
         .setFooter(footer);
-
     return customEmbed;
 }
+
 
 processArguments = (args) => {
     let pattern = /[^\s"]+|"([^"]*)"/gi;
