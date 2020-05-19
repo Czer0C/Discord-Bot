@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-
+const http = require('http');
 checkMessageURL = (URL) => {
     let result = {
         server: '',
@@ -54,7 +54,28 @@ argsToString = (args) => {
     return result;
 }
 
+ getASOT = (link) => {
+    var urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    let result = [];
+
+    http.get(link, (res) => {
+        res.setEncoding('utf8');
+        res.on('data', body => {
+            let t = body.toString();            
+            t.replace(urlRegex, function(url) {
+                if (url.includes(".mp3"))
+                    result.push(url)
+            });  
+            
+        });
+        res.on('end', () => {
+            return result;
+        })
+    });
+}
+
 module.exports.checkMessageURL = checkMessageURL;
 module.exports.embed = embed;
 module.exports.processArguments = processArguments;
 module.exports.argsToString = argsToString;
+module.exports.getASOT = getASOT;
