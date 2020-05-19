@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/local-auth": "^0.1.0",
     "axios": "^0.19.2",
     "canvas": "^2.6.1",
     "discord.js": "^12.2.0",
+    "googleapis": "^51.0.0",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.4"
   },
