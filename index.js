@@ -2,6 +2,8 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const utility = require('./utility/utility.js');
 const { prefix, token, staffRole, modRole, adminRole } = require('./config.json');
+const imageList = require('./asset/imageList.json');
+const { quote } = require('./utility/quote.js');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -34,35 +36,32 @@ client.once('ready', () => {
 client.on('message', message => {
 	
     if (!message.content.startsWith(prefix) || message.author.bot) {
-		let quoteMessageURL = utility.checkMessageURL(message.content);
-		if (!quoteMessageURL.isValid) return;
-		
-		const channel = message.guild.channels.cache.find(ch => ch.id === quoteMessageURL.channel)
-    
-		if (!channel) return message.reply(" **invalid message link** :warning:");
-		else {
-			channel.messages.fetch(quoteMessageURL.message).then(m => {
-				let content = `**[Jump to message](${message.content})** in <#${m.channel.id}>\n${m.content}`;
-				let footer = `Quoted by ${message.author.username} - ${m.createdAt.toLocaleString()}`;
-				let embed = utility.embed(undefined, undefined, undefined, undefined, content, footer, m);
-				message.delete();
-				return message.channel.send(embed);
-			}).catch(error => {
-				console.log(error);
-				return message.reply(" **invalid message link** :warning:");
-			});
-			return;
-		}  			
+		// Check quote command (pass a message URL)
+		quote(message).then(r => {
+			if (r.isMessageURL)
+				if (r.embedQuote) {
+					message.delete();
+					return message.channel.send(r.embedQuote);
+				}
+				else return message.channel.send("**Invalid message link** :x:");
+		});		
+		return;
 	}
 	
 	const args = message.content.slice(prefix.length).split(/ +/);
 
 	const commandName = args.shift().toLowerCase();
 	
-	const command = client.commands.get(commandName)
+	let command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
     
-	if (!command) return;
+	if (!command)  {
+		if (imageList.find(i => i.name === commandName))
+			command = client.commands.get("image");
+		else
+			return message.channel.send("**There's no such command** :x:");
+	}
+		
 
 	if (command.guildOnly && message.channel.type !== 'text')
 		return message.reply('I can\'t execute that command inside DMs!');
@@ -84,12 +83,13 @@ client.on('message', message => {
 
 		return message.channel.send(reply);
 	}
-
-	if (!cooldowns.has(command.name))
-		cooldowns.set(command.name, new Discord.Collection());
+	
+	if (!cooldowns.has(commandName))
+		cooldowns.set(commandName, new Discord.Collection());
 	
 	const now = Date.now();
-	const timestamps = cooldowns.get(command.name);
+	
+	const timestamps = cooldowns.get(commandName);
 	const cooldownAmount = (command.cooldown || 2) * 1000;
 
 	if (timestamps.has(message.author.id)) {
@@ -97,7 +97,7 @@ client.on('message', message => {
 
 		if (now < expirationTime) {
 			const timeLeft = (expirationTime - now) / 1000;
-			return message.reply(` **please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command** ⏳`);
+			return message.reply(` **please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${commandName}\` command** ⏳`);
 		}
 	}
 
@@ -105,7 +105,7 @@ client.on('message', message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		command.execute(message, args, client);
+		command.execute(message, args, client, commandName);
 	} catch (error) {
 		console.error(error);
 		message.reply(' **there was an error trying to execute that command** ❌');

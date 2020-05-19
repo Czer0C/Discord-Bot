@@ -1,8 +1,0 @@
-{
-    "web" : {
-      "redirect_uris": ["http://localhost:3000/oauth2callback"],
-      "client_id": "844771682052-tkub5pif1lt8l7g0b0pj2q5j748n79qs.apps.googleusercontent.com",
-      "client_secret": "4qE25cde76RAukRKGZbjZfXF",
-      "project_id": "kingdom-277615"
-    }
-  }
