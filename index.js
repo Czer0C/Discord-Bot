@@ -61,7 +61,6 @@ client.on('message', message => {
 		else
 			return message.channel.send("**There's no such command** :x:");
 	}
-		
 
 	if (command.guildOnly && message.channel.type !== 'text')
 		return message.reply('I can\'t execute that command inside DMs!');

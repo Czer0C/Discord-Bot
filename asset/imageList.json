@@ -2,19 +2,21 @@
     {
         "name": "weak",
         "rank": "0",
-        "cooldown": true,
         "link": "https://i.imgur.com/j8RvAwY.jpg"
     },
     {
         "name": "trash",
         "rank": "0",
-        "cooldown": true,
         "link": "https://i.imgur.com/xcFHPmj.png"
     },
     {
-        "name": "schedule",
-        "rank": "0",
-        "cooldown": false,
-        "link": "https://i.imgur.com/LAsuUFm.png"
+        "name": "weight",
+        "rank": "1",
+        "link": "https://i.imgur.com/wS0cu9B.png"
+    },
+    {
+        "name": "banned",
+        "rank": "2",
+        "link": "https://i.imgur.com/XUJgFjf.gif"
     }
 ]
