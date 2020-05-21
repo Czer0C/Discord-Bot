@@ -1,16 +1,24 @@
+const { embed } = require('../utility/embed.js');
+
 module.exports = {
 	name: 'avatar',
 	description: 'Get the avatar URL of the tagged user(s), or your own avatar.',
 	aliases: ['icon', 'pfp'],
 	execute(message) {
-		if (!message.mentions.users.size) {
-			return message.channel.send(`Your avatar: <${message.author.displayAvatarURL({ dynamic: true })}>`);
-		}
-
-		const avatarList = message.mentions.users.map(user => {
-			return `${user.username}'s avatar: <${user.displayAvatarURL({ dynamic: true })}>`;
-		});
-
-		message.channel.send(avatarList);
+		let target = null;
+		if (!message.mentions.users.size) 
+			target = message.author;
+		else 
+			target = message.mentions.users.first();
+		const avatar = target.displayAvatarURL({format: "png", dynamic: true, size: 1024})
+		const avatarEmbed = embed({
+			author: `${target.tag}`,
+			icon: false,
+			content: `[Direct link](${avatar})`,
+			footer: "",
+			message: message,
+			image: avatar
+		})
+		message.channel.send(avatarEmbed);
 	},
 };
