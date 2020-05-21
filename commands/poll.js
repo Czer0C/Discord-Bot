@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
 const utility = require('../utility/utility.js');
+const { embed } = require('../utility/embed.js');
 
 module.exports = {
 	name: 'poll',
@@ -22,15 +22,17 @@ module.exports = {
         for (let k = 1; k < realArgs.length; k++) 
             detail += `${options[k - 1]} : ${realArgs[k]}\n`;
 
-        const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#F4D03F')
-            .setAuthor(`${message.author.username} started a poll`, message.author.displayAvatarURL({dynamic: true}))
-            .setTitle(`**${realArgs[0]}**\n\n`)
-			.setDescription(detail)
-            .setTimestamp();      
-            
+        const pollEmbed = embed({
+            color: '#F4D03F',
+            author: `${message.author.username} started a poll`,
+            icon: true,
+            title: `**${realArgs[0]}**\n\n`,
+            content: detail,
+            message: message
+        });
+        
         message.delete();
-        message.channel.send(exampleEmbed).then(async m => {
+        message.channel.send(pollEmbed).then(async m => {
             for (let n = 0; n < realArgs.length - 1; n++)
                 await m.react(options[n]);
             

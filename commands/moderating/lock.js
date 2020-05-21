@@ -1,4 +1,5 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
+
 const { chatRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -20,20 +21,22 @@ module.exports = {
             reason = "unspecified.";
         else 
             for (var i = 0; i < args.length; i++) 
-                reason += args[i] + " ";
-
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#AF7AC5')
-			.setAuthor(`This channel has been locked. ⛔`)
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();       
+				reason += args[i] + " ";
+				
+		const lockEmbed = embed({
+			color: '#AF7AC5',
+			author: `This channel has been locked. 🔒`,
+			icon: false,
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})     
 		
 		channel.updateOverwrite(role, { SEND_MESSAGES: false }).then(() => {
-			message.channel.send(exampleEmbed);	
-			logChannel.send(exampleEmbed);
+			message.channel.send(lockEmbed);	
+			logChannel.send(lockEmbed);
 		}).catch(error => {
 			console.log(error);
-			message.channel.send(" **something unexpected happened, try again later** :warning: ");
+			message.channel.send(" **Something unexpected happened, try again later** :x: ");
 		});        
 	},
 };

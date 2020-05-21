@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
 const { staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -27,18 +27,19 @@ module.exports = {
 		else 
 			reason = "unspecified."
 
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#EB984E')
-			.setAuthor(`${target.user.tag} has been kicked 👢`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();
-
+		const kickEmbed = embed({
+			color: '#EB984E',
+			author: `${target.user.tag} has been kicked 👢`,
+			icon: target.user.displayAvatarURL({dynamic: true}),
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})
 		target.kick().then(target => {
-			message.channel.send(exampleEmbed);
-			logChannel.send(exampleEmbed);
+			message.channel.send(kickEmbed);
+			logChannel.send(kickEmbed);
 		}).catch(error => {		
 			console.log(error);
-		   	message.channel.send(" **something unexpected happened, try again later** :warning:");
+		   	message.channel.send("**Something unexpected happened, try again later** :x:");
 	   	});		
 	},
 };

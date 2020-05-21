@@ -5,6 +5,8 @@ module.exports = {
 	description: 'Get the avatar URL of the tagged user(s), or your own avatar.',
 	aliases: ['icon', 'pfp'],
 	execute(message) {
+		// const memlist = message.guild.members.cache;
+		// console.log(memlist);
 		let target = null;
 		if (!message.mentions.users.size) 
 			target = message.author;
@@ -15,7 +17,6 @@ module.exports = {
 			author: `${target.tag}`,
 			icon: false,
 			content: `[Direct link](${avatar})`,
-			footer: "",
 			message: message,
 			image: avatar
 		})

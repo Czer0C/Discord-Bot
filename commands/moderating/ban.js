@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
 const { staffRole, loggingChannel } = require('../../config.json');
-
+const { embed } = require('../../utility/embed.js');
 module.exports = {
 	name: 'ban',
 	description: 'Ban a member.',
@@ -27,17 +26,20 @@ module.exports = {
 		else 
 			reason = "unspecified."
 
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#E74C3C')
-			.setAuthor(`${target.user.tag} has been banned 🔨`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();
+		const banEmbed = embed({
+			color: '#E74C3C',
+			author: `${target.user.tag} has been banned 🔨`,
+			icon: target.user.displayAvatarURL({dynamic: true}),
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})
 
 		target.ban().then(target => {
-			message.channel.send(exampleEmbed);
-			logChannel.send(exampleEmbed);
+			message.channel.send(banEmbed);
+			logChannel.send(banEmbed);
 		}).catch(error => {		
-		   	message.channel.send(" something unexpected happened, try again later :warning:");
+			console.log(error);
+		   	message.channel.send(" **Something unexpected happened, try again later** :x:");
 	   	});
 		
 	},

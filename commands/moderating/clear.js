@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
 const { loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -20,19 +20,21 @@ module.exports = {
 		else 
 			reason = "unspecified."
 
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#F4D03F')
-			.setAuthor(`${amount} messages has been cleared in #${message.channel.name} 🧹`)
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();       
+		const clearEmbed = embed({
+			color: '#F4D03F',
+			author: `${amount} messages has been cleared in #${message.channel.name} 🧹`,
+			icon: false,
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})    
         
 		message.delete();
 		message.channel.bulkDelete(amount, true).then(() => {
-			message.channel.send(exampleEmbed);
-			logChannel.send(exampleEmbed);
+			message.channel.send(clearEmbed);
+			logChannel.send(clearEmbed);
 		}).catch(err => {
 			console.error(err);			
-			message.channel.send(" **something unexpected happened, try again later** :warning: ");
+			message.channel.send(" **Something unexpected happened, try again later** :x: ");
 		});
 	},
 };

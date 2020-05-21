@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
 const { staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -29,17 +29,19 @@ module.exports = {
 		else 
 			reason = "unspecified."
 
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#48C9B0')
-			.setAuthor(`${target.user.tag} has been booted from #${channel.name} ⛔`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();       
-		
+		const bootEmbed = embed({
+			color: '#48C9B0',
+			author: `${target.user.tag} has been booted from #${channel.name} ⛔`,
+			icon: target.user.displayAvatarURL({dynamic: true}),
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})
+
 		channel.updateOverwrite(target, { SEND_MESSAGES: false }).then(() => {
-			message.channel.send(exampleEmbed);
-			logChannel.send(exampleEmbed);
+			message.channel.send(bootEmbed);
+			logChannel.send(bootEmbed);
 		}).catch(error => {
-			message.channel.send(" **something unexpected happened, try again later** :warning: ");
+			message.channel.send(" **Something unexpected happened, try again later** :x: ");
 		});        
 	},
 };

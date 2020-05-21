@@ -8,12 +8,9 @@ module.exports = {
     usage: '<your suggestion/problem here>',
 	async execute(message, args) {
         const query = argsToString(args).slice(0, -1);
-        const now = new Date(Date.now());
         const detail = {
-            author: `By ${message.author.username}`,
             content: query,
             icon: true,
-            footer: `Created on ${now.toLocaleDateString()} • ${now.toLocaleTimeString()}`,
             message: message,
             image: message.attachments.first()
         }

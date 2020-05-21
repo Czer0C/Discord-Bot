@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
 const { muteRole, staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -28,18 +28,20 @@ module.exports = {
 		else 
 			reason = "unspecified."
 
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#5499C7')
-			.setAuthor(`${target.user.tag} has been muted 🔇`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();       
-        
+		const muteEmbed = embed({
+			color: '#5499C7',
+			author: `${target.user.tag} has been been muted 🔇`,
+			icon: target.user.displayAvatarURL({dynamic: true}),
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})
+
         target.roles.add(role).then(target => {
-			message.channel.send(exampleEmbed);
-			logChannel.send(exampleEmbed);
+			message.channel.send(muteEmbed);
+			logChannel.send(muteEmbed);
 		}).catch(error => {		
 			console.log(error);
-		   	message.channel.send(" something unexpected happened, try again later :warning:");
+		   	message.channel.send("*Something unexpected happened, try again later* :x:");
 	   	});
 		
 	},

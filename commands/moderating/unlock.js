@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
 const { chatRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -19,19 +19,21 @@ module.exports = {
             else 
                 for (var i = 0; i < args.length; i++) 
                     reason += args[i] + " ";
-
-            const exampleEmbed = new Discord.MessageEmbed()
-                .setColor('#A569BD')
-                .setAuthor(`This channel has been unlocked. ✅`)
-                .setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-                .setTimestamp();    
+                    
+            const banEmbed = embed({
+                color: '#A569BD',
+                author: `This channel has been unlocked. ✅`,
+                icon: false,
+                content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+                message: message
+            })
 
             channelPermission.delete().then(() => {
-                message.channel.send(exampleEmbed);	
-                logChannel.send(exampleEmbed);
+                message.channel.send(banEmbed);	
+                logChannel.send(banEmbed);
             }).catch(error => {
                 console.log(error);
-                message.channel.send(" **something unexpected happened, try again later** :warning: ");
+                message.channel.send("**Something unexpected happened, try again later** :warning: ");
             });           
         }
         else {

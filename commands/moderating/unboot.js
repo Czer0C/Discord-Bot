@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { embed } = require('../../utility/embed.js');
 const { staffRole, loggingChannel } = require('../../config.json');
 
 module.exports = {
@@ -29,19 +29,20 @@ module.exports = {
             else 
                 reason = "unspecified."
 
-            const exampleEmbed = new Discord.MessageEmbed()
-                .setColor('#45B39D')
-                .setAuthor(`${target.user.tag} has been unbooted from #${channel.name} ✅`, target.user.displayAvatarURL({dynamic: true}))
-                .setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-                .setTimestamp();       
-            
+            const unbootEmbed = embed({
+                color: '#45B39D',
+                author: `${target.user.tag} has unbooted from #${channel.name} ✅`,
+                icon: target.user.displayAvatarURL({dynamic: true}),
+                content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+                message: message
+            })
+
             channelPermission.delete().then(()=> {
-                message.channel.send(exampleEmbed);
-                logChannel.send(exampleEmbed);
+                message.channel.send(unbootEmbed);
+                logChannel.send(unbootEmbed);
             }).catch(error => {		
-                message.channel.send(" **something unexpected happened, try again later** :warning: ");
-            });
-            	
+                message.channel.send("**Something unexpected happened, try again later** :x: ");
+            });            	
         }
         else {
             return message.reply(' **this user has not been booted** :warning: ');

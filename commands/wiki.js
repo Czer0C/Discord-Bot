@@ -1,4 +1,5 @@
-const { argsToString, embed } = require('../utility/utility.js');
+const { argsToString } = require('../utility/utility.js');
+const { embed } = require('../utility/embed.js');
 const wikia = require('../utility/externalAPI/wikia.js');
 
 module.exports = {
@@ -15,12 +16,18 @@ module.exports = {
             let searchLimit = wikiPages.length > 10 ? 10 : wikiPages.length;
 
             if (searchLimit === 0) 
-                content = `Nothing found.`;
+                content = `Nothing found :x:`;
             else
                 for (let i = 0; i < searchLimit; i++)
                     content += `[${wikiPages[i].title}](${wikiPages[i].url})\n`;
-
-            const response = embed("#541f1f", title, false, undefined, content, undefined, message);
+            
+            const response = embed({
+                color: "#541f1f",
+                author: "",
+                title: title,
+                content: content,
+                message: message
+            });
 
             message.channel.send(response);   
         });             

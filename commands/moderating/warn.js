@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
 const { loggingChannel } = require('../../config.json');
+const { embed } = require('../../utility/embed.js');
 
 module.exports = {
 	name: 'warn',
@@ -25,13 +25,15 @@ module.exports = {
 		else 
 			reason = "unspecified."
 
-		const exampleEmbed = new Discord.MessageEmbed()
-			.setColor('#F4D03F')
-			.setAuthor(`${target.user.tag} has been warned ⚠️`, target.user.displayAvatarURL({dynamic: true}))
-			.setDescription(`**Reason:** ${reason}\n**Moderator:** ${message.author}`)
-			.setTimestamp();       
+		const warnEmbed = embed({
+			color: '#F4D03F',
+			author: `${target.user.tag} has been warned ⚠️`,
+			icon: target.user.displayAvatarURL({dynamic: true}),
+			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+			message: message
+		})     
         
-		message.channel.send(exampleEmbed);
-		logChannel.send(exampleEmbed);
+		message.channel.send(warnEmbed);
+		logChannel.send(warnEmbed);
 	},
 };
