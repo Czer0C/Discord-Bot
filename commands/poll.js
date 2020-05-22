@@ -1,4 +1,4 @@
-const utility = require('../utility/utility.js');
+const { processArguments, standardize } = require('../utility/utility.js');
 const { embed } = require('../utility/embed.js');
 
 module.exports = {
@@ -16,8 +16,8 @@ module.exports = {
 
         for (let j = 0; j < args.length; j++)
             restructure += args[j] + " ";
-
-        realArgs = utility.processArguments(restructure);
+        
+        realArgs = processArguments(standardize(restructure));
 
         for (let k = 1; k < realArgs.length; k++) 
             detail += `${options[k - 1]} : ${realArgs[k]}\n`;

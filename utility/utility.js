@@ -17,12 +17,16 @@ checkMessageURL = (URL) => {
     return result;  
 }
 
+
+
 processArguments = (args) => {
+    
     let pattern = /[^\s"]+|"([^"]*)"/gi;
     let result = [];
     let match = null;
     do {
         match = pattern.exec(args);
+        
         if (match) {
             //Index 1 in the array is the captured group if it exists
             //Index 0 is the matched text, which we use if no captured group exists
@@ -59,6 +63,12 @@ argsToString = (args) => {
     });
 }
 
+standardize = (string) => {
+    return string.replace(/[\u2018\u2019]/g, "'")   // smart single quotes
+                 .replace(/[\u201C\u201D]/g, '"');  // smart double quotes;
+}
+
+module.exports.standardize = standardize;
 module.exports.checkMessageURL = checkMessageURL;
 module.exports.processArguments = processArguments;
 module.exports.argsToString = argsToString;

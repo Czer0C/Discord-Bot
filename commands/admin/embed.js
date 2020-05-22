@@ -1,4 +1,4 @@
-const utility = require('../../utility/utility.js');
+const { processArguments, standardize } = require('../../utility/utility.js');
 const { embed } = require('../../utility/embed.js');
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         for (let j = 0; j < args.length; j++)
             restructure += args[j] + " ";
 
-        let realArgs = utility.processArguments(restructure);
+        let realArgs = processArguments(standardize(restructure));
         
         if (realArgs.length < 6) return message.channel.send(`**Missing arguments :x:\nThe correct usage is: \`${this.usage}\`**`);
 
