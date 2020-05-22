@@ -36,6 +36,6 @@ module.exports = {
             }
         }
         else 
-            return message.reply(` **wrong syntax** :warning:\nThe correct usage is: \`.editmsg ${this.usage}\``);        
+            return message.channel.send(`**Missing arguments** :x:\nThe correct usage is: \`.editmsg ${this.usage}\``);        
 	},
 };

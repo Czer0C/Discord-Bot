@@ -1,4 +1,5 @@
-const { checkMessageURL, embed } = require('./utility.js');
+const { checkMessageURL } = require('./utility.js');
+const { embed } = require('./embed.js');
 
 quote = async (message) => {
     let quoteMessageURL = checkMessageURL(message.content);
@@ -14,8 +15,15 @@ quote = async (message) => {
         if (channel) {
             const t = await channel.messages.fetch(quoteMessageURL.message).then(m => {
                 let content = `**[Jump to message](${message.content})** in <#${m.channel.id}>\n${m.content}`;
-                let footer = `Quoted by ${message.author.username} - ${m.createdAt.toLocaleString()}`;
-                response.embedQuote = embed(undefined, undefined, undefined, undefined, content, footer, m);
+                let footer = `Quoted by ${message.author.username} - ${m.createdAt.toLocaleDateString()} • ${m.createdAt.toLocaleTimeString()}`;
+                let attachment = m.attachments.first();
+                response.embedQuote = embed({
+                    author: m.author.username,
+                    content: content, 
+                    footer : footer, 
+                    message: m,
+                    image: attachment ? attachment.proxyURL : null
+                });
             }).catch(error => {
                 console.log(error);
             });

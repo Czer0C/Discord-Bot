@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
 const http = require('http');
+
 checkMessageURL = (URL) => {
     let result = {
         server: '',
@@ -16,21 +16,6 @@ checkMessageURL = (URL) => {
     }
     return result;  
 }
-
-embed = (color = "#7289DA", author, icon = true, title, content, footer, message) => {
-    if (!author) author = message.author.username;
-    if (icon) icon = message.author.displayAvatarURL({dynamic: true});
-    else icon = null;
-    if (!footer) footer = message.createdAt.toLocaleString();
-    const customEmbed = new Discord.MessageEmbed()
-        .setColor(color)
-        .setAuthor(author, icon)
-        .setTitle(title ? title : "")
-        .setDescription(content ? content : message.content)
-        .setFooter(footer);
-    return customEmbed;
-}
-
 
 processArguments = (args) => {
     let pattern = /[^\s"]+|"([^"]*)"/gi;
@@ -75,7 +60,6 @@ argsToString = (args) => {
 }
 
 module.exports.checkMessageURL = checkMessageURL;
-module.exports.embed = embed;
 module.exports.processArguments = processArguments;
 module.exports.argsToString = argsToString;
 module.exports.getASOT = getASOT;

@@ -9,6 +9,7 @@ module.exports = {
 	async execute(message, args) {
         const query = argsToString(args).slice(0, -1);
         const detail = {
+            author: message.author.username,
             content: query,
             icon: true,
             message: message,
