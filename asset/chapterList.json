@@ -1,0 +1,3856 @@
+﻿[
+  {
+    "no": "1",
+    "title": "Nameless Boy",
+    "group_name": "V2k",
+    "id": "482684",
+    "image": "https://cdn.discordapp.com/attachments/504496936670330890/713274933215756329/n8.png"
+  },
+  {
+    "no": "2",
+    "title": "Map",
+    "group_name": "V2k",
+    "id": "482685",
+    "image": "https://cdn.discordapp.com/attachments/504496936670330890/713275404126781480/n2.png"
+  },
+  {
+    "no": "3",
+    "title": "Double",
+    "group_name": "V2k",
+    "id": "482686"
+  },
+  {
+    "no": "4",
+    "title": "The Rebel's Army Move",
+    "group_name": "V2k",
+    "id": "482687"
+  },
+  {
+    "no": "5",
+    "title": "Little Brother from a Different Mother",
+    "group_name": "V2k",
+    "id": "482688"
+  },
+  {
+    "no": "6",
+    "title": "Hyou's Decision",
+    "group_name": "V2k",
+    "id": "482689"
+  },
+  {
+    "no": "7",
+    "title": "Assassin that came from the South",
+    "group_name": "V2k",
+    "id": "482690"
+  },
+  {
+    "no": "8",
+    "title": "Monster Bird of Qin",
+    "group_name": "Turnip Farmers",
+    "id": "62708"
+  },
+  {
+    "no": "9",
+    "title": "The Mountain People",
+    "group_name": "V2k",
+    "id": "482691"
+  },
+  {
+    "no": "10",
+    "title": "Unprepared",
+    "group_name": "V2k",
+    "id": "482692"
+  },
+  {
+    "no": "11",
+    "title": "Conviction",
+    "group_name": "V2k",
+    "id": "482693"
+  },
+  {
+    "no": "12",
+    "title": "Loyal Retainer",
+    "group_name": "V2k",
+    "id": "482694"
+  },
+  {
+    "no": "13",
+    "title": "Heated Battle",
+    "group_name": "V2k",
+    "id": "482695"
+  },
+  {
+    "no": "14",
+    "title": "The Path to General",
+    "group_name": "V2k",
+    "id": "482696"
+  },
+  {
+    "no": "15",
+    "title": "Chancellor Ryofui",
+    "group_name": "V2k",
+    "id": "482697"
+  },
+  {
+    "no": "16",
+    "title": "300 Horse Liquor Soldiers",
+    "group_name": "V2k",
+    "id": "482698"
+  },
+  {
+    "no": "17",
+    "title": "Encounter",
+    "group_name": "Turnip Farmers",
+    "id": "62719"
+  },
+  {
+    "no": "18",
+    "title": "Commitment",
+    "group_name": "Turnip Farmers",
+    "id": "62720"
+  },
+  {
+    "no": "19",
+    "title": "A Surprising New World",
+    "group_name": "Turnip Farmers",
+    "id": "62722"
+  },
+  {
+    "no": "20",
+    "title": "Yotanwa",
+    "group_name": "Turnip Farmers",
+    "id": "62723"
+  },
+  {
+    "no": "21",
+    "title": "Deliberation",
+    "group_name": "Turnip Farmers",
+    "id": "62725"
+  },
+  {
+    "no": "22",
+    "title": "Alliance",
+    "group_name": "Turnip Farmers",
+    "id": "62727"
+  },
+  {
+    "no": "23",
+    "title": "The Royal Heir's Throne",
+    "group_name": "Turnip Farmers",
+    "id": "62729"
+  },
+  {
+    "no": "24",
+    "title": "A Dream of Horses",
+    "group_name": "Turnip Farmers",
+    "id": "62730"
+  },
+  {
+    "no": "25",
+    "title": "3000 Vs. 80000",
+    "group_name": "Turnip Farmers",
+    "id": "62732"
+  },
+  {
+    "no": "26",
+    "title": "The Royal Capital, Kanyou",
+    "group_name": "Turnip Farmers",
+    "id": "62733"
+  },
+  {
+    "no": "27",
+    "title": "Open Gate",
+    "group_name": "Turnip Farmers",
+    "id": "62734"
+  },
+  {
+    "no": "28",
+    "title": "Vanguard",
+    "group_name": "Turnip Farmers",
+    "id": "62735"
+  },
+  {
+    "no": "29",
+    "title": "As Fast as Lightning",
+    "group_name": "Turnip Farmers",
+    "id": "62736"
+  },
+  {
+    "no": "30",
+    "title": "Meeting",
+    "group_name": "Turnip Farmers",
+    "id": "62738"
+  },
+  {
+    "no": "31",
+    "title": "Gikou's Crossbow Team",
+    "group_name": "Turnip Farmers",
+    "id": "62739"
+  },
+  {
+    "no": "32",
+    "title": "Hitman",
+    "group_name": "Turnip Farmers",
+    "id": "62740"
+  },
+  {
+    "no": "33",
+    "title": "Provocation",
+    "group_name": "Turnip Farmers",
+    "id": "62741"
+  },
+  {
+    "no": "34",
+    "title": "Frenzy",
+    "group_name": "Turnip Farmers",
+    "id": "62742"
+  },
+  {
+    "no": "35",
+    "title": "Combined Strength",
+    "group_name": "Turnip Farmers",
+    "id": "62743"
+  },
+  {
+    "no": "36",
+    "title": "The Laughing Prince",
+    "group_name": "Turnip Farmers",
+    "id": "62744"
+  },
+  {
+    "no": "37",
+    "title": "Revenge",
+    "group_name": "Turnip Farmers",
+    "id": "62746"
+  },
+  {
+    "no": "38",
+    "title": "Rankai",
+    "group_name": "Turnip Farmers",
+    "id": "62747"
+  },
+  {
+    "no": "39",
+    "title": "Bajio",
+    "group_name": "Turnip Farmers",
+    "id": "62748"
+  },
+  {
+    "no": "40",
+    "title": "Evil",
+    "group_name": "Turnip Farmers",
+    "id": "62750"
+  },
+  {
+    "no": "41",
+    "title": "Decisive Blow",
+    "group_name": "Turnip Farmers",
+    "id": "62752"
+  },
+  {
+    "no": "42",
+    "title": "Illusion",
+    "group_name": "Turnip Farmers",
+    "id": "62753"
+  },
+  {
+    "no": "43",
+    "title": "The Monstrous Bird Arrives",
+    "group_name": "Turnip Farmers",
+    "id": "62756"
+  },
+  {
+    "no": "44",
+    "title": "King Sho",
+    "group_name": "Turnip Farmers",
+    "id": "62757"
+  },
+  {
+    "no": "45",
+    "title": "Confrontation",
+    "group_name": "Turnip Farmers",
+    "id": "62758"
+  },
+  {
+    "no": "46",
+    "title": "Brothers",
+    "group_name": "Turnip Farmers",
+    "id": "62761"
+  },
+  {
+    "no": "47",
+    "title": "First Castle",
+    "group_name": "Turnip Farmers",
+    "id": "62763"
+  },
+  {
+    "no": "48",
+    "title": "Recruitment",
+    "group_name": "Turnip Farmers",
+    "id": "62764"
+  },
+  {
+    "no": "49",
+    "title": "Go",
+    "group_name": "Turnip Farmers",
+    "id": "62765"
+  },
+  {
+    "no": "50",
+    "title": "The Wei Army",
+    "group_name": "Turnip Farmers",
+    "id": "62767"
+  },
+  {
+    "no": "51",
+    "title": "Reunion",
+    "group_name": "Turnip Farmers",
+    "id": "62768"
+  },
+  {
+    "no": "52",
+    "title": "Dakan Plains",
+    "group_name": "Turnip Farmers",
+    "id": "62770"
+  },
+  {
+    "no": "53",
+    "title": "Organising the Army",
+    "group_name": "Turnip Farmers",
+    "id": "62771"
+  },
+  {
+    "no": "54",
+    "title": "Five Bodies as One",
+    "group_name": "Turnip Farmers",
+    "id": "62772"
+  },
+  {
+    "no": "55",
+    "title": "Battle of a Go",
+    "group_name": "Turnip Farmers",
+    "id": "62774"
+  },
+  {
+    "no": "56",
+    "title": "War Chariot Unit",
+    "group_name": "Turnip Farmers",
+    "id": "62775"
+  },
+  {
+    "no": "57",
+    "title": "Kyoukai's Rampart",
+    "group_name": "Turnip Farmers",
+    "id": "62776"
+  },
+  {
+    "no": "58",
+    "title": "Duel",
+    "group_name": "Turnip Farmers",
+    "id": "62777"
+  },
+  {
+    "no": "59",
+    "title": "Sense of Smell",
+    "group_name": "Turnip Farmers",
+    "id": "62779"
+  },
+  {
+    "no": "60",
+    "title": "Surge of Calvalry",
+    "group_name": "Turnip Farmers",
+    "id": "62782"
+  },
+  {
+    "no": "61",
+    "title": "Honour and Reward",
+    "group_name": "Turnip Farmers",
+    "id": "62783"
+  },
+  {
+    "no": "62",
+    "title": "Closing In",
+    "group_name": "Turnip Farmers",
+    "id": "62785"
+  },
+  {
+    "no": "63",
+    "title": "Miracle",
+    "group_name": "Turnip Farmers",
+    "id": "62788"
+  },
+  {
+    "no": "64",
+    "title": "The Commander's Words",
+    "group_name": "Turnip Farmers",
+    "id": "62790"
+  },
+  {
+    "no": "65",
+    "title": "Intruder",
+    "group_name": "Turnip Farmers",
+    "id": "62791"
+  },
+  {
+    "no": "66",
+    "title": "Types of Generals",
+    "group_name": "Turnip Farmers",
+    "id": "62792"
+  },
+  {
+    "no": "67",
+    "title": "A General's Talents",
+    "group_name": "Turnip Farmers",
+    "id": "62794"
+  },
+  {
+    "no": "68",
+    "title": "General",
+    "group_name": "Turnip Farmers",
+    "id": "62795"
+  },
+  {
+    "no": "69",
+    "title": "Pincer Attack",
+    "group_name": "Turnip Farmers",
+    "id": "62797"
+  },
+  {
+    "no": "70",
+    "title": "Two Heroes",
+    "group_name": "Turnip Farmers",
+    "id": "62798"
+  },
+  {
+    "no": "71",
+    "title": "Showdown of Generals",
+    "group_name": "Turnip Farmers",
+    "id": "62800"
+  },
+  {
+    "no": "72",
+    "title": "Fallen Kingdom",
+    "group_name": "Turnip Farmers",
+    "id": "62802"
+  },
+  {
+    "no": "73",
+    "title": "Return Home",
+    "group_name": "Turnip Farmers",
+    "id": "62803"
+  },
+  {
+    "no": "74",
+    "title": "Attendance",
+    "group_name": "Turnip Farmers",
+    "id": "62804"
+  },
+  {
+    "no": "75",
+    "title": "The Past",
+    "group_name": "Turnip Farmers",
+    "id": "62806"
+  },
+  {
+    "no": "76",
+    "title": "Black Market Merchant",
+    "group_name": "Turnip Farmers",
+    "id": "62807"
+  },
+  {
+    "no": "77",
+    "title": "Passing Checkpoints",
+    "group_name": "Turnip Farmers",
+    "id": "62808"
+  },
+  {
+    "no": "78",
+    "title": "Solitude",
+    "group_name": "Turnip Farmers",
+    "id": "62809"
+  },
+  {
+    "no": "79",
+    "title": "Ghosts",
+    "group_name": "Turnip Farmers",
+    "id": "62810"
+  },
+  {
+    "no": "80",
+    "title": "Separation",
+    "group_name": "Turnip Farmers",
+    "id": "62812"
+  },
+  {
+    "no": "81",
+    "title": "Farewell",
+    "group_name": "Turnip Farmers",
+    "id": "62813"
+  },
+  {
+    "no": "82",
+    "title": "Hundred-Man Commander",
+    "group_name": "Turnip Farmers",
+    "id": "62814"
+  },
+  {
+    "no": "83",
+    "title": "Shiyuu",
+    "group_name": "Turnip Farmers",
+    "id": "62818"
+  },
+  {
+    "no": "84",
+    "title": "Assasin's Strike",
+    "group_name": "Turnip Farmers",
+    "id": "62819"
+  },
+  {
+    "no": "85",
+    "title": "Kyoukai's Dance",
+    "group_name": "Turnip Farmers",
+    "id": "62822"
+  },
+  {
+    "no": "86",
+    "title": "Mastermind",
+    "group_name": "Turnip Farmers",
+    "id": "62824"
+  },
+  {
+    "no": "87",
+    "title": "A Thousand Year Name",
+    "group_name": "Turnip Farmers",
+    "id": "62825"
+  },
+  {
+    "no": "88",
+    "title": "Comrade",
+    "group_name": "Turnip Farmers",
+    "id": "62827"
+  },
+  {
+    "no": "89",
+    "title": "Weak Point",
+    "group_name": "Turnip Farmers",
+    "id": "62829"
+  },
+  {
+    "no": "90",
+    "title": "Buying Time",
+    "group_name": "Turnip Farmers",
+    "id": "62831"
+  },
+  {
+    "no": "91",
+    "title": "True Skill",
+    "group_name": "Turnip Farmers",
+    "id": "62834"
+  },
+  {
+    "no": "92",
+    "title": "Secret",
+    "group_name": "Turnip Farmers",
+    "id": "62835"
+  },
+  {
+    "no": "93",
+    "title": "True Identity",
+    "group_name": "Turnip Farmers",
+    "id": "62837"
+  },
+  {
+    "no": "94",
+    "title": "Ritual",
+    "group_name": "Turnip Farmers",
+    "id": "62839"
+  },
+  {
+    "no": "95",
+    "title": "Law",
+    "group_name": "Turnip Farmers",
+    "id": "62844"
+  },
+  {
+    "no": "96",
+    "title": "Ryo's Faction",
+    "group_name": "Turnip Farmers",
+    "id": "62848"
+  },
+  {
+    "no": "97",
+    "title": "The Enigmatic Man",
+    "group_name": "Turnip Farmers",
+    "id": "62852"
+  },
+  {
+    "no": "98",
+    "title": "Royal Hearing",
+    "group_name": "Turnip Farmers",
+    "id": "62855"
+  },
+  {
+    "no": "99",
+    "title": "Six Great Generals",
+    "group_name": "Turnip Farmers",
+    "id": "62857"
+  },
+  {
+    "no": "100",
+    "title": "The Two of Them",
+    "group_name": "Turnip Farmers",
+    "id": "62859"
+  },
+  {
+    "no": "101",
+    "title": "A New Path",
+    "group_name": "Turnip Farmers",
+    "id": "62860"
+  },
+  {
+    "no": "102",
+    "title": "It's All Up To Me",
+    "group_name": "Turnip Farmers",
+    "id": "62862"
+  },
+  {
+    "no": "103",
+    "title": "Strategist",
+    "group_name": "Turnip Farmers",
+    "id": "62863"
+  },
+  {
+    "no": "104",
+    "title": "Night Time Chat",
+    "group_name": "Turnip Farmers",
+    "id": "62866"
+  },
+  {
+    "no": "105",
+    "title": "Naked Socialising",
+    "group_name": "Turnip Farmers",
+    "id": "62867"
+  },
+  {
+    "no": "106",
+    "title": "Training Request",
+    "group_name": "Turnip Farmers",
+    "id": "62869"
+  },
+  {
+    "no": "107",
+    "title": "Stateless Area",
+    "group_name": "Turnip Farmers",
+    "id": "62871"
+  },
+  {
+    "no": "108",
+    "title": "Three Great Heavens",
+    "group_name": "Turnip Farmers",
+    "id": "62873"
+  },
+  {
+    "no": "109",
+    "title": "Zhao Devastates",
+    "group_name": "Turnip Farmers",
+    "id": "62875"
+  },
+  {
+    "no": "110",
+    "title": "Strength of a General",
+    "group_name": "Turnip Farmers",
+    "id": "62876"
+  },
+  {
+    "no": "111",
+    "title": "Appointment",
+    "group_name": "Turnip Farmers",
+    "id": "62877"
+  },
+  {
+    "no": "112",
+    "title": "Gathering Comrades",
+    "group_name": "Turnip Farmers",
+    "id": "62879"
+  },
+  {
+    "no": "113",
+    "title": "Bayou",
+    "group_name": "Turnip Farmers",
+    "id": "62880"
+  },
+  {
+    "no": "114",
+    "title": "Ouki Sets Out",
+    "group_name": "Turnip Farmers",
+    "id": "62881"
+  },
+  {
+    "no": "115",
+    "title": "Houken",
+    "group_name": "Turnip Farmers",
+    "id": "62882"
+  },
+  {
+    "no": "116",
+    "title": "Crystallisation of Matial Skill",
+    "group_name": "Turnip Farmers",
+    "id": "62883"
+  },
+  {
+    "no": "117",
+    "title": "Reason",
+    "group_name": "Turnip Farmers",
+    "id": "62884"
+  },
+  {
+    "no": "118",
+    "title": "Two Armies Alinged",
+    "group_name": "Turnip Farmers",
+    "id": "62887"
+  },
+  {
+    "no": "119",
+    "title": "The Vanguard Advances",
+    "group_name": "Turnip Farmers",
+    "id": "62890"
+  },
+  {
+    "no": "120",
+    "title": "Mission",
+    "group_name": "Turnip Farmers",
+    "id": "62893"
+  },
+  {
+    "no": "121",
+    "title": "Sneaking",
+    "group_name": "Turnip Farmers",
+    "id": "62894"
+  },
+  {
+    "no": "122",
+    "title": "Assault",
+    "group_name": "Turnip Farmers",
+    "id": "62895"
+  },
+  {
+    "no": "123",
+    "title": "Left Army in Chaos",
+    "group_name": "Turnip Farmers",
+    "id": "62897"
+  },
+  {
+    "no": "124",
+    "title": "To Catch off Guard",
+    "group_name": "Turnip Farmers",
+    "id": "62898"
+  },
+  {
+    "no": "125",
+    "title": "Distance",
+    "group_name": "Turnip Farmers",
+    "id": "62899"
+  },
+  {
+    "no": "126",
+    "title": "Hand Picked Troops",
+    "group_name": "Turnip Farmers",
+    "id": "62900"
+  },
+  {
+    "no": "127",
+    "title": "Outplayed",
+    "group_name": "Turnip Farmers",
+    "id": "62901"
+  },
+  {
+    "no": "128",
+    "title": "One Hundred Shares",
+    "group_name": "Turnip Farmers",
+    "id": "62902"
+  },
+  {
+    "no": "129",
+    "title": "Arrow",
+    "group_name": "Turnip Farmers",
+    "id": "62904"
+  },
+  {
+    "no": "130",
+    "title": "Fame",
+    "group_name": "Turnip Farmers",
+    "id": "62906"
+  },
+  {
+    "no": "131",
+    "title": "Second Day",
+    "group_name": "Turnip Farmers",
+    "id": "62907"
+  },
+  {
+    "no": "132",
+    "title": "Strength",
+    "group_name": "Turnip Farmers",
+    "id": "62909"
+  },
+  {
+    "no": "133",
+    "title": "Breakthrough",
+    "group_name": "Turnip Farmers",
+    "id": "62910"
+  },
+  {
+    "no": "134",
+    "title": "Winning Strategy",
+    "group_name": "Turnip Farmers",
+    "id": "62911"
+  },
+  {
+    "no": "135",
+    "title": "Withdrawal",
+    "group_name": "Turnip Farmers",
+    "id": "62913"
+  },
+  {
+    "no": "136",
+    "title": "Pursuit",
+    "group_name": "Turnip Farmers",
+    "id": "62915"
+  },
+  {
+    "no": "137",
+    "title": "Appearance",
+    "group_name": "Turnip Farmers",
+    "id": "62916"
+  },
+  {
+    "no": "138",
+    "title": "Night Time Strike",
+    "group_name": "Turnip Farmers",
+    "id": "62918"
+  },
+  {
+    "no": "139",
+    "title": "Natural Calamity",
+    "group_name": "Turnip Farmers",
+    "id": "62920"
+  },
+  {
+    "no": "140",
+    "title": "Two Against One",
+    "group_name": "Turnip Farmers",
+    "id": "62921"
+  },
+  {
+    "no": "141",
+    "title": "Divine Skill",
+    "group_name": "Turnip Farmers",
+    "id": "62922"
+  },
+  {
+    "no": "142",
+    "title": "Nine Years Since",
+    "group_name": "Turnip Farmers",
+    "id": "62923"
+  },
+  {
+    "no": "143",
+    "title": "Hard to Grasp",
+    "group_name": "Turnip Farmers",
+    "id": "62924"
+  },
+  {
+    "no": "144",
+    "title": "Defeatable",
+    "group_name": "Turnip Farmers",
+    "id": "62925"
+  },
+  {
+    "no": "145",
+    "title": "Team Attack Plan",
+    "group_name": "Turnip Farmers",
+    "id": "62926"
+  },
+  {
+    "no": "146",
+    "title": "Failure",
+    "group_name": "Turnip Farmers",
+    "id": "62929"
+  },
+  {
+    "no": "147",
+    "title": "The Bi Brothers",
+    "group_name": "Turnip Farmers",
+    "id": "62931"
+  },
+  {
+    "no": "148",
+    "title": "Friend",
+    "group_name": "Turnip Farmers",
+    "id": "62932"
+  },
+  {
+    "no": "149",
+    "title": "Rallying",
+    "group_name": "Turnip Farmers",
+    "id": "62933"
+  },
+  {
+    "no": "150",
+    "title": "Ouki's True Strength",
+    "group_name": "Turnip Farmers",
+    "id": "62934"
+  },
+  {
+    "no": "151",
+    "title": "Moubu Approaches",
+    "group_name": "Turnip Farmers",
+    "id": "62935"
+  },
+  {
+    "no": "152",
+    "title": "Trap",
+    "group_name": "Turnip Farmers",
+    "id": "62936"
+  },
+  {
+    "no": "153",
+    "title": "Flag",
+    "group_name": "Turnip Farmers",
+    "id": "62938"
+  },
+  {
+    "no": "154",
+    "title": "Moubu falls for The Trap",
+    "group_name": "Turnip Farmers",
+    "id": "62939"
+  },
+  {
+    "no": "155",
+    "title": "Northern Army",
+    "group_name": "Turnip Farmers",
+    "id": "62940"
+  },
+  {
+    "no": "156",
+    "title": "Arrival",
+    "group_name": "Turnip Farmers",
+    "id": "62942"
+  },
+  {
+    "no": "157",
+    "title": "Raising Morale",
+    "group_name": "Turnip Farmers",
+    "id": "62943"
+  },
+  {
+    "no": "158",
+    "title": "Star of The Show",
+    "group_name": "Turnip Farmers",
+    "id": "62944"
+  },
+  {
+    "no": "159",
+    "title": "Prediction",
+    "group_name": "Turnip Farmers",
+    "id": "62946"
+  },
+  {
+    "no": "160",
+    "title": "Commanders in Sight",
+    "group_name": "Turnip Farmers",
+    "id": "62948"
+  },
+  {
+    "no": "161",
+    "title": "Individual Might",
+    "group_name": "Turnip Farmers",
+    "id": "62949"
+  },
+  {
+    "no": "162",
+    "title": "Kyou's True Identity",
+    "group_name": "Turnip Farmers",
+    "id": "62951"
+  },
+  {
+    "no": "163",
+    "title": "Kyou's Secret",
+    "group_name": "Turnip Farmers",
+    "id": "62953"
+  },
+  {
+    "no": "164",
+    "title": "Chance Meeting",
+    "group_name": "Turnip Farmers",
+    "id": "62955"
+  },
+  {
+    "no": "165",
+    "title": "Source of Strengh",
+    "group_name": "Turnip Farmers",
+    "id": "62959"
+  },
+  {
+    "no": "166",
+    "title": "Like Oil & Water",
+    "group_name": "Turnip Farmers",
+    "id": "62961"
+  },
+  {
+    "no": "167",
+    "title": "Qin's Military Prestige",
+    "group_name": "Turnip Farmers",
+    "id": "62963"
+  },
+  {
+    "no": "168",
+    "title": "A New Era",
+    "group_name": "Turnip Farmers",
+    "id": "62964"
+  },
+  {
+    "no": "169",
+    "title": "Border of Death",
+    "group_name": "Turnip Farmers",
+    "id": "62965"
+  },
+  {
+    "no": "170",
+    "title": "Great General of the Heavens",
+    "group_name": "Turnip Farmers",
+    "id": "62967"
+  },
+  {
+    "no": "171",
+    "title": "A General's View",
+    "group_name": "Turnip Farmers",
+    "id": "62968"
+  },
+  {
+    "no": "172",
+    "title": "Inheritance",
+    "group_name": "Turnip Farmers",
+    "id": "62969"
+  },
+  {
+    "no": "173",
+    "title": "Battle's End",
+    "group_name": "Turnip Farmers",
+    "id": "62970"
+  },
+  {
+    "no": "174",
+    "title": "Three Hundred-Man Commander",
+    "group_name": "Turnip Farmers",
+    "id": "62971"
+  },
+  {
+    "no": "175",
+    "title": "Riboku, Kanyou Bound",
+    "group_name": "Turnip Farmers",
+    "id": "62973"
+  },
+  {
+    "no": "176",
+    "title": "Proposition",
+    "group_name": "Turnip Farmers",
+    "id": "62974"
+  },
+  {
+    "no": "177",
+    "title": "Negotation",
+    "group_name": "Turnip Farmers",
+    "id": "62975"
+  },
+  {
+    "no": "178",
+    "title": "Celebratory Banquet",
+    "group_name": "Turnip Farmers",
+    "id": "62976"
+  },
+  {
+    "no": "179",
+    "title": "5 Years",
+    "group_name": "Turnip Farmers",
+    "id": "62977"
+  },
+  {
+    "no": "180",
+    "title": "Preliminary Battles",
+    "group_name": "Turnip Farmers",
+    "id": "62978"
+  },
+  {
+    "no": "181",
+    "title": "Ant",
+    "group_name": "Turnip Farmers",
+    "id": "62980"
+  },
+  {
+    "no": "182",
+    "title": "Outsmart",
+    "group_name": "Turnip Farmers",
+    "id": "62981"
+  },
+  {
+    "no": "183",
+    "title": "Third Faction",
+    "group_name": "Turnip Farmers",
+    "id": "62982"
+  },
+  {
+    "no": "184",
+    "title": "Queen Mother",
+    "group_name": "Turnip Farmers",
+    "id": "62984"
+  },
+  {
+    "no": "185",
+    "title": "Mother & Son",
+    "group_name": "Turnip Farmers",
+    "id": "62985"
+  },
+  {
+    "no": "186",
+    "title": "Vestige of Beauty",
+    "group_name": "Turnip Farmers",
+    "id": "62987"
+  },
+  {
+    "no": "187",
+    "title": "Kou, Conveys",
+    "group_name": "Turnip Farmers",
+    "id": "62988"
+  },
+  {
+    "no": "188",
+    "title": "Backing the Dark Horse",
+    "group_name": "Turnip Farmers",
+    "id": "62990"
+  },
+  {
+    "no": "189",
+    "title": "Assemble",
+    "group_name": "Turnip Farmers",
+    "id": "62991"
+  },
+  {
+    "no": "190",
+    "title": "Siege",
+    "group_name": "Turnip Farmers",
+    "id": "62993"
+  },
+  {
+    "no": "191",
+    "title": "Gyoku Hou's Might",
+    "group_name": "Turnip Farmers",
+    "id": "62994"
+  },
+  {
+    "no": "192",
+    "title": "The Reality of Invasion",
+    "group_name": "Turnip Farmers",
+    "id": "62995"
+  },
+  {
+    "no": "193",
+    "title": "My Way",
+    "group_name": "Turnip Farmers",
+    "id": "62996"
+  },
+  {
+    "no": "194",
+    "title": "The Man Known as Renpa",
+    "group_name": "Turnip Farmers",
+    "id": "62998"
+  },
+  {
+    "no": "195",
+    "title": "Night at Kinrikan",
+    "group_name": "Turnip Farmers",
+    "id": "62999"
+  },
+  {
+    "no": "196",
+    "title": "Flying Spear",
+    "group_name": "Turnip Farmers",
+    "id": "63000"
+  },
+  {
+    "no": "197",
+    "title": "Air of a General",
+    "group_name": "Turnip Farmers",
+    "id": "63002"
+  },
+  {
+    "no": "198",
+    "title": "Ouki and Renpa",
+    "group_name": "Turnip Farmers",
+    "id": "63003"
+  },
+  {
+    "no": "199",
+    "title": "A Strange Habit",
+    "group_name": "Turnip Farmers",
+    "id": "63004"
+  },
+  {
+    "no": "200",
+    "title": "1000-Man Commander",
+    "group_name": "Turnip Farmers",
+    "id": "63006"
+  },
+  {
+    "no": "201",
+    "title": "Shin's Voice",
+    "group_name": "Turnip Farmers",
+    "id": "63007"
+  },
+  {
+    "no": "202",
+    "title": "Announcement",
+    "group_name": "Turnip Farmers",
+    "id": "63010"
+  },
+  {
+    "no": "203",
+    "title": "Embrace",
+    "group_name": "Turnip Farmers",
+    "id": "63011"
+  },
+  {
+    "no": "204",
+    "title": "Hastily Assembled Unit",
+    "group_name": "Turnip Farmers",
+    "id": "63013"
+  },
+  {
+    "no": "205",
+    "title": "Killer Spear Technique",
+    "group_name": "Turnip Farmers",
+    "id": "63014"
+  },
+  {
+    "no": "206",
+    "title": "The Hi Shin Unit's Battle Plan",
+    "group_name": "Turnip Farmers",
+    "id": "63015"
+  },
+  {
+    "no": "207",
+    "title": "Genbou Joins the Fray",
+    "group_name": "Turnip Farmers",
+    "id": "63016"
+  },
+  {
+    "no": "208",
+    "title": "Enemy Command Squad's Location",
+    "group_name": "Turnip Farmers",
+    "id": "63017"
+  },
+  {
+    "no": "209",
+    "title": "Genpou Dominates",
+    "group_name": "Turnip Farmers",
+    "id": "63018"
+  },
+  {
+    "no": "210",
+    "title": "Led by the Nose",
+    "group_name": "Turnip Farmers",
+    "id": "63019"
+  },
+  {
+    "no": "211",
+    "title": "Vice-Generals Begin to Move",
+    "group_name": "Turnip Farmers",
+    "id": "63020"
+  },
+  {
+    "no": "212",
+    "title": "Villain",
+    "group_name": "Turnip Farmers",
+    "id": "63022"
+  },
+  {
+    "no": "213",
+    "title": "Mouten's Proposal",
+    "group_name": "Turnip Farmers",
+    "id": "63023"
+  },
+  {
+    "no": "214",
+    "title": "Cooperative Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63024"
+  },
+  {
+    "no": "215",
+    "title": "Rinko's Soldiers",
+    "group_name": "Turnip Farmers",
+    "id": "63025"
+  },
+  {
+    "no": "216",
+    "title": "Closing In",
+    "group_name": "Turnip Farmers",
+    "id": "63026"
+  },
+  {
+    "no": "217",
+    "title": "Shin, in One Breath",
+    "group_name": "Turnip Farmers",
+    "id": "63027"
+  },
+  {
+    "no": "218",
+    "title": "Heki Unit",
+    "group_name": "Turnip Farmers",
+    "id": "63029"
+  },
+  {
+    "no": "219",
+    "title": "Overcome",
+    "group_name": "Turnip Farmers",
+    "id": "63030"
+  },
+  {
+    "no": "220",
+    "title": "Heki, Confused",
+    "group_name": "Turnip Farmers",
+    "id": "63031"
+  },
+  {
+    "no": "221",
+    "title": "Underneath the Underneath",
+    "group_name": "Turnip Farmers",
+    "id": "63032"
+  },
+  {
+    "no": "222",
+    "title": "General's Calibre",
+    "group_name": "Turnip Farmers",
+    "id": "63033"
+  },
+  {
+    "no": "223",
+    "title": "Lull",
+    "group_name": "Turnip Farmers",
+    "id": "63034"
+  },
+  {
+    "no": "224",
+    "title": "The Final Morning",
+    "group_name": "Turnip Farmers",
+    "id": "63035"
+  },
+  {
+    "no": "225",
+    "title": "Rindou",
+    "group_name": "Turnip Farmers",
+    "id": "63036"
+  },
+  {
+    "no": "226",
+    "title": "Banter",
+    "group_name": "Turnip Farmers",
+    "id": "63037"
+  },
+  {
+    "no": "227",
+    "title": "Many Years of Consideration",
+    "group_name": "Turnip Farmers",
+    "id": "63038"
+  },
+  {
+    "no": "228",
+    "title": "Planning Time",
+    "group_name": "Turnip Farmers",
+    "id": "63040"
+  },
+  {
+    "no": "229",
+    "title": "Contest of Wits",
+    "group_name": "Turnip Farmers",
+    "id": "63041"
+  },
+  {
+    "no": "230",
+    "title": "An Instant",
+    "group_name": "Turnip Farmers",
+    "id": "63042"
+  },
+  {
+    "no": "231",
+    "title": "Will of the Heavens",
+    "group_name": "Turnip Farmers",
+    "id": "63043"
+  },
+  {
+    "no": "232",
+    "title": "Lone Struggle",
+    "group_name": "Turnip Farmers",
+    "id": "63044"
+  },
+  {
+    "no": "233",
+    "title": "Precious Comrade",
+    "group_name": "Turnip Farmers",
+    "id": "63045"
+  },
+  {
+    "no": "234",
+    "title": "Final Stretch in One Push",
+    "group_name": "Turnip Farmers",
+    "id": "63048"
+  },
+  {
+    "no": "235",
+    "title": "Passion",
+    "group_name": "Turnip Farmers",
+    "id": "63050"
+  },
+  {
+    "no": "236",
+    "title": "Renpa's Fury",
+    "group_name": "Turnip Farmers",
+    "id": "63053"
+  },
+  {
+    "no": "237",
+    "title": "That Era",
+    "group_name": "Turnip Farmers",
+    "id": "63054"
+  },
+  {
+    "no": "238",
+    "title": "Selfishly",
+    "group_name": "Turnip Farmers",
+    "id": "63056"
+  },
+  {
+    "no": "239",
+    "title": "Surprisingly",
+    "group_name": "Turnip Farmers",
+    "id": "63058"
+  },
+  {
+    "no": "240",
+    "title": "Checkmate",
+    "group_name": "Turnip Farmers",
+    "id": "63059"
+  },
+  {
+    "no": "241",
+    "title": "One and Only",
+    "group_name": "Turnip Farmers",
+    "id": "63060"
+  },
+  {
+    "no": "242",
+    "title": "Sending off",
+    "group_name": "Turnip Farmers",
+    "id": "63062"
+  },
+  {
+    "no": "243",
+    "title": "Reward of Service",
+    "group_name": "Turnip Farmers",
+    "id": "63063"
+  },
+  {
+    "no": "244",
+    "title": "Shin's Battle Plan",
+    "group_name": "Turnip Farmers",
+    "id": "63064"
+  },
+  {
+    "no": "245",
+    "title": "Arrival of the Strategist",
+    "group_name": "Turnip Farmers",
+    "id": "63065"
+  },
+  {
+    "no": "246",
+    "title": "Ten's Resolve",
+    "group_name": "Turnip Farmers",
+    "id": "63066"
+  },
+  {
+    "no": "247",
+    "title": "Strategist's First Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63067"
+  },
+  {
+    "no": "248",
+    "title": "One Step Ahead",
+    "group_name": "Turnip Farmers",
+    "id": "63068"
+  },
+  {
+    "no": "249",
+    "title": "The Hi Shin Unit's Strategist",
+    "group_name": "Turnip Farmers",
+    "id": "63069"
+  },
+  {
+    "no": "250",
+    "title": "Tougun",
+    "group_name": "Turnip Farmers",
+    "id": "63070"
+  },
+  {
+    "no": "250.5",
+    "title": "Side Story",
+    "group_name": "Turnip Farmers",
+    "id": "63073"
+  },
+  {
+    "no": "251",
+    "title": "General of Yan",
+    "group_name": "Turnip Farmers",
+    "id": "63074"
+  },
+  {
+    "no": "252",
+    "title": "Gekishin's Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63075"
+  },
+  {
+    "no": "253",
+    "title": "Meaningless Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63076"
+  },
+  {
+    "no": "254",
+    "title": "Chu's Young Generation",
+    "group_name": "Turnip Farmers",
+    "id": "63077"
+  },
+  {
+    "no": "255",
+    "title": "Chancellor of State",
+    "group_name": "Turnip Farmers",
+    "id": "63078"
+  },
+  {
+    "no": "256",
+    "title": "Chancellor of Left",
+    "group_name": "Turnip Farmers",
+    "id": "63079"
+  },
+  {
+    "no": "257",
+    "title": "Small Kingdom",
+    "group_name": "Turnip Farmers",
+    "id": "63080"
+  },
+  {
+    "no": "258",
+    "title": "Jo's Livelihood",
+    "group_name": "Turnip Farmers",
+    "id": "63081"
+  },
+  {
+    "no": "259",
+    "title": "Chu & Zhao",
+    "group_name": "Turnip Farmers",
+    "id": "63084"
+  },
+  {
+    "no": "260",
+    "title": "A Warrior's Body",
+    "group_name": "Turnip Farmers",
+    "id": "63086"
+  },
+  {
+    "no": "261",
+    "title": "Signs of a Storm",
+    "group_name": "Turnip Farmers",
+    "id": "63088"
+  },
+  {
+    "no": "262",
+    "title": "Superstate of an Invasion",
+    "group_name": "Turnip Farmers",
+    "id": "63092"
+  },
+  {
+    "no": "263",
+    "title": "Unmanginable",
+    "group_name": "Turnip Farmers",
+    "id": "63093"
+  },
+  {
+    "no": "264",
+    "title": "Encroaching Coalition Army",
+    "group_name": "Turnip Farmers",
+    "id": "63094"
+  },
+  {
+    "no": "265",
+    "title": "Diplomacy's Job",
+    "group_name": "Turnip Farmers",
+    "id": "63096"
+  },
+  {
+    "no": "266",
+    "title": "Child of Fate",
+    "group_name": "Turnip Farmers",
+    "id": "63101"
+  },
+  {
+    "no": "267",
+    "title": "Checkmate on the Board",
+    "group_name": "Turnip Farmers",
+    "id": "63103"
+  },
+  {
+    "no": "268",
+    "title": "Assembling the Party",
+    "group_name": "Turnip Farmers",
+    "id": "63105"
+  },
+  {
+    "no": "269",
+    "title": "Four Lord of the Warring States",
+    "group_name": "Turnip Farmers",
+    "id": "63106"
+  },
+  {
+    "no": "270",
+    "title": "The Gathering at Kankoku Pass",
+    "group_name": "Turnip Farmers",
+    "id": "63107"
+  },
+  {
+    "no": "271",
+    "title": "Battle's Trigger",
+    "group_name": "Turnip Farmers",
+    "id": "63108"
+  },
+  {
+    "no": "272",
+    "title": "Duke Hyuo's Rush",
+    "group_name": "Turnip Farmers",
+    "id": "63109"
+  },
+  {
+    "no": "273",
+    "title": "Commander of the Zhao Army",
+    "group_name": "Turnip Farmers",
+    "id": "63110"
+  },
+  {
+    "no": "274",
+    "title": "Spider's Nest",
+    "group_name": "Turnip Farmers",
+    "id": "63111"
+  },
+  {
+    "no": "275",
+    "title": "Instinctual Talent",
+    "group_name": "Turnip Farmers",
+    "id": "63112"
+  },
+  {
+    "no": "276",
+    "title": "Houmei's Hand",
+    "group_name": "Turnip Farmers",
+    "id": "63113"
+  },
+  {
+    "no": "277",
+    "title": "Kanki, Confronts",
+    "group_name": "Turnip Farmers",
+    "id": "63114"
+  },
+  {
+    "no": "278",
+    "title": "Father & Son",
+    "group_name": "Turnip Farmers",
+    "id": "63115"
+  },
+  {
+    "no": "279",
+    "title": "Mouten's Sword",
+    "group_name": "Turnip Farmers",
+    "id": "63116"
+  },
+  {
+    "no": "280",
+    "title": "Officer's Quality",
+    "group_name": "Turnip Farmers",
+    "id": "63117"
+  },
+  {
+    "no": "281",
+    "title": "Bakuya Sword",
+    "group_name": "Turnip Farmers",
+    "id": "63118"
+  },
+  {
+    "no": "282",
+    "title": "The Man Recognised by Ouki",
+    "group_name": "Turnip Farmers",
+    "id": "63119"
+  },
+  {
+    "no": "283",
+    "title": "Each Man's Pride",
+    "group_name": "Turnip Farmers",
+    "id": "63120"
+  },
+  {
+    "no": "284",
+    "title": "Incarnation of a Curse",
+    "group_name": "Turnip Farmers",
+    "id": "63121"
+  },
+  {
+    "no": "285",
+    "title": "Barrens Littered with Holes",
+    "group_name": "Turnip Farmers",
+    "id": "63122"
+  },
+  {
+    "no": "286",
+    "title": "No Answer",
+    "group_name": "Turnip Farmers",
+    "id": "63123"
+  },
+  {
+    "no": "287",
+    "title": "All of Humanity",
+    "group_name": "Turnip Farmers",
+    "id": "63124"
+  },
+  {
+    "no": "288",
+    "title": "First Day's Report",
+    "group_name": "Turnip Farmers",
+    "id": "63125"
+  },
+  {
+    "no": "289",
+    "title": "To Evolve",
+    "group_name": "Turnip Farmers",
+    "id": "63126"
+  },
+  {
+    "no": "290",
+    "title": "Heroic Woman, Karin",
+    "group_name": "Turnip Farmers",
+    "id": "63127"
+  },
+  {
+    "no": "291",
+    "title": "Stalemate",
+    "group_name": "Turnip Farmers",
+    "id": "63128"
+  },
+  {
+    "no": "292",
+    "title": "Han's Weapons",
+    "group_name": "Turnip Farmers",
+    "id": "63129"
+  },
+  {
+    "no": "293",
+    "title": "Short Decisive Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63130"
+  },
+  {
+    "no": "294",
+    "title": "Moubu's Speech",
+    "group_name": "Turnip Farmers",
+    "id": "63131"
+  },
+  {
+    "no": "295",
+    "title": "A New Form",
+    "group_name": "Turnip Farmers",
+    "id": "63132"
+  },
+  {
+    "no": "296",
+    "title": "The 2nd Army Moves",
+    "group_name": "Turnip Farmers",
+    "id": "63133"
+  },
+  {
+    "no": "297",
+    "title": "The Purpose of War Elephants",
+    "group_name": "Turnip Farmers",
+    "id": "63134"
+  },
+  {
+    "no": "298",
+    "title": "Singled Out During a Crisis",
+    "group_name": "Turnip Farmers",
+    "id": "63135"
+  },
+  {
+    "no": "299",
+    "title": "A New Approach",
+    "group_name": "Turnip Farmers",
+    "id": "63136"
+  },
+  {
+    "no": "300",
+    "title": "Danger of Falling",
+    "group_name": "Turnip Farmers",
+    "id": "63137"
+  },
+  {
+    "no": "301",
+    "title": "Sea of Enemies",
+    "group_name": "Turnip Farmers",
+    "id": "63138"
+  },
+  {
+    "no": "302",
+    "title": "Resolve of No Return",
+    "group_name": "Turnip Farmers",
+    "id": "63140"
+  },
+  {
+    "no": "303",
+    "title": "General's Pride",
+    "group_name": "Turnip Farmers",
+    "id": "63141"
+  },
+  {
+    "no": "304",
+    "title": "Shin's Bright Idea",
+    "group_name": "Turnip Farmers",
+    "id": "63143"
+  },
+  {
+    "no": "305",
+    "title": "Ousen's Movements",
+    "group_name": "Turnip Farmers",
+    "id": "63145"
+  },
+  {
+    "no": "306",
+    "title": "Afternoon of the 15th Day",
+    "group_name": "Turnip Farmers",
+    "id": "63146"
+  },
+  {
+    "no": "307",
+    "title": "5000-Man Commander Kouyoku",
+    "group_name": "Turnip Farmers",
+    "id": "63148"
+  },
+  {
+    "no": "308",
+    "title": "Karin Army's Assault",
+    "group_name": "Turnip Farmers",
+    "id": "63149"
+  },
+  {
+    "no": "309",
+    "title": "The Path to Kanmei",
+    "group_name": "Turnip Farmers",
+    "id": "63151"
+  },
+  {
+    "no": "310",
+    "title": "The Strongest",
+    "group_name": "Turnip Farmers",
+    "id": "63153"
+  },
+  {
+    "no": "311",
+    "title": "Unveiled Service Record",
+    "group_name": "Turnip Farmers",
+    "id": "63155"
+  },
+  {
+    "no": "312",
+    "title": "The First Time in His Life",
+    "group_name": "Turnip Farmers",
+    "id": "63156"
+  },
+  {
+    "no": "313",
+    "title": "The Strongest Man",
+    "group_name": "Turnip Farmers",
+    "id": "63157"
+  },
+  {
+    "no": "314",
+    "title": "Deciding the Strongest",
+    "group_name": "Turnip Farmers",
+    "id": "63160"
+  },
+  {
+    "no": "315",
+    "title": "My Son",
+    "group_name": "Turnip Farmers",
+    "id": "63161"
+  },
+  {
+    "no": "316",
+    "title": "Victory is Right Before Us",
+    "group_name": "Turnip Farmers",
+    "id": "63162"
+  },
+  {
+    "no": "317",
+    "title": "Inside Kankoku Pass",
+    "group_name": "Turnip Farmers",
+    "id": "63163"
+  },
+  {
+    "no": "318",
+    "title": "Show's Over",
+    "group_name": "Turnip Farmers",
+    "id": "63165"
+  },
+  {
+    "no": "319",
+    "title": "Chu King's Fury",
+    "group_name": "Turnip Farmers",
+    "id": "63166"
+  },
+  {
+    "no": "320",
+    "title": "Whereabouts of the Mastermind",
+    "group_name": "Turnip Farmers",
+    "id": "63167"
+  },
+  {
+    "no": "321",
+    "title": "Dire Situation",
+    "group_name": "Turnip Farmers",
+    "id": "63168"
+  },
+  {
+    "no": "322",
+    "title": "Hyou & Hi",
+    "group_name": "Turnip Farmers",
+    "id": "63169"
+  },
+  {
+    "no": "323",
+    "title": "Epitome of the Instinctual Type",
+    "group_name": "Turnip Farmers",
+    "id": "63170"
+  },
+  {
+    "no": "324",
+    "title": "Gigantic Buffoon",
+    "group_name": "Turnip Farmers",
+    "id": "63171"
+  },
+  {
+    "no": "325",
+    "title": "Forward",
+    "group_name": "Turnip Farmers",
+    "id": "63172"
+  },
+  {
+    "no": "326",
+    "title": "Delicious Wine",
+    "group_name": "Turnip Farmers",
+    "id": "63173"
+  },
+  {
+    "no": "327",
+    "title": "Sei's Decision",
+    "group_name": "Turnip Farmers",
+    "id": "63174"
+  },
+  {
+    "no": "328",
+    "title": "The Vacated Throne",
+    "group_name": "Turnip Farmers",
+    "id": "63175"
+  },
+  {
+    "no": "329",
+    "title": "Borrowing a Shoulder to Lean On",
+    "group_name": "Turnip Farmers",
+    "id": "63178"
+  },
+  {
+    "no": "330",
+    "title": "Sei, Adresses",
+    "group_name": "Turnip Farmers",
+    "id": "63182"
+  },
+  {
+    "no": "331",
+    "title": "Sai Readies Itself",
+    "group_name": "Turnip Farmers",
+    "id": "63184"
+  },
+  {
+    "no": "332",
+    "title": "Announcement for Sai",
+    "group_name": "Turnip Farmers",
+    "id": "63187"
+  },
+  {
+    "no": "333",
+    "title": "The Eastern Wall",
+    "group_name": "Turnip Farmers",
+    "id": "63192"
+  },
+  {
+    "no": "334",
+    "title": "Sai, Fighting on Bravely",
+    "group_name": "Turnip Farmers",
+    "id": "63195"
+  },
+  {
+    "no": "335",
+    "title": "The First Night",
+    "group_name": "Turnip Farmers",
+    "id": "63197"
+  },
+  {
+    "no": "336",
+    "title": "Futei, Takes Action Lively",
+    "group_name": "Turnip Farmers",
+    "id": "63198"
+  },
+  {
+    "no": "337",
+    "title": "The Man who will become one of the Three Heavens",
+    "group_name": "Turnip Farmers",
+    "id": "63200"
+  },
+  {
+    "no": "338",
+    "title": "The Conflicing Duo",
+    "group_name": "Turnip Farmers",
+    "id": "63201"
+  },
+  {
+    "no": "339",
+    "title": "Touring Night",
+    "group_name": "Turnip Farmers",
+    "id": "63202"
+  },
+  {
+    "no": "340",
+    "title": "An Unexpected Development",
+    "group_name": "Turnip Farmers",
+    "id": "63204"
+  },
+  {
+    "no": "341",
+    "title": "Secret Exposed",
+    "group_name": "Turnip Farmers",
+    "id": "63205"
+  },
+  {
+    "no": "342",
+    "title": "Shoubunkun's Proposal",
+    "group_name": "Turnip Farmers",
+    "id": "63206"
+  },
+  {
+    "no": "343",
+    "title": "Sixth Day's Rally",
+    "group_name": "Turnip Farmers",
+    "id": "63207"
+  },
+  {
+    "no": "344",
+    "title": "Using Up Everything",
+    "group_name": "Turnip Farmers",
+    "id": "63208"
+  },
+  {
+    "no": "345",
+    "title": "Opened City Gates",
+    "group_name": "Turnip Farmers",
+    "id": "63209"
+  },
+  {
+    "no": "346",
+    "title": "Unexpected Reinforcements",
+    "group_name": "Turnip Farmers",
+    "id": "63210"
+  },
+  {
+    "no": "347",
+    "title": "Overpowering Reinforcements",
+    "group_name": "Turnip Farmers",
+    "id": "63211"
+  },
+  {
+    "no": "348",
+    "title": "Reason for Going",
+    "group_name": "Turnip Farmers",
+    "id": "63212"
+  },
+  {
+    "no": "349",
+    "title": "Light",
+    "group_name": "Turnip Farmers",
+    "id": "63213"
+  },
+  {
+    "no": "350",
+    "title": "Flash",
+    "group_name": "Turnip Farmers",
+    "id": "63214"
+  },
+  {
+    "no": "351",
+    "title": "Riboku's Decision",
+    "group_name": "Turnip Farmers",
+    "id": "63215"
+  },
+  {
+    "no": "352",
+    "title": "Repelled",
+    "group_name": "Turnip Farmers",
+    "id": "63216"
+  },
+  {
+    "no": "353",
+    "title": "Sincere Gratitude",
+    "group_name": "Turnip Farmers",
+    "id": "63217"
+  },
+  {
+    "no": "354",
+    "title": "Coalition Army's Settlement",
+    "group_name": "Turnip Farmers",
+    "id": "63218"
+  },
+  {
+    "no": "355",
+    "title": "Exceptional Service",
+    "group_name": "Turnip Farmers",
+    "id": "63219"
+  },
+  {
+    "no": "356",
+    "title": "3000-Man Unit",
+    "group_name": "Turnip Farmers",
+    "id": "63220"
+  },
+  {
+    "no": "357",
+    "title": "Runaway",
+    "group_name": "Turnip Farmers",
+    "id": "63221"
+  },
+  {
+    "no": "358",
+    "title": "Encircling Yuu Tribe",
+    "group_name": "Turnip Farmers",
+    "id": "63222"
+  },
+  {
+    "no": "359",
+    "title": "Difference in Dance",
+    "group_name": "Turnip Farmers",
+    "id": "63223"
+  },
+  {
+    "no": "360",
+    "title": "True Strength of the Pinnacle",
+    "group_name": "Turnip Farmers",
+    "id": "63224"
+  },
+  {
+    "no": "361",
+    "title": "The Reason for Changing",
+    "group_name": "Turnip Farmers",
+    "id": "63225"
+  },
+  {
+    "no": "362",
+    "title": "Antithesis",
+    "group_name": "Turnip Farmers",
+    "id": "63226"
+  },
+  {
+    "no": "363",
+    "title": "A Different Path",
+    "group_name": "Turnip Farmers",
+    "id": "63227"
+  },
+  {
+    "no": "364",
+    "title": "Two Goals",
+    "group_name": "Turnip Farmers",
+    "id": "63228"
+  },
+  {
+    "no": "365",
+    "title": "Hakurou's Words",
+    "group_name": "Turnip Farmers",
+    "id": "63229"
+  },
+  {
+    "no": "366",
+    "title": "The Various States after the War",
+    "group_name": "Turnip Farmers",
+    "id": "63230"
+  },
+  {
+    "no": "367",
+    "title": "The Chancellor of the State's Thoughts",
+    "group_name": "Turnip Farmers",
+    "id": "63231"
+  },
+  {
+    "no": "368",
+    "title": "The Brothers, Now",
+    "group_name": "Turnip Farmers",
+    "id": "63233"
+  },
+  {
+    "no": "369",
+    "title": "Signs of a Conspiracy",
+    "group_name": "Turnip Farmers",
+    "id": "63238"
+  },
+  {
+    "no": "370",
+    "title": "Disturbing Shadows",
+    "group_name": "Turnip Farmers",
+    "id": "63240"
+  },
+  {
+    "no": "371",
+    "title": "Tonryuu's Change",
+    "group_name": "Turnip Farmers",
+    "id": "63242"
+  },
+  {
+    "no": "372",
+    "title": "The Subjugation Army Sets Out",
+    "group_name": "Turnip Farmers",
+    "id": "63243"
+  },
+  {
+    "no": "373",
+    "title": "Great Growth",
+    "group_name": "Turnip Farmers",
+    "id": "63244"
+  },
+  {
+    "no": "374",
+    "title": "The Siege of Tonryuu City",
+    "group_name": "Turnip Farmers",
+    "id": "63245"
+  },
+  {
+    "no": "375",
+    "title": "Jailbreak",
+    "group_name": "Turnip Farmers",
+    "id": "63246"
+  },
+  {
+    "no": "376",
+    "title": "Corridor",
+    "group_name": "Turnip Farmers",
+    "id": "63249"
+  },
+  {
+    "no": "377",
+    "title": "Sword and Shield",
+    "group_name": "Turnip Farmers",
+    "id": "63250"
+  },
+  {
+    "no": "378",
+    "title": "Justice",
+    "group_name": "Turnip Farmers",
+    "id": "63251"
+  },
+  {
+    "no": "379",
+    "title": "A New Strategical Front",
+    "group_name": "Turnip Farmers",
+    "id": "63252"
+  },
+  {
+    "no": "380",
+    "title": "Personal Feelings and Strategy",
+    "group_name": "Turnip Farmers",
+    "id": "63253"
+  },
+  {
+    "no": "381",
+    "title": "Old Fashioned Person",
+    "group_name": "Turnip Farmers",
+    "id": "63254"
+  },
+  {
+    "no": "382",
+    "title": "The Wei Fire Dragons",
+    "group_name": "Turnip Farmers",
+    "id": "63255"
+  },
+  {
+    "no": "383",
+    "title": "Callout",
+    "group_name": "Turnip Farmers",
+    "id": "63256"
+  },
+  {
+    "no": "384",
+    "title": "Behind the Duel",
+    "group_name": "Turnip Farmers",
+    "id": "63257"
+  },
+  {
+    "no": "385",
+    "title": "Internal Discord",
+    "group_name": "Turnip Farmers",
+    "id": "63259"
+  },
+  {
+    "no": "386",
+    "title": "Ten's Existence",
+    "group_name": "Turnip Farmers",
+    "id": "63260"
+  },
+  {
+    "no": "387",
+    "title": "Exchange",
+    "group_name": "Turnip Farmers",
+    "id": "63261"
+  },
+  {
+    "no": "388",
+    "title": "The New Gyoku Hou Unit",
+    "group_name": "Turnip Farmers",
+    "id": "63262"
+  },
+  {
+    "no": "389",
+    "title": "The Name of Earl Shi",
+    "group_name": "Turnip Farmers",
+    "id": "63263"
+  },
+  {
+    "no": "390",
+    "title": "The History of Infighting",
+    "group_name": "Turnip Farmers",
+    "id": "63264"
+  },
+  {
+    "no": "391",
+    "title": "Loss",
+    "group_name": "Turnip Farmers",
+    "id": "63265"
+  },
+  {
+    "no": "392",
+    "title": "China's Attention",
+    "group_name": "Turnip Farmers",
+    "id": "63266"
+  },
+  {
+    "no": "393",
+    "title": "Third Day of Choyou",
+    "group_name": "Turnip Farmers",
+    "id": "63267"
+  },
+  {
+    "no": "394",
+    "title": "Spectator",
+    "group_name": "Turnip Farmers",
+    "id": "63268"
+  },
+  {
+    "no": "395",
+    "title": "Ouhon's Duty",
+    "group_name": "Turnip Farmers",
+    "id": "63269"
+  },
+  {
+    "no": "396",
+    "title": "Days upon Days of Training",
+    "group_name": "Turnip Farmers",
+    "id": "63270"
+  },
+  {
+    "no": "397",
+    "title": "Onwards to the Headquarters",
+    "group_name": "Turnip Farmers",
+    "id": "63271"
+  },
+  {
+    "no": "398",
+    "title": "Reason for not Figthing",
+    "group_name": "Turnip Farmers",
+    "id": "63272"
+  },
+  {
+    "no": "399",
+    "title": "Close In",
+    "group_name": "Turnip Farmers",
+    "id": "63273"
+  },
+  {
+    "no": "400",
+    "title": "Fall and Retreat",
+    "group_name": "Turnip Farmers",
+    "id": "63274"
+  },
+  {
+    "no": "401",
+    "title": "The Warring States from Now On",
+    "group_name": "Turnip Farmers",
+    "id": "63275"
+  },
+  {
+    "no": "402",
+    "title": "Activity at Kanyou",
+    "group_name": "Turnip Farmers",
+    "id": "63276"
+  },
+  {
+    "no": "403",
+    "title": "The Queen Mother's Goal",
+    "group_name": "Turnip Farmers",
+    "id": "63277"
+  },
+  {
+    "no": "404",
+    "title": "Lüshi Chunqiu",
+    "group_name": "Turnip Farmers",
+    "id": "63278"
+  },
+  {
+    "no": "405",
+    "title": "A New State",
+    "group_name": "Turnip Farmers",
+    "id": "63279"
+  },
+  {
+    "no": "406",
+    "title": "Parting of Ways",
+    "group_name": "Turnip Farmers",
+    "id": "63280"
+  },
+  {
+    "no": "407",
+    "title": "5000-Man Commander",
+    "group_name": "Turnip Farmers",
+    "id": "63281"
+  },
+  {
+    "no": "408",
+    "title": "The Decisive Year",
+    "group_name": "Turnip Farmers",
+    "id": "63282"
+  },
+  {
+    "no": "409",
+    "title": "The Man Who Has Nothing",
+    "group_name": "Turnip Farmers",
+    "id": "63283"
+  },
+  {
+    "no": "410",
+    "title": "Choose One of Two",
+    "group_name": "Turnip Farmers",
+    "id": "63284"
+  },
+  {
+    "no": "411",
+    "title": "Gathered at You",
+    "group_name": "Turnip Farmers",
+    "id": "63285"
+  },
+  {
+    "no": "412",
+    "title": "Coming of Age Ceremony",
+    "group_name": "Turnip Farmers",
+    "id": "63286"
+  },
+  {
+    "no": "413",
+    "title": "Voice of the Ancestral Spirits",
+    "group_name": "Turnip Farmers",
+    "id": "63287"
+  },
+  {
+    "no": "414",
+    "title": "Three Sides, None Backing Down",
+    "group_name": "Turnip Farmers",
+    "id": "63288"
+  },
+  {
+    "no": "415",
+    "title": "How to Create Rebel Soldiers",
+    "group_name": "Turnip Farmers",
+    "id": "63289"
+  },
+  {
+    "no": "416",
+    "title": "Where the Ambushers Lie",
+    "group_name": "Turnip Farmers",
+    "id": "63291"
+  },
+  {
+    "no": "417",
+    "title": "River Crossing Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63292"
+  },
+  {
+    "no": "418",
+    "title": "First Experience",
+    "group_name": "Turnip Farmers",
+    "id": "63293"
+  },
+  {
+    "no": "419",
+    "title": "The Man Who Stands",
+    "group_name": "Turnip Farmers",
+    "id": "63294"
+  },
+  {
+    "no": "420",
+    "title": "Parting Ways",
+    "group_name": "Turnip Farmers",
+    "id": "63295"
+  },
+  {
+    "no": "421",
+    "title": "Repeat of Failure",
+    "group_name": "Turnip Farmers",
+    "id": "63296"
+  },
+  {
+    "no": "422",
+    "title": "The Life to be Protected at All Cost",
+    "group_name": "Turnip Farmers",
+    "id": "63297"
+  },
+  {
+    "no": "423",
+    "title": "Origin of the World",
+    "group_name": "Turnip Farmers",
+    "id": "63298"
+  },
+  {
+    "no": "424",
+    "title": "Utopia",
+    "group_name": "Turnip Farmers",
+    "id": "63299"
+  },
+  {
+    "no": "425",
+    "title": "Proper Emotion",
+    "group_name": "Turnip Farmers",
+    "id": "63301"
+  },
+  {
+    "no": "426",
+    "title": "Man's True Nature + Omake",
+    "group_name": "Turnip Farmers",
+    "id": "63302"
+  },
+  {
+    "no": "427",
+    "title": "Words of Resolve",
+    "group_name": "Turnip Farmers",
+    "id": "63303"
+  },
+  {
+    "no": "428",
+    "title": "Running for your Life",
+    "group_name": "Turnip Farmers",
+    "id": "63304"
+  },
+  {
+    "no": "429",
+    "title": "A Commander's Popularity",
+    "group_name": "Turnip Farmers",
+    "id": "63305"
+  },
+  {
+    "no": "430",
+    "title": "Sound of Salvation",
+    "group_name": "Turnip Farmers",
+    "id": "63306"
+  },
+  {
+    "no": "431",
+    "title": "The Turnabout Assault",
+    "group_name": "Turnip Farmers",
+    "id": "63307"
+  },
+  {
+    "no": "432",
+    "title": "The Decisive Dusk",
+    "group_name": "Turnip Farmers",
+    "id": "63308"
+  },
+  {
+    "no": "433",
+    "title": "Collapse of the Plot",
+    "group_name": "Turnip Farmers",
+    "id": "63309"
+  },
+  {
+    "no": "434",
+    "title": "The Star of the Defeat",
+    "group_name": "Turnip Farmers",
+    "id": "63310"
+  },
+  {
+    "no": "435",
+    "title": "The Coup's Finale",
+    "group_name": "Turnip Farmers",
+    "id": "63311"
+  },
+  {
+    "no": "436",
+    "title": "Last Plea",
+    "group_name": "Turnip Farmers",
+    "id": "63312"
+  },
+  {
+    "no": "437",
+    "title": "The Bond Between Parent and Child",
+    "group_name": "Turnip Farmers",
+    "id": "63314"
+  },
+  {
+    "no": "438",
+    "title": "Hour of Conquest",
+    "group_name": "Turnip Farmers",
+    "id": "63316"
+  },
+  {
+    "no": "439",
+    "title": "Whereabouts of the Six Generals",
+    "group_name": "Turnip Farmers",
+    "id": "63317"
+  },
+  {
+    "no": "440",
+    "title": "Mastermind of the Assassination",
+    "group_name": "Turnip Farmers",
+    "id": "63318"
+  },
+  {
+    "no": "441",
+    "title": "The Position of Prime Minister",
+    "group_name": "Turnip Farmers",
+    "id": "63319"
+  },
+  {
+    "no": "442",
+    "title": "Kindred Spirits",
+    "group_name": "Turnip Farmers",
+    "id": "63322"
+  },
+  {
+    "no": "443",
+    "title": "The Monsters Set Off",
+    "group_name": "Turnip Farmers",
+    "id": "63323"
+  },
+  {
+    "no": "444",
+    "title": "Conquring a Cityless Landscape",
+    "group_name": "Turnip Farmers",
+    "id": "63324"
+  },
+  {
+    "no": "445",
+    "title": "What Lies at the End of Deceit",
+    "group_name": "Turnip Farmers",
+    "id": "63325"
+  },
+  {
+    "no": "446",
+    "title": "Unexpected Strategy",
+    "group_name": "Turnip Farmers",
+    "id": "63327"
+  },
+  {
+    "no": "447",
+    "title": "The Commander Sets Out",
+    "group_name": "Turnip Farmers",
+    "id": "63328"
+  },
+  {
+    "no": "448",
+    "title": "The Battlefield's Stench",
+    "group_name": "Turnip Farmers",
+    "id": "63329"
+  },
+  {
+    "no": "449",
+    "title": "Spider's Trap",
+    "group_name": "Turnip Farmers",
+    "id": "63330"
+  },
+  {
+    "no": "450",
+    "title": "Bandit's Pride",
+    "group_name": "Turnip Farmers",
+    "id": "63331"
+  },
+  {
+    "no": "451",
+    "title": "Night in Kokuyou",
+    "group_name": "Turnip Farmers",
+    "id": "63333"
+  },
+  {
+    "no": "452",
+    "title": "Result of the Attack",
+    "group_name": "Turnip Farmers",
+    "id": "63334"
+  },
+  {
+    "no": "453",
+    "title": "Where the Advance Ends",
+    "group_name": "Turnip Farmers",
+    "id": "63335"
+  },
+  {
+    "no": "454",
+    "title": "A Strategist's Potential",
+    "group_name": "Turnip Farmers",
+    "id": "63336"
+  },
+  {
+    "no": "455",
+    "title": "Disguised Attack",
+    "group_name": "Turnip Farmers",
+    "id": "63337"
+  },
+  {
+    "no": "456",
+    "title": "A Lieutenant's Responsibility",
+    "group_name": "Turnip Farmers",
+    "id": "63338"
+  },
+  {
+    "no": "457",
+    "title": "Tenacious Crossing",
+    "group_name": "Turnip Farmers",
+    "id": "63341"
+  },
+  {
+    "no": "458",
+    "title": "Banner of Rigan",
+    "group_name": "Turnip Farmers",
+    "id": "63342"
+  },
+  {
+    "no": "459",
+    "title": "Contagious Fighting Spirit + Omake",
+    "group_name": "Turnip Farmers",
+    "id": "63343"
+  },
+  {
+    "no": "460",
+    "title": "The Hi Shin Unit's Lynchpin",
+    "group_name": "Turnip Farmers",
+    "id": "63345"
+  },
+  {
+    "no": "461",
+    "title": "Descisive Clash of Kokuyou",
+    "group_name": "Turnip Farmers",
+    "id": "63347"
+  },
+  {
+    "no": "462",
+    "title": "Puzzling Night",
+    "group_name": "Turnip Farmers",
+    "id": "63348"
+  },
+  {
+    "no": "463",
+    "title": "Tragedy of Rigan",
+    "group_name": "Turnip Farmers",
+    "id": "63349"
+  },
+  {
+    "no": "464",
+    "title": "Limits of Patience",
+    "group_name": "Turnip Farmers",
+    "id": "63351"
+  },
+  {
+    "no": "465",
+    "title": "The Palmtop Battle",
+    "group_name": "Turnip Farmers",
+    "id": "63352"
+  },
+  {
+    "no": "466",
+    "title": "The Man who is in the same class as Riboku",
+    "group_name": "Turnip Farmers",
+    "id": "63353"
+  },
+  {
+    "no": "467",
+    "title": "The Hunted's Point of View",
+    "group_name": "Turnip Farmers",
+    "id": "63354"
+  },
+  {
+    "no": "468",
+    "title": "Lucky and Unlucky",
+    "group_name": "Turnip Farmers",
+    "id": "63357"
+  },
+  {
+    "no": "469",
+    "title": "Instant",
+    "group_name": "Turnip Farmers",
+    "id": "63358"
+  },
+  {
+    "no": "470",
+    "title": "My Back + Omake",
+    "group_name": "Turnip Farmers",
+    "id": "63360"
+  },
+  {
+    "no": "471",
+    "title": "Tenacious Pursuit",
+    "group_name": "Turnip Farmers",
+    "id": "63361"
+  },
+  {
+    "no": "472",
+    "title": "The Setting Sun of the Hunter",
+    "group_name": "Turnip Farmers",
+    "id": "63366"
+  },
+  {
+    "no": "473",
+    "title": "Joyous Retreat",
+    "group_name": "Sense-Scans",
+    "id": "63368"
+  },
+  {
+    "no": "474",
+    "title": "Zhao Commander's Pivotal Juncture",
+    "group_name": "Sense-Scans",
+    "id": "63370"
+  },
+  {
+    "no": "475",
+    "title": "After the Disturbance",
+    "group_name": "Sense-Scans",
+    "id": "63371"
+  },
+  {
+    "no": "476",
+    "title": "The truth behind the smoke",
+    "group_name": "Sense-Scans",
+    "id": "63372"
+  },
+  {
+    "no": "477",
+    "title": "Roar of Will",
+    "group_name": "Sense-Scans",
+    "id": "63373"
+  },
+  {
+    "no": "478",
+    "title": "Confrontation's End",
+    "group_name": "Sense-Scans",
+    "id": "63374"
+  },
+  {
+    "no": "479",
+    "title": "Bihei's Cry",
+    "group_name": "Sense-Scans",
+    "id": "63375"
+  },
+  {
+    "no": "480",
+    "title": "Bihei and Hi Shin squad",
+    "group_name": "Sense-Scans",
+    "id": "63376"
+  },
+  {
+    "no": "481",
+    "title": "A Horrendous Gift + Omake",
+    "group_name": "Sense-Scans",
+    "id": "63378"
+  },
+  {
+    "no": "482",
+    "title": "Rigan and the States of Zhao",
+    "group_name": "Sense-Scans",
+    "id": "63379"
+  },
+  {
+    "no": "483",
+    "title": "The Small Hours after a Victory",
+    "group_name": "Sense-Scans",
+    "id": "63381"
+  },
+  {
+    "no": "484",
+    "title": "Departures",
+    "group_name": "Sense-Scans",
+    "id": "63382"
+  },
+  {
+    "no": "485",
+    "title": "Mouten's News",
+    "group_name": "Sense-Scans",
+    "id": "63383"
+  },
+  {
+    "no": "486",
+    "title": "Bureacucrat's Battle",
+    "group_name": "Sense-Scans",
+    "id": "63385"
+  },
+  {
+    "no": "487",
+    "title": "Conference of the East and West Kings",
+    "group_name": "Sense-Scans",
+    "id": "63386"
+  },
+  {
+    "no": "488",
+    "title": "Qin King's Vision",
+    "group_name": "Sense-Scans",
+    "id": "63387"
+  },
+  {
+    "no": "489",
+    "title": "Saitaku's Pride",
+    "group_name": "Sense-Scans",
+    "id": "63388"
+  },
+  {
+    "no": "490",
+    "title": "Discussion of Destiny",
+    "group_name": "Sense-Scans",
+    "id": "63390"
+  },
+  {
+    "no": "491",
+    "title": "Qin's Obstacle",
+    "group_name": "Sense-Scans",
+    "id": "63394"
+  },
+  {
+    "no": "492",
+    "title": "Recruitment for Growth",
+    "group_name": "Sense-Scans",
+    "id": "63395"
+  },
+  {
+    "no": "493",
+    "title": "A Fresh Start",
+    "group_name": "Sense-Scans",
+    "id": "63396"
+  },
+  {
+    "no": "494",
+    "title": "Sage of the Underground Prison",
+    "group_name": "Sense-Scans",
+    "id": "63397"
+  },
+  {
+    "no": "495",
+    "title": "Appropriate Resolve",
+    "group_name": "Sense-Scans",
+    "id": "63398"
+  },
+  {
+    "no": "496",
+    "title": "Beginning of the Turbulence",
+    "group_name": "Sense-Scans",
+    "id": "63399"
+  },
+  {
+    "no": "497",
+    "title": "Intention Behind the Gathering",
+    "group_name": "Sense-Scans",
+    "id": "63400"
+  },
+  {
+    "no": "498",
+    "title": "Tension of a Large Army",
+    "group_name": "Sense-Scans",
+    "id": "63401"
+  },
+  {
+    "no": "499",
+    "title": "Inherited Dream in Hand",
+    "group_name": "Sense-Scans",
+    "id": "63403"
+  },
+  {
+    "no": "500",
+    "title": "Soldiers on the Warpath + Omake",
+    "group_name": "Sense-Scans",
+    "id": "63404"
+  },
+  {
+    "no": "501",
+    "title": "Mutual Probing",
+    "group_name": "Sense-Scans",
+    "id": "63405"
+  },
+  {
+    "no": "502",
+    "title": "He Who Seizes The Initiative",
+    "group_name": "Sense-Scans",
+    "id": "63407"
+  },
+  {
+    "no": "503",
+    "title": "Birds of Urgent Tidings",
+    "group_name": "Sense-Scans",
+    "id": "63408"
+  },
+  {
+    "no": "504",
+    "title": "The Gate to Zhao's Capital",
+    "group_name": "Sense-Scans",
+    "id": "63409"
+  },
+  {
+    "no": "505",
+    "title": "Fever",
+    "group_name": "Sense-Scans",
+    "id": "63411"
+  },
+  {
+    "no": "506",
+    "title": "The Mountain People's Seige",
+    "group_name": "Sense-Scans",
+    "id": "63412"
+  },
+  {
+    "no": "507",
+    "title": "Jin & Tan",
+    "group_name": "Sense-Scans",
+    "id": "63413"
+  },
+  {
+    "no": "508",
+    "title": "Sword of the Mountain Tribes",
+    "group_name": "Sense-Scans",
+    "id": "63414"
+  },
+  {
+    "no": "509",
+    "title": "Inheritor of the Glavie",
+    "group_name": "Sense-Scans",
+    "id": "63416"
+  },
+  {
+    "no": "510",
+    "title": "The Greenhorns' Night",
+    "group_name": "Sense-Scans",
+    "id": "63417"
+  },
+  {
+    "no": "511",
+    "title": "Retsubi's Trap",
+    "group_name": "Sense-Scans",
+    "id": "63418"
+  },
+  {
+    "no": "512",
+    "title": "Gyou's True Identity",
+    "group_name": "Sense-Scans",
+    "id": "63420"
+  },
+  {
+    "no": "513",
+    "title": "China's Predictions",
+    "group_name": "Sense-Scans",
+    "id": "63421"
+  },
+  {
+    "no": "514",
+    "title": "The Most Foolish of Plans",
+    "group_name": "Sense-Scans",
+    "id": "63422"
+  },
+  {
+    "no": "515",
+    "title": "Refugees of the Small Cities",
+    "group_name": "Sense-Scans",
+    "id": "63424"
+  },
+  {
+    "no": "516",
+    "title": "Weapon of Conquest",
+    "group_name": "Sense-Scans",
+    "id": "63425"
+  },
+  {
+    "no": "517",
+    "title": "Chipping One Another Down",
+    "group_name": "Sense-Scans",
+    "id": "63426"
+  },
+  {
+    "no": "518",
+    "title": "Battleground - Ryouyou",
+    "group_name": "Sense-Scans",
+    "id": "63427"
+  },
+  {
+    "no": "519",
+    "title": "The Supreme Commanders' Methods",
+    "group_name": "Sense-Scans",
+    "id": "63428"
+  },
+  {
+    "no": "520",
+    "title": "Battle's Beginning",
+    "group_name": "Sense-Scans",
+    "id": "63429"
+  },
+  {
+    "no": "521",
+    "title": "The Intricacies of Mobility",
+    "group_name": "Sense-Scans",
+    "id": "63431"
+  },
+  {
+    "no": "522",
+    "title": "The Left Wing's Despair",
+    "group_name": "Sense-Scans",
+    "id": "63432"
+  },
+  {
+    "no": "523",
+    "title": "Qin Right Wing's Moment",
+    "group_name": "Sense-Scans",
+    "id": "63433"
+  },
+  {
+    "no": "524",
+    "title": "Weight of Resolve",
+    "group_name": "Sense-Scans",
+    "id": "63434"
+  },
+  {
+    "no": "525",
+    "title": "Bananji's Passion",
+    "group_name": "Sense-Scans",
+    "id": "63436"
+  },
+  {
+    "no": "526",
+    "title": "The Spear and The Iron Hammer",
+    "group_name": "Sense-Scans",
+    "id": "63437"
+  },
+  {
+    "no": "527",
+    "title": "Ryouyou's Fangs",
+    "group_name": "Sense-Scans",
+    "id": "63438"
+  },
+  {
+    "no": "528",
+    "title": "Decendants of Quanrong",
+    "group_name": "Sense-Scans",
+    "id": "63440"
+  },
+  {
+    "no": "529",
+    "title": "Tanwa's Bravery",
+    "group_name": "Sense-Scans",
+    "id": "63441"
+  },
+  {
+    "no": "530",
+    "title": "Killing Stroke Detachment",
+    "group_name": "Sense-Scans",
+    "id": "63443"
+  },
+  {
+    "no": "531",
+    "title": "Turning Point",
+    "group_name": "Sense-Scans",
+    "id": "63444"
+  },
+  {
+    "no": "532",
+    "title": "Shin's Blade",
+    "group_name": "Sense-Scans",
+    "id": "63446"
+  },
+  {
+    "no": "533",
+    "title": "Lost Morale",
+    "group_name": "Sense-Scans",
+    "id": "63447"
+  },
+  {
+    "no": "534",
+    "title": "Until Sundown",
+    "group_name": "Sense-Scans",
+    "id": "63449"
+  },
+  {
+    "no": "535",
+    "title": "Insufficient Rank",
+    "group_name": "Sense-Scans",
+    "id": "63450"
+  },
+  {
+    "no": "536",
+    "title": "A Second First Day",
+    "group_name": "Sense-Scans",
+    "id": "63452"
+  },
+  {
+    "no": "537",
+    "title": "A Great General's View",
+    "group_name": "Sense-Scans",
+    "id": "63453"
+  },
+  {
+    "no": "538",
+    "title": "Akakin",
+    "group_name": "Sense-Scans",
+    "id": "63454"
+  },
+  {
+    "no": "539",
+    "title": "Opponent",
+    "group_name": "Sense-Scans",
+    "id": "63457"
+  },
+  {
+    "no": "540",
+    "title": "Battle of Attrition",
+    "group_name": "Sense-Scans",
+    "id": "63458"
+  },
+  {
+    "no": "541",
+    "title": "Prophesied Grounds",
+    "group_name": "Sense-Scans",
+    "id": "63460"
+  },
+  {
+    "no": "542",
+    "title": "Nail",
+    "group_name": "Sense-Scans",
+    "id": "63461"
+  },
+  {
+    "no": "543",
+    "title": "To the True Battleground",
+    "group_name": "Sense-Scans",
+    "id": "63462"
+  },
+  {
+    "no": "544",
+    "title": "Rookies' Battle",
+    "group_name": "Sense-Scans",
+    "id": "63464"
+  },
+  {
+    "no": "545",
+    "title": "Instinct",
+    "group_name": "Sense-Scans",
+    "id": "63465"
+  },
+  {
+    "no": "546",
+    "title": "Ground of Flames",
+    "group_name": "Sense-Scans",
+    "id": "63467"
+  },
+  {
+    "no": "547",
+    "title": "Glaive's Lament",
+    "group_name": "Sense-Scans",
+    "id": "77493"
+  },
+  {
+    "no": "548",
+    "title": "Mid-Battle Tactics.",
+    "group_name": "Sense-Scans",
+    "id": "101869"
+  },
+  {
+    "no": "549",
+    "title": "Three Miscalculations",
+    "group_name": "Sense-Scans",
+    "id": "121801"
+  },
+  {
+    "no": "550",
+    "title": "News of the Time Limit",
+    "group_name": "Sense-Scans",
+    "id": "142391"
+  },
+  {
+    "no": "551",
+    "title": "Messenger's Report",
+    "group_name": "Sense-Scans",
+    "id": "162822"
+  },
+  {
+    "no": "552",
+    "title": "Strategy of Sacrifice",
+    "group_name": "Sense-Scans",
+    "id": "180956"
+  },
+  {
+    "no": "553",
+    "title": "Luudin",
+    "group_name": "Sense-Scans",
+    "id": "225380"
+  },
+  {
+    "no": "554",
+    "title": "Offense and Defense of the Heki Army",
+    "group_name": "Sense-Scans",
+    "id": "241666"
+  },
+  {
+    "no": "555",
+    "title": "Piecemeal Targeting",
+    "group_name": "Sense-Scans",
+    "id": "256901"
+  },
+  {
+    "no": "556",
+    "title": "Ousen's Defence",
+    "group_name": "Sense-Scans",
+    "id": "265732"
+  },
+  {
+    "no": "557",
+    "title": "Joint Destruction",
+    "group_name": "Sense-Scans",
+    "id": "306180"
+  },
+  {
+    "no": "558",
+    "title": "Inhuman Might",
+    "group_name": "Sense-Scans",
+    "id": "318920"
+  },
+  {
+    "no": "559",
+    "title": "Right Wing's Outcome",
+    "group_name": "Sense-Scans",
+    "id": "327643"
+  },
+  {
+    "no": "560",
+    "title": "Shin's Space",
+    "group_name": "Sense-Scans",
+    "id": "334914"
+  },
+  {
+    "no": "561",
+    "title": "Impact of that Single Swing",
+    "group_name": "Sense-Scans",
+    "id": "364470"
+  },
+  {
+    "no": "562",
+    "title": "Dread Commander",
+    "group_name": "Sense-Scans",
+    "id": "382282"
+  },
+  {
+    "no": "563",
+    "title": "Lord of the Tribe, Katari",
+    "group_name": "Sense-Scans",
+    "id": "392690"
+  },
+  {
+    "no": "564",
+    "title": "Sundown",
+    "group_name": "Sense-Scans",
+    "id": "402525"
+  },
+  {
+    "no": "565",
+    "title": "Upon the Front Lines",
+    "group_name": "Sense-Scans",
+    "id": "407741"
+  },
+  {
+    "no": "566",
+    "title": "Tanwa's Choice",
+    "group_name": "Sense-Scans",
+    "id": "412184"
+  },
+  {
+    "no": "567",
+    "title": "Tomorrow's Sun",
+    "group_name": "Sense-Scans",
+    "id": "414948"
+  },
+  {
+    "no": "568",
+    "title": "The Strongest Warrior",
+    "group_name": "Sense-Scans",
+    "id": "424449"
+  },
+  {
+    "no": "569",
+    "title": "Bajio's Oath",
+    "group_name": "Sense-Scans",
+    "id": "435738"
+  },
+  {
+    "no": "570",
+    "title": "The Perfect Encounter",
+    "group_name": "Sense-Scans",
+    "id": "439800"
+  },
+  {
+    "no": "571",
+    "title": "Chance for Redemtion",
+    "group_name": "Sense-Scans",
+    "id": "444155"
+  },
+  {
+    "no": "572",
+    "title": "Vengeance for Katari",
+    "group_name": "Sense-Scans",
+    "id": "447198"
+  },
+  {
+    "no": "573",
+    "title": "Those Who Go Forward",
+    "group_name": "Sense-Scans",
+    "id": "450607"
+  },
+  {
+    "no": "574",
+    "title": "Liberators",
+    "group_name": "Sense-Scans",
+    "id": "453240"
+  },
+  {
+    "no": "575",
+    "title": "Unreaching Orders",
+    "group_name": "Sense-Scans",
+    "id": "461750"
+  },
+  {
+    "no": "576",
+    "title": "Ousen's Orders",
+    "group_name": "Sense-Scans",
+    "id": "465722"
+  },
+  {
+    "no": "577",
+    "title": "An Utter Stranger",
+    "group_name": "Sense-Scans",
+    "id": "469245"
+  },
+  {
+    "no": "578",
+    "title": "By Tomorrow",
+    "group_name": "Sense-Scans",
+    "id": "474819"
+  },
+  {
+    "no": "579",
+    "title": "Twelfth Morning",
+    "group_name": "Sense-Scans",
+    "id": "479612"
+  },
+  {
+    "no": "580",
+    "title": "The Strongest Moment",
+    "group_name": "Sense-Scans",
+    "id": "483626"
+  },
+  {
+    "no": "581",
+    "title": "The View Before You",
+    "group_name": "Sense-Scans",
+    "id": "487881"
+  },
+  {
+    "no": "582",
+    "title": "The Final Night",
+    "group_name": "Sense-Scans",
+    "id": "495852"
+  },
+  {
+    "no": "583",
+    "title": "Thirteenth Day",
+    "group_name": "Sense-Scans",
+    "id": "498952"
+  },
+  {
+    "no": "584",
+    "title": "A Few Dozen Cavalrymen",
+    "group_name": "Sense-Scans",
+    "id": "502791"
+  },
+  {
+    "no": "585",
+    "title": "Raigoku",
+    "group_name": "Sense-Scans",
+    "id": "505872"
+  },
+  {
+    "no": "586",
+    "title": "A Showdown of Two Thrusts",
+    "group_name": "Sense-Scans",
+    "id": "518031"
+  },
+  {
+    "no": "587",
+    "title": "Only Prayers",
+    "group_name": "Sense-Scans",
+    "id": "526752"
+  },
+  {
+    "no": "588",
+    "title": "Right Wing's Headquarters",
+    "group_name": "Sense-Scans",
+    "id": "535695"
+  },
+  {
+    "no": "589",
+    "title": "Happenings of the Night",
+    "group_name": "Sense-Scans",
+    "id": "541702"
+  },
+  {
+    "no": "590",
+    "title": "All Out on Offence",
+    "group_name": "Sense-Scans",
+    "id": "546405"
+  },
+  {
+    "no": "591",
+    "title": "Three Great Heaven's Shield",
+    "group_name": "Sense-Scans",
+    "id": "550549"
+  },
+  {
+    "no": "592",
+    "title": "A Place To Die",
+    "group_name": "Sense-Scans",
+    "id": "555509"
+  },
+  {
+    "no": "593",
+    "title": "Chougaryuu's HQ",
+    "group_name": "Sense-Scans",
+    "id": "560040"
+  },
+  {
+    "no": "594",
+    "title": "Marker",
+    "group_name": "Sense-Scans",
+    "id": "566766"
+  },
+  {
+    "no": "595",
+    "title": "The Best",
+    "group_name": "Sense-Scans",
+    "id": "576675"
+  },
+  {
+    "no": "596",
+    "title": "Chougaryuu's HQ",
+    "group_name": "Sense-Scans",
+    "id": "583518"
+  },
+  {
+    "no": "597",
+    "title": "Good Luck",
+    "group_name": "Sense-Scans",
+    "id": "591070"
+  },
+  {
+    "no": "598",
+    "title": "Woven",
+    "group_name": "Sense-Scans",
+    "id": "595419"
+  },
+  {
+    "no": "599",
+    "title": "Right Wing's Scales",
+    "group_name": "Sense-Scans",
+    "id": "604347"
+  },
+  {
+    "no": "600",
+    "title": "Fourteenth Night",
+    "group_name": "Sense-Scans",
+    "id": "613309"
+  },
+  {
+    "no": "601",
+    "title": "The Day of Climax",
+    "group_name": "Sense-Scans",
+    "id": "627231"
+  },
+  {
+    "no": "602",
+    "title": "Riboku's Formations",
+    "group_name": "Sense-Scans",
+    "id": "633887"
+  },
+  {
+    "no": "603",
+    "title": "The Change On Day Fifteen",
+    "group_name": "Sense-Scans",
+    "id": "639138"
+  },
+  {
+    "no": "604",
+    "title": "Riboku's Tactics",
+    "group_name": "Sense-Scans",
+    "id": "643471"
+  },
+  {
+    "no": "605",
+    "title": "Ousen's Insight",
+    "group_name": "Sense-Scans",
+    "id": "649605"
+  },
+  {
+    "no": "606",
+    "title": "Origin",
+    "group_name": "Sense-Scans",
+    "id": "655757"
+  },
+  {
+    "no": "607",
+    "title": "The Commander's Conversation",
+    "group_name": "Sense-Scans",
+    "id": "659691"
+  },
+  {
+    "no": "608",
+    "title": "The Centre's Hope",
+    "group_name": "Sense-Scans",
+    "id": "669992"
+  },
+  {
+    "no": "609",
+    "title": "China's Swell",
+    "group_name": "Sense-Scans",
+    "id": "677971"
+  },
+  {
+    "no": "610",
+    "title": "Rinshoujo's Advice",
+    "group_name": "Sense-Scans",
+    "id": "683234"
+  },
+  {
+    "no": "611",
+    "title": "Ousen's Advantage",
+    "group_name": "Sense-Scans",
+    "id": "693744"
+  },
+  {
+    "no": "612",
+    "title": "He Who Holds the Answer",
+    "group_name": "Sense-Scans",
+    "id": "698595"
+  },
+  {
+    "no": "613",
+    "title": "Certain victory",
+    "group_name": "Sense-Scans",
+    "id": "702521"
+  },
+  {
+    "no": "614",
+    "title": "Pincer Attack",
+    "group_name": "Sense-Scans",
+    "id": "712216"
+  },
+  {
+    "no": "615",
+    "title": "HQ in Danger",
+    "group_name": "Sense-Scans",
+    "id": "716460"
+  },
+  {
+    "no": "616",
+    "title": "Ousen's Path Of Retreat",
+    "group_name": "Sense-Scans",
+    "id": "722207"
+  },
+  {
+    "no": "617",
+    "title": "How to Stop the Hi Shin Unit",
+    "group_name": "Sense-Scans",
+    "id": "725040"
+  },
+  {
+    "no": "618",
+    "title": "Reasons for Fighting",
+    "group_name": "Sense-Scans",
+    "id": "729410"
+  },
+  {
+    "no": "619",
+    "title": "Riboku's HQ",
+    "group_name": "Sense-Scans",
+    "id": "733798"
+  },
+  {
+    "no": "620",
+    "title": "Roar of the Bushin",
+    "group_name": "Sense-Scans",
+    "id": "737606"
+  },
+  {
+    "no": "621",
+    "title": "Caller",
+    "group_name": "Sense-Scans",
+    "id": "746751"
+  },
+  {
+    "no": "622",
+    "title": "Houken",
+    "group_name": "Sense-Scans",
+    "id": "753754"
+  },
+  {
+    "no": "623",
+    "title": "To Serve as an Example",
+    "group_name": "Sense-Scans",
+    "id": "757050"
+  },
+  {
+    "no": "624",
+    "title": "Man's Representative",
+    "group_name": "Sense-Scans",
+    "id": "761091"
+  },
+  {
+    "no": "625",
+    "title": "Contradiction's Answer",
+    "group_name": "Sense-Scans",
+    "id": "766179"
+  },
+  {
+    "no": "626",
+    "title": "Merciless Reality",
+    "group_name": "Sense-Scans",
+    "id": "769672"
+  },
+  {
+    "no": "627",
+    "title": "Where the Path Leads",
+    "group_name": "Sense-Scans",
+    "id": "774133"
+  },
+  {
+    "no": "628",
+    "title": "Embers Of Life",
+    "group_name": "Sense-Scans",
+    "id": "781124"
+  },
+  {
+    "no": "629",
+    "title": "Shin's Dream",
+    "group_name": "Sense-Scans",
+    "id": "793233"
+  },
+  {
+    "no": "630",
+    "title": "Gap Between Heaven and Earth",
+    "group_name": "Sense-Scans",
+    "id": "799275"
+  },
+  {
+    "no": "631",
+    "title": "The Red Stairway",
+    "group_name": "Sense-Scans",
+    "id": "805780"
+  },
+  {
+    "no": "632",
+    "title": "Rejoining the Fight",
+    "group_name": "Sense-Scans",
+    "id": "811104"
+  },
+  {
+    "no": "633",
+    "title": "Two from Ten",
+    "group_name": "Sense-Scans",
+    "id": "816546"
+  },
+  {
+    "no": "634",
+    "title": "Strategy Undone",
+    "group_name": "Sense-Scans",
+    "id": "826860"
+  },
+  {
+    "no": "635",
+    "title": "Mountain of Treasure",
+    "group_name": "Sense-Scans",
+    "id": "834554"
+  },
+  {
+    "no": "636",
+    "title": "Route of Resupply",
+    "group_name": "Sense-Scans",
+    "id": "839918"
+  },
+  {
+    "no": "637",
+    "title": "Gyou's Life",
+    "group_name": "Sense-Scans",
+    "id": "846707"
+  },
+  {
+    "no": "638",
+    "title": "Waterway",
+    "group_name": "Sense-Scans",
+    "id": "853593"
+  },
+  {
+    "no": "639",
+    "title": "Good News",
+    "group_name": "Sense-Scans",
+    "id": "860230"
+  },
+  {
+    "no": "640",
+    "title": "Nation's Keystone",
+    "group_name": "Sense-Scans",
+    "id": "867287"
+  },
+  {
+    "no": "641",
+    "title": "A Pressing Issue",
+    "group_name": "Sense-Scans",
+    "id": "875440"
+  }
+]

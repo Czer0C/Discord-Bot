@@ -9,6 +9,7 @@ async function getChapter(chapterNo) {
     });
 
     const chapterList = searchChapter.data.chapter;
+
     let chapterID = null;
     for (let key of Object.keys(chapterList)) {
         let ch = chapterList[key];
