@@ -13,9 +13,8 @@ module.exports = {
                 const chapterEmbed = embed({
                     color: `#eedddd`,
                     title: `Chapter ${chapter.no}: ${chapter.title}`,
-                    content: `[Read on Mangadex](${`https://mangadex.org/chapter/${chapter.id}`})`,
-                    message: message,
-                    image: chapter.image
+                    content: `[To Mangadex](${`https://mangadex.org/chapter/${chapter.id}`})`,
+                    message: message
                 });
                 
                 return message.channel.send(chapterEmbed);

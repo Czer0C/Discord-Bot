@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const utility = require('./utility/utility.js');
 const { prefix, token, staffRole, modRole, adminRole } = require('./config.json');
 const imageList = require('./asset/imageList.json');
 const { quote } = require('./utility/quote.js');
@@ -34,7 +33,9 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
-	
+	if (message.channel.id === '713406898719817748' && message.content !== '.acknowledged')
+		return message.delete();
+
     if (!message.content.startsWith(prefix) || message.author.bot) {
 		// Check quote command (pass a message URL)
 		quote(message).then(r => {
@@ -44,7 +45,8 @@ client.on('message', message => {
 					return message.channel.send(r.embedQuote);
 				}
 				else return message.channel.send("**Invalid message link** :x:");
-		});		
+		});	
+			
 		return;
 	}
 	
