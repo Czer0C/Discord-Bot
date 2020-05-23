@@ -10,7 +10,8 @@
     "discord.js": "^12.2.0",
     "googleapis": "^51.0.0",
     "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "text-table": "^0.2.0"
   },
   "devDependencies": {},
   "scripts": {

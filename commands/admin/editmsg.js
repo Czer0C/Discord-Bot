@@ -1,4 +1,4 @@
-const utility = require('../../utility/utility.js');
+const { checkMessageURL } = require('../../utility/utility.js');
 
 module.exports = {
 	name: 'editmsg',
@@ -9,7 +9,7 @@ module.exports = {
 	execute(message, args) {
         if (args.length > 1) {
             const messageURL = args[0];
-            const parse = utility.checkMessageURL(messageURL)
+            const parse = checkMessageURL(messageURL)
             
             if (parse.isValid) {
                 let newContent = "";

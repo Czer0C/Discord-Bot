@@ -2,6 +2,7 @@ const http = require('http');
 
 checkMessageURL = (URL) => {
     let result = {
+        url: URL,
         server: '',
         channel: '',
         message: '',
