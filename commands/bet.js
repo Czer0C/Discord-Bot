@@ -1,3 +1,4 @@
+const { staffRole } = require('../config.json');
 const { checkMessageURL } = require('../utility/utility.js');
 const { embed } = require('../utility/embed.js');
 const editmsg = require('./admin/editmsg.js');
@@ -15,7 +16,9 @@ module.exports = {
         if (!directives.find(i => i === directive))
             return message.channel.send(`**Please pick one of the 3 options in \`${directives}\`** :warning:`)
 
-        if (directive !== 'stat') {
+        if (directive !== 'stat') { 
+            if (!message.member.roles.cache.has(staffRole))
+			    return message.channel.send(`**You don't have permission to use this feature** :x: `); 
             if (!args[1]) return message.channel.send("**Please provide a message link** :warning:");
 
             const messageLink = args[1];
