@@ -18,7 +18,7 @@ module.exports = {
 
         if (directive !== 'stat') { 
             if (!message.member.roles.cache.has(staffRole))
-			    return message.channel.send(`**You don't have permission to use this feature** :x: `); 
+			    return message.channel.send(`**You only have permission to check bet rank via \`.bet stat\`** :x: `); 
             if (!args[1]) return message.channel.send("**Please provide a message link** :warning:");
 
             const messageLink = args[1];

@@ -1,0 +1,9 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "editor.rulers": [80, 120]
+}
