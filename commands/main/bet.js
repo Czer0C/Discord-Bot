@@ -1,8 +1,8 @@
-const { staffRole } = require('../config.json');
-const { checkMessageURL } = require('../utility/utility.js');
-const { embed } = require('../utility/embed.js');
-const editmsg = require('./admin/editmsg.js');
-const betTracking = require('../asset/betTracking.json');
+const { staffRole } = require('../../config.json');
+const { checkMessageURL } = require('../../utility/utility.js');
+const { embed } = require('../../utility/embed.js');
+const editmsg = require('../admin/editmsg.js');
+const betTracking = require('../../asset/betTracking.json');
 const fs = require('fs');
 
 module.exports = {

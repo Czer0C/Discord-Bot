@@ -1,6 +1,6 @@
-const { argsToString } = require('../utility/utility.js');
-const { embed } = require('../utility/embed.js');
-const wikia = require('../utility/externalAPI/wikia.js');
+const { argsToString } = require('../../utility/utility.js');
+const { embed } = require('../../utility/embed.js');
+const wikia = require('../../utility/externalAPI/wikia.js');
 
 module.exports = {
 	name: 'wiki',

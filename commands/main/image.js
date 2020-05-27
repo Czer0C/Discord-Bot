@@ -1,5 +1,5 @@
-const imageList = require('../asset/imageList.json');
-const { generalRole, staffRole } = require('../config.json');
+const imageList = require('../../asset/imageList.json');
+const { generalRole, staffRole } = require('../../config.json');
 
 module.exports = {
 	name: 'image',

@@ -1,5 +1,5 @@
-const { argsToString } = require('../utility/utility.js');
-const { embed } = require('../utility/embed.js');
+const { argsToString } = require('../../utility/utility.js');
+const { embed } = require('../../utility/embed.js');
 
 module.exports = {
 	name: 'issue',

@@ -1,4 +1,4 @@
-const mangadex = require('../utility/externalAPI/mangadex.js');
+const mangadex = require('../../utility/externalAPI/mangadex.js');
 const Discord = require('discord.js');
 
 module.exports = {

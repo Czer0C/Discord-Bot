@@ -1,8 +1,8 @@
-const mangadex = require('../utility/externalAPI/mangadex.js');
+const mangadex = require('../../utility/externalAPI/mangadex.js');
 const Discord = require('discord.js');
 const fetch = require("node-fetch");
 const http = require('http');
-const { getASOT } = require('../utility/utility.js');
+const { getASOT } = require('../../utility/utility.js');
 const fs = require('fs');
 module.exports = {
     name: 'test',

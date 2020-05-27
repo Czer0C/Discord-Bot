@@ -1,5 +1,5 @@
-const { embed } = require('../utility/embed.js');
-const chapterList = require('../asset/chapterList.json');
+const { embed } = require('../../utility/embed.js');
+const chapterList = require('../../asset/chapterList.json');
 
 module.exports = {
 	name: 'chapter',

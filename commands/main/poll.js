@@ -1,5 +1,5 @@
-const { processArguments, standardize } = require('../utility/utility.js');
-const { embed } = require('../utility/embed.js');
+const { processArguments, standardize } = require('../../utility/utility.js');
+const { embed } = require('../../utility/embed.js');
 
 module.exports = {
 	name: 'poll',

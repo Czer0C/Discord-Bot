@@ -1,4 +1,4 @@
-const { embed } = require('../utility/embed.js');
+const { embed } = require('../../utility/embed.js');
 
 module.exports = {
 	name: 'avatar',

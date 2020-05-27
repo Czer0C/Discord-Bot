@@ -1,4 +1,4 @@
-const { chatRole } = require('../config.json');
+const { chatRole } = require('../../config.json');
 const welcomeChannel = '479655044183097345';
 
 module.exports = {
