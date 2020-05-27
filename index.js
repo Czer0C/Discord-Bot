@@ -39,8 +39,6 @@ client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) {
         // Check quote command (pass a message URL)
         quote(message).then(result => {
-            console.log(result);
-
             if (result.isMessageURL) {
                 if (result.embedQuote) {
                     message.delete();

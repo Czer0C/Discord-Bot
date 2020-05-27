@@ -6,22 +6,26 @@ module.exports = {
     description: 'Return a pic.',
     async execute (message, args, client, commandName) {
         const image = imageList.find(i => i.name === commandName);
-        
+
         if (image) {
             const imageEmbed = {
                 image: {
                     url: image.link,
                 },
             };
+            const roleCache = message.member.roles.cache;
 
-            if (image.rank === "1" && !message.member.roles.cache.has(generalRole)) 
+            if (image.rank === "1" && !roleCache.has(generalRole))  {
                 return message.reply(" no weight!");
-            else if (image.rank === "2" && !message.member.roles.cache.has(staffRole)) 
+            } else if (image.rank === "2" && !roleCache.has(staffRole)) {
                 return message.reply(" no weight again!");
-                 
+            }
+                
             message.channel.send({ embed: imageEmbed });
         }
-        else
-            message.channel.send("**There was an error trying to execute that command** :x:");
+        else {
+            message.channel.send(`**An unexpected error has occurred** :x:`);
+        }
+            
     }
 }
