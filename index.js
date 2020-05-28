@@ -13,6 +13,9 @@ const {
 const {
     getAllFiles
 } = require('./utility/utility.js');
+const {
+    scraper
+} = require('./utility/scraper.js');
 
 const commandFiles = getAllFiles("commands");
 
@@ -29,6 +32,10 @@ const cooldowns = new Discord.Collection();
 client.once('ready', () => {
     console.log('Ready!');
 });
+
+let count = 0;
+
+setInterval(scraper, 60000, client, '킹덤', count);
 
 client.on('message', message => {
     if (message.channel.id === '713406898719817748' &&
