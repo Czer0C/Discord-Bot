@@ -16,7 +16,7 @@ scraper = async (client, keyword, count) => {
             
         ) 
     for (let l of links) {
-        if (l.title.includes(keyword)) {
+        if (l.title.includes(keyword) || l.title.includes('act-age')) {
             let content = `<@&715446627309060127>\n${l.link}`;
             
             client.channels.fetch('479655044183097345')
