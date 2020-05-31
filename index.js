@@ -11,7 +11,8 @@ const {
     quote
 } = require('./utility/quote.js');
 const {
-    getAllFiles
+    getAllFiles,
+    getPages
 } = require('./utility/utility.js');
 const {
     scraper,
@@ -37,7 +38,6 @@ client.once('ready', () => {
 let count = 0;
 
 setInterval(scraper, 60000, client, '킹덤', count);
-
 
 client.on('message', message => {
     if (message.channel.id === '713406898719817748' &&

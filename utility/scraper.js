@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-scraper = async (client, count) => {
+scraper = async (client, keyword, count) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto("https://manamoa.net/").then(async () => {

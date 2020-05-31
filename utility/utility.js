@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
-
+const puppeteer = require('puppeteer');
+const linkList = require('../asset/linkList.json');
 checkMessageURL = (URL) => {
     let result = {
         url: URL,
@@ -81,6 +82,53 @@ getASOT = (link) => {
     });
 }
 
+
+getPages = async (link) => {
+    const browser = await puppeteer.launch({headless: true});
+    const page = await browser.newPage();
+    
+    await page.goto('https://hako.re/forum/');
+    await page.click('.p-navgroup-link.p-navgroup-link--textual.p-navgroup-link--logIn');
+    await page.waitFor(5000);
+
+    await page.screenshot({path: 'test.png'});
+
+    await page.type('[name=login]', 'CzeroC');
+    await page.type('[name=password]', 'helsangel123');
+
+    await page.screenshot({path: 'test2.png'});
+
+    await page.click('.button--primary.button.button--icon.button--icon--login');
+
+    await page.screenshot({path: 'test3.png'});
+
+    
+    let t = linkList.slice(0, 10);
+    
+    for (let link of linkList) {
+        await page.
+        goto(link.link).
+        then().
+        catch(error => console.error());
+    
+        await page.waitFor(2000);
+
+        await page.pdf({
+            path: `./VN/${link.title}.pdf`,
+            format: "A4",
+            printBackground: true,
+            margin: {
+            left: "0px",
+            top: "0px",
+            right: "0px",
+            bottom: "0px"
+            }
+        }).then().catch(error => console.error());
+    }    
+    console.log("done");
+}
+
+
 standardize = (string) => {
     return string.replace(/[\u2018\u2019]/g, "'") // smart single quotes
         .replace(/[\u201C\u201D]/g, '"'); // smart double quotes;
@@ -92,3 +140,4 @@ module.exports.processArguments = processArguments;
 module.exports.argsToString = argsToString;
 module.exports.getASOT = getASOT;
 module.exports.getAllFiles = getAllFiles;
+module.exports.getPages = getPages;
