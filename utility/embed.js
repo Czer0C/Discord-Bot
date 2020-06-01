@@ -16,18 +16,21 @@ embed = (detail) => {
     if (!color || !color.match(colorRegex)) color = "#7289DA";
     if (icon === true || icon === undefined) icon = message.author.displayAvatarURL({dynamic: true});
     else if (icon === false) icon = null;
-    if (!footer) footer = `${message.createdAt.toLocaleDateString()} • ${message.createdAt.toLocaleTimeString()}`;
+
+    if (footer === true || footer === undefined) footer = `${message.createdAt.toLocaleDateString()} • ${message.createdAt.toLocaleTimeString()}`;
+    else if (footer === false) footer = null;
 
     const customEmbed = new Discord.MessageEmbed();
 
     customEmbed.setColor(color)
                 .setTitle(title ? title : "")
                 .setDescription(content ? content : message.content)
-                .setFooter(footer);
 
     if (author) customEmbed.setAuthor(author, icon);
     
     if (image) customEmbed.setImage(image.proxyURL || image);       
+
+    if (footer) customEmbed.setFooter(footer);
     
     return customEmbed;
 }

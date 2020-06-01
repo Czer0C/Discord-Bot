@@ -19,7 +19,7 @@ scraper = async (client, keyword, count) => {
                 let content = `<@&715446627309060127>\n${l.link}`;
                 
                 client.channels.fetch('479655044183097345')
-                            .then(channel => channel.send(content));
+                               .then(channel => channel.send(content));
             
                 break;
             }
