@@ -10,23 +10,18 @@ module.exports = {
 	async execute(message, args) {
         const query = argsToString(args).slice(0, -1);
         
-        const searching = wikia.searchWikia(query).then(wikiPages => {
-            let title = `Articles related to '${query}':`;
-            let content = "";
-            let searchLimit = wikiPages.length > 10 ? 10 : wikiPages.length;
-
-            if (searchLimit === 0) 
-                content = `Nothing found :x:`;
-            else
-                for (let i = 0; i < searchLimit; i++)
-                    content += `[${wikiPages[i].title}](${wikiPages[i].url})\n`;
+        wikia.searchWikia(query).then(async wikiPages => {
+            wikiPages = wikiPages.slice(0, 10);
+            let content = await wikiPages.reduce(
+                (acc, row) => acc + `[${row.title}](${row.url})\n`, '');
             
             const response = embed({
                 color: "#541f1f",
                 author: "",
-                title: title,
-                content: content,
-                message: message
+                title: `Articles related to '${query}':`,
+                content: content.length === 0 ? 'Nothing found ❌' : content,
+                message: message,
+                footer: false
             });
 
             message.channel.send(response);   

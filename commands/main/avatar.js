@@ -20,7 +20,8 @@ module.exports = {
 			icon: false,
 			content: `[Direct link](${avatar})`,
 			message: message,
-			image: avatar
+            image: avatar,
+            footer: false
         });
         
 		message.channel.send(avatarEmbed);

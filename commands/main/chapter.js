@@ -14,7 +14,8 @@ module.exports = {
                     color: `#eedddd`,
                     title: `Chapter ${chapter.no}: ${chapter.title}`,
                     content: `[To Mangadex](${`https://mangadex.org/chapter/${chapter.id}`})`,
-                    message: message
+                    message: message,
+                    footer: false
                 });
                 
                 return message.channel.send(chapterEmbed);

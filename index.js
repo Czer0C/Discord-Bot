@@ -16,7 +16,9 @@ const {
 } = require('./utility/utility.js');
 const {
     scraper,
-    scraper2
+    scraper2,
+    scraper3,
+    scrapeSenseScan
 } = require('./utility/scraper.js');
 
 const commandFiles = getAllFiles("commands");
@@ -35,25 +37,29 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-let count = 0;
-
-setInterval(scraper, 60000, client, '킹덤', count);
+//setInterval(scraper, 60000, client, '킹덤');
+setInterval(scrapeSenseScan, 10000, client);
 
 client.on('message', message => {
-    if (message.channel.id === '713406898719817748' &&
-        message.content !== '.acknowledged') {
+    const {
+        channel,
+        content,
+        author,
+        member
+    } = message;
+
+    if (channel.id === '713406898719817748' && content !== '.acknowledged') {
         return message.delete();
     }
 
-    if (!message.content.startsWith(prefix) || message.author.bot) {
-        // Check quote command (pass a message URL)
+    if (!content.startsWith(prefix) || author.bot) {
         quote(message).then(result => {
             if (result.isMessageURL) {
                 if (result.embedQuote) {
                     message.delete();
-                    return message.channel.send(result.embedQuote);
+                    return channel.send(result.embedQuote);
                 } else {
-                    return message.channel.send("**Invalid message link** :x:");
+                    return channel.send("**Invalid message link** ❌");
                 }
             }
         });
@@ -61,7 +67,7 @@ client.on('message', message => {
         return;
     }
 
-    const args = message.content.slice(prefix.length).split(/ +/);
+    const args = content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
 
     let command = 
@@ -73,35 +79,33 @@ client.on('message', message => {
         if (imageList.find(i => i.name === commandName)) {
             command = client.commands.get("image");
         } else {
-            return message.channel.send("**There's no such command** :x:");
+            return channel.send("**There's no such command** ❌");
         }            
     }
 
-    if (command.guildOnly && message.channel.type !== 'text') {
+    if (command.guildOnly && channel.type !== 'text') {
         return message.reply('I can\'t execute that command inside DMs!');
     }        
 
     if (command.staffOnly) {
-        if (!message.member.roles.cache.has(staffRole)) {
+        if (!member.roles.cache.has(staffRole)) {
             return message.reply(` **only staff can use this command**⚠️`);
-        } else if (command.modOnly && 
-                   !message.member.roles.cache.has(modRole)) {
+        } else if (command.modOnly && !member.roles.cache.has(modRole)) {
             return message.reply(' **only moderators can use this command**⚠️');
-        } else if (command.adminOnly && 
-                   !message.member.roles.cache.has(adminRole)) {
+        } else if (command.adminOnly && !member.roles.cache.has(adminRole)) {
             return message.reply(' **only admins can use this command**⚠️');
         }
     }
 
     if (command.args && !args.length) {
-        let reply = `** you didn't provide any arguments**, ${message.author}!`;
+        let reply = `** you didn't provide any arguments** ⚠️`;
 
         if (command.usage) {
             reply += `\n**The proper usage would be:** ` +
                      `\`${prefix}${command.name} ${command.usage}\``;
         }
 
-        return message.channel.send(reply);
+        return message.reply(reply);
     }
 
     if (!cooldowns.has(commandName)) {
@@ -112,8 +116,8 @@ client.on('message', message => {
     const timestamps = cooldowns.get(commandName);
     const cooldownAmount = (command.cooldown || 2) * 1000;
 
-    if (timestamps.has(message.author.id)) {
-        let expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+    if (timestamps.has(author.id)) {
+        let expirationTime = timestamps.get(author.id) + cooldownAmount;
 
         if (now < expirationTime) {
             let timeLeft = (expirationTime - now) / 1000;
@@ -124,8 +128,8 @@ client.on('message', message => {
         }
     }
 
-    timestamps.set(message.author.id, now);
-    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+    timestamps.set(author.id, now);
+    setTimeout(() => timestamps.delete(author.id), cooldownAmount);
 
     try {
         command.execute(message, args, client, commandName);

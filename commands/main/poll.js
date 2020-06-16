@@ -28,7 +28,8 @@ module.exports = {
             icon: true,
             title: `**${realArgs[0]}**\n\n`,
             content: detail,
-            message: message
+            message: message,
+            footer: false
         });
         
         message.delete();
