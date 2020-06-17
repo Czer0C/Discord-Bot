@@ -79,7 +79,7 @@ client.on('message', message => {
         if (imageList.find(i => i.name === commandName)) {
             command = client.commands.get("image");
         } else {
-            return channel.send("**There's no such command** ❌");
+            return channel.send("**Invalid command's name or usage** ❌");
         }            
     }
 

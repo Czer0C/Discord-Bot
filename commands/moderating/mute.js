@@ -12,9 +12,6 @@ module.exports = {
             return message.reply(' **you need to tag a user to use this command** ⚠️');
         }
 
-
-
-			
 		const target = message.mentions.members.first();
         const role = message.guild.roles.cache.find(role => role.id === muteRole);
 		const logChannel = message.guild.channels.cache.get(loggingChannel);
@@ -33,13 +30,24 @@ module.exports = {
 			color: '#5499C7',
 			author: `${target.user.tag} has been been muted 🔇`,
 			icon: target.user.displayAvatarURL({dynamic: true}),
-			content: `**Reason:** ${reason}\n**Moderator:** ${message.author}`,
+            content: `**Reason:** ${reason}\n`,
+            footer: false,
 			message: message
-		})
+        })
+        
+
+        const muteLogEmbed = embed({
+            color: '#5499C7',
+			author: `${target.user.tag} has been been muted 🔇`,
+			icon: target.user.displayAvatarURL({dynamic: true}),
+            content: `**Reason:** ${reason}\n**Moderator**: ${message.author.username}`,
+            footer: false,
+			message: message
+        })
 
         target.roles.add(role).then(target => {
 			message.channel.send(muteEmbed);
-			logChannel.send(muteEmbed);
+			logChannel.send(muteLogEmbed);
 		}).catch(error => {		
 			console.log(error);
 		   	message.channel.send("*Something unexpected happened, try again later* :x:");
