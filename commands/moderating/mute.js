@@ -8,25 +8,26 @@ module.exports = {
 	modOnly: false,
 	staffOnly: true,
 	execute(message, args) {
-		if (!message.mentions.users.size)
-			return message.reply(' **you need to tag a user to use this command** :warning:');
+		if (!message.mentions.users.size) {
+            return message.reply(' **you need to tag a user to use this command** ⚠️');
+        }
 
+
+
+			
 		const target = message.mentions.members.first();
         const role = message.guild.roles.cache.find(role => role.id === muteRole);
 		const logChannel = message.guild.channels.cache.get(loggingChannel);
 		
-        if (target.roles.cache.has(staffRole))
-            return message.reply(` **can't do that to a staff member** :warning: `); 
-		else if (target.roles.cache.has(muteRole))
-			return message.reply(' **this user has already been muted** :warning: ');
+        if (target.roles.cache.has(staffRole)) {
+            return message.reply(` **can't do that to a staff member** ⚠️`); 
+        } else if (target.roles.cache.has(muteRole)) {
+            return message.reply(' **this user has already been muted** ⚠️');
+        }
 
-		let reason = ""
-
-		if (args.length > 1)
-			for (var i = 1; i < args.length; i++) 
-				reason += args[i] + " "
-		else 
-			reason = "unspecified."
+        let reason = args.length > 1 ? 
+                     args.slice(1).reduce((line, arg) => line + ' ' + arg) :
+                     'unspecified';
 
 		const muteEmbed = embed({
 			color: '#5499C7',

@@ -7,13 +7,14 @@ module.exports = {
     args: true,
     usage: '<your suggestion/problem here>',
 	async execute(message, args) {
-        const query = argsToString(args).slice(0, -1);
+        const content = args.reduce((line, word) => line + ' ' + word);
         const detail = {
             author: message.author.username,
-            content: query,
+            content: content,
             icon: true,
             message: message,
-            image: message.attachments.first()
+            image: message.attachments.first(),
+            footer: false
         }
         const issueEmbed = embed(detail);
         const channel = message.guild.channels.cache.get('504496908346195999');

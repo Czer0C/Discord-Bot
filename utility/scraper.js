@@ -7,22 +7,23 @@ const { rss } = require('../config.json');
 scrapeSenseScan = async (client) => {
     let parser = new Parser();
     
+
     parser.parseURL(rss, (err, feed) => {
         if (err) {
             console.log(err);
             return;
         }
         console.log(feed.items.length)
+
         for (let i of feed.items) {
             if (i.title.includes('Kingdom')) {
-                client.channels.fetch('721933602635644998').then(ch => {       
+                client.channels.fetch('721933602635644998')
+                .then(ch => {       
                     
                     ch.messages.fetch({limit: 1})
-                               .then(messages => {                  
-                                
-                                   let latestLink = messages.values().next().value.content;
-                                   if (latestLink !== i.link) {
-                            
+                               .then(messages => {     
+                                    let latestLink = messages.values().next().value.content;
+                                    if (latestLink !== i.link) {                            
                                         const announcement =
                                         `${i.title} @everyone\n\n` +
                                         `Read Online: ${i.link}\n\n` +
@@ -31,13 +32,13 @@ scrapeSenseScan = async (client) => {
                                         ``;
                                     // #announcement
                                     client.channels.fetch('716872988171042877')
-                                            .then(channel => channel.send(announcement));
+                                                   .then(channel => channel.send(announcement));
                                     ch.send(i.link);                        
-                                   }
-                               })
-                               .catch(console.error);
-    
+                        }
+                    })
+                    .catch(console.error);    
                 })
+                .catch(console.error);
                 
                 break;
             }
