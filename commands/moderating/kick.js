@@ -36,7 +36,7 @@ module.exports = {
         })
 
         const kickLogEmbed = embed({
-            color: '#5499C7',
+            color: '#EB984E',
 			author: `${target.user.tag} has been kicked 👢`,
 			icon: target.user.displayAvatarURL({dynamic: true}),
             content: `**Reason:** ${reason}\n**Moderator**: ${message.author}`,
