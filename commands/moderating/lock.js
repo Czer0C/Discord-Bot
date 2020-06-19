@@ -19,27 +19,24 @@ module.exports = {
 
         let reason = args.reduce((line, arg) => line + ' ' + arg, '')
         
-        let lockContent = 
-            `This channel has been locked 🔒\n\n` + 
-            `${reason ? `**Reason:** ${reason}\n` : ''}` + 
-            ``;
-
         const lockEmbed = embed({
             color: '#AF7AC5',
-		    content: lockContent,
+            author: `This channel has been locked 🔒`,
+            icon: false,
+		    content: `${reason ? `**Reason:** ${reason}\n` : '\n'}`,
             message: message,
             footer: false
         })
 
-        let lockReport = 
-            `<#${channel.id}> has been locked. 🔒\n
-            **Reason:** ${reason ? reason : 'unspecified'}\n
+        let lockReport = `
+            **Reason:** ${reason ? reason : 'unspecified'}
             **Moderator:** ${message.author}
             `;
 
 		const logEmbed = embed({
 			color: '#AF7AC5',
-			icon: false,
+            icon: false,
+            author: `#${channel.name} has been locked. 🔒`,
 			content: lockReport,
             message: message,
             footer: false

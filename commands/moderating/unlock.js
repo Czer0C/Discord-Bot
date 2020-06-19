@@ -15,22 +15,18 @@ module.exports = {
         if (channelPermission) {            
             let reason = args.reduce((line, arg) => line + ' ' + arg, '');
             
-            let unlockContent = 
-                `This channel has been unlocked ✅\n` + 
-                `${reason ? `**Reason:** ${reason}\n` : ''}` +
-                ``;
-
             const unlockEmbed = embed({
                 color: '#A569BD',
+                author: `This channel has been unlocked ✅`,
                 icon: false,
-                content: unlockContent,
+                content: `${reason ? `**Reason:** ${reason}\n` : '\n'}`,
                 message: message,
                 footer: false
             })
 
             let unlockReport =
                 `<#${channel.id}> has been unlocked. ✅\n
-                **Reason:** ${reason ? reason : 'unspecified'}\n
+                **Reason:** ${reason ? reason : 'unspecified'}
                 **Moderator:** ${message.author}
                 `;
 
