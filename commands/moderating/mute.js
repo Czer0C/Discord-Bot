@@ -40,7 +40,7 @@ module.exports = {
             color: '#5499C7',
 			author: `${target.user.tag} has been been muted 🔇`,
 			icon: target.user.displayAvatarURL({dynamic: true}),
-            content: `**Reason:** ${reason}\n**Moderator**: ${message.author.username}`,
+            content: `**Reason:** ${reason}\n**Moderator**: ${message.author}`,
             footer: false,
 			message: message
         })
