@@ -1,12 +1,12 @@
 {
-	"prefix": ".",
+	"prefix": "`",
 	"token": "NzA5OTQ0NTMwMTc0MjE0MjQ2.XrtS5g.ctTowv9pcrfOwX8Y-9dnWlMurg8",
-	"muteRole": "505188874163585025",
-	"adminRole": "479655757420429315",
-	"modRole": "504240764377890826",
-	"staffRole": "643435170162278438",
-	"chatRole": "579274582431891466",
-	"generalRole": "712288311745708173",
-    "loggingChannel": "504496908346195999",
+	"muteRole": "502081621613346826",
+	"adminRole": "400135368437137421",
+	"modRole": "400661526530359317",
+	"staffRole": "684289189390319638", 
+	"chatRole": "405600130860056577",
+	"generalRole": "400133699720708108",
+    "loggingChannel": "427652466880938004",
     "rss": "http://sensescans.com/index.php?action=.xml;type=rss;board=45.0;sa=news"
 }

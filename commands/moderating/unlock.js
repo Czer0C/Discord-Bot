@@ -39,11 +39,11 @@ module.exports = {
             })  
 
             channelPermission.delete().then(() => {
-                message.channel.send(unlockEmbed);	
+                channel.send(unlockEmbed);	
                 logChannel.send(logEmbed);
             }).catch(error => {
                 console.log(error);
-                message.channel.send("**Something unexpected happened, try again later** ⚠️");
+                channel.send("**Something unexpected happened, try again later** ⚠️");
             });           
         }
         else {

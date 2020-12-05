@@ -21,6 +21,21 @@ const {
     scrapeSenseScan
 } = require('./utility/scraper.js');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const commandFiles = getAllFiles("commands");
 
 const client = new Discord.Client();
@@ -40,6 +55,31 @@ client.once('ready', () => {
 //setInterval(scraper, 60000, client, '킹덤');
 setInterval(scrapeSenseScan, 10000, client);
 
+
+client.on('messageDelete', async (message) => {
+    const logs = message.guild.channels.cache.find(channel => channel.name === "bot-testing");
+    
+    const test = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'});
+    console.log(test.entries.first())
+    console.log(message)
+
+    const entry = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'})
+    .then(audit => audit.entries.first())
+
+    
+
+    let user = ""
+    if (entry.extra.channel.id === message.channel.id
+        && (entry.target.id === message.author.id)
+        && (entry.createdTimestamp > (Date.now() - 5000))
+        && (entry.extra.count >= 1)) {
+      user = entry.executor.username
+    } else { 
+      user = message.author.username
+    }
+    logs.send(`A message by ${message.author.username} was deleted in <#${message.channel.id}> by ${user}`);
+  })
+
 client.on('message', message => {
     const {
         channel,
@@ -47,6 +87,10 @@ client.on('message', message => {
         author,
         member
     } = message;
+
+    if (!author.bot && !member.roles.cache.has('684289189390319638')) {
+        return;
+    }
 
     if (channel.id === '713406898719817748' && content !== '.acknowledged') {
         return message.delete();
@@ -67,6 +111,8 @@ client.on('message', message => {
         return;
     }
 
+    
+    
     const args = content.slice(prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
 

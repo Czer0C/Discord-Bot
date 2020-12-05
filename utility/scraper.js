@@ -13,7 +13,7 @@ scrapeSenseScan = async (client) => {
             console.log(err);
             return;
         }
-        console.log(feed.items.length)
+        
 
         for (let i of feed.items) {
             if (i.title.includes('Kingdom')) {
@@ -25,13 +25,13 @@ scrapeSenseScan = async (client) => {
                                     let latestLink = messages.values().next().value.content;
                                     if (latestLink !== i.link) {                            
                                         const announcement =
-                                        `${i.title} @everyone\n\n` +
+                                        `${i.title} <@&684289189390319638>\n\n` +
                                         `Read Online: ${i.link}\n\n` +
                                         `Download: https://turnipfarmers.wordpress.com/\n\n` +
                                         `Reddit Discussion: "pending"\n` +
                                         ``;
                                     // #announcement
-                                    client.channels.fetch('716872988171042877')
+                                    client.channels.fetch('400665733429985290')
                                                    .then(channel => channel.send(announcement));
                                     ch.send(i.link);                        
                         }

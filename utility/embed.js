@@ -14,6 +14,7 @@ embed = (detail) => {
     
     const colorRegex = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
     if (!color || !color.match(colorRegex)) color = "#7289DA";
+    
     if (icon === true || icon === undefined) icon = message.author.displayAvatarURL({dynamic: true});
     else if (icon === false) icon = null;
 
@@ -26,7 +27,7 @@ embed = (detail) => {
                 .setTitle(title ? title : "")
                 .setDescription(content ? content : message.content)
 
-    if (author) customEmbed.setAuthor(author, icon);
+    if (author !== "false") customEmbed.setAuthor(author, icon);
     
     if (image) customEmbed.setImage(image.proxyURL || image);       
 
