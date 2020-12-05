@@ -60,11 +60,10 @@ client.on('messageDelete', async (message) => {
     const logs = message.guild.channels.cache.find(channel => channel.name === "bot-testing");
     
     const test = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'});
-    console.log(test.entries.first())
-    console.log(message)
 
-    const entry = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'})
-    .then(audit => audit.entries.first())
+    const entry = 
+            await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'})
+                                .then(audit => audit.entries.first())
 
     
 
