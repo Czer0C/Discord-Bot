@@ -11,7 +11,8 @@ checkMessageURL = (URL) => {
         isValid: false
     }
 
-    if (URL.startsWith("https://discordapp.com/channels/")) {
+    if (URL.startsWith("https://discordapp.com/channels/") || 
+        URL.startsWith("https://discord.com/channels/")) {
         let ids = URL.split("/");
         result.server = ids[4];
         result.channel = ids[5];

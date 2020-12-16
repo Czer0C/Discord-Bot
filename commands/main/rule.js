@@ -113,6 +113,7 @@ module.exports = {
         }
 
         const ruleEmbed = embed({
+            author: 'false',
             title: title,
             content: content,
             footer: hint === true ? 'For detail type .rule <keyword>' : false,
