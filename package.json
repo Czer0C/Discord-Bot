@@ -6,7 +6,6 @@
   "dependencies": {
     "@google-cloud/local-auth": "^0.1.0",
     "axios": "^0.19.2",
-    "canvas": "^2.6.1",
     "discord.js": "^12.2.0",
     "firebase-admin": "^9.4.0",
     "glob": "^7.1.6",
