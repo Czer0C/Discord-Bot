@@ -31,20 +31,22 @@ const addGiveaway = (message, args) => {
         restructure += args[j] + " ";
 
     const t = processArguments(standardize(restructure));
-    console.log(t);
+    //console.log(t);
     if (t.length !== 3) {
         return message.channel.send(`**Missing arguments :x:\nThe correct usage is: \`${this.usage}\`**`);
     }
 
-    const content = `${t[0]}\nReact with :tada: to join\n**Only members with 3000-man commander rank will be validated**`
+    const content = 
+        `${t[0]}\n**${t[1]}** winner(s) **|** Duration: **${t[2]}**\n__**React with 🎉 to join**__`;
+
     const giveawayEmbed = embed({
         color: '#F4D03F',
         author: "false",
         icon: false,
-        title: `:tada: **GIVE AWAY** :tada:`,
+        title: `🎉 **GIVE AWAY** 🎉`,
         content: content,
         message: message,
-        footer: `${t[1]} winner(s) | duration: ${t[2]}`
+        footer: `Requirement: 3000-man commander rank and above`
     });
     
     //message.delete();

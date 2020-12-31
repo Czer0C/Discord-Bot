@@ -15,6 +15,17 @@ admin.initializeApp({
 
 const db = admin.database();
 
+const emojiNext = '▶️'; // unicode emoji are identified by the emoji itself
+const emojiPrevious = '◀️';
+const reactionArrow = [emojiPrevious, emojiNext];
+
+const time = 60000; // time limit: 1 min
+
+const pagination = 7;
+
+const filter = (reaction, user) => {
+    return (!user.bot) && (reactionArrow.includes(reaction.emoji.name));
+};
 
 module.exports = {
 	name: 'note',
@@ -35,14 +46,43 @@ module.exports = {
         }     
         else if (args[0] === 'view') {
             db.ref('/violators').once("value", snapshot => {
-                let violators = snapshot.val()
+                let violators = snapshot.val();
                 
-                if (args[1] === 'all') {
-                    let list = `⚠️**List of past violators**⚠️\n`
-                    for (let v in violators) {
-                        list += `<@${v}>: ${violators[v].charge}\n`
-                    }
-                    return message.channel.send(list)
+                if (args[1] === 'all') {                        
+                    let vArray = toArray(violators);
+                    let curr = 0; 
+                    
+
+                    message.channel.send(getList(vArray, curr)).then(async msg => {
+                         msg.react(emojiPrevious)
+                            .then(msgReaction => msgReaction.message.react(emojiNext))
+                            .then(msgReaction => {
+                                let i = 0;
+                                const collector = msg.createReactionCollector(filter, { time });
+                                collector.on('collect', r => {
+                                    // i = onCollect(r.emoji, msg, i, getList(vArray, curr));
+                                    if ((r.emoji.name === emojiPrevious)) {   
+                                        if (curr - pagination < 0) {
+                                            
+                                        } else {
+                                            curr -= pagination;
+                                        }
+                                        msg.edit(getList(vArray, curr));
+                                      } else if ((r.emoji.name === emojiNext)) {  
+                                        if (curr + pagination > vArray.length - 1) {
+                                            
+                                        } else {
+                                            curr += pagination;
+                                        }         
+                                        msg.edit(getList(vArray, curr));
+                                      }
+                                });
+                            });              
+                        
+                        
+                    });            
+
+                    return;
                 }
                 else {
                     let violator = violators[args[1]]
@@ -85,3 +125,30 @@ module.exports = {
 
 	},
 };
+
+const toArray = (list) => {
+    let result = [];
+    for (let i in list) {
+        temp = `<@${i}>: ${list[i].charge}\n`;
+        result.push(temp);
+    }
+    return result;
+}
+
+const getList = (vArray, curr) => {  
+    let start = curr;
+    let end = start + pagination;
+    let temp = vArray;
+    temp = temp.slice(start, end);
+    
+    let list = `⚠️**List of past violators**⚠️\n══════════════════\n`;
+
+    for (v of temp) {
+        list += v;
+    }
+
+    list += `══════════════════
+    **Page ${curr / pagination + 1}/${Math.round(vArray.length / pagination)}**`;
+
+    return list;
+}
