@@ -50,8 +50,7 @@ module.exports = {
                 
                 if (args[1] === 'all') {                        
                     let vArray = toArray(violators);
-                    let curr = 0; 
-                    
+                    let curr = 0;                 
 
                     message.channel.send(getList(vArray, curr)).then(async msg => {
                          msg.react(emojiPrevious)
@@ -62,8 +61,7 @@ module.exports = {
                                 collector.on('collect', r => {
                                     // i = onCollect(r.emoji, msg, i, getList(vArray, curr));
                                     if ((r.emoji.name === emojiPrevious)) {   
-                                        if (curr - pagination < 0) {
-                                            
+                                        if (curr - pagination < 0) {                                            
                                         } else {
                                             curr -= pagination;
                                         }

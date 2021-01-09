@@ -7,6 +7,7 @@ module.exports = {
     description: 'Host a giveaway event.',
     usage: '<add> <content> <no of winner> <duration>\n<finish> <message URL> <no of winners>',
     aliases: ['ga'],
+    staffOnly: true,
     args: true,
 	async execute(message, args) {
         const directives = [ 'add', 'finish' ];
@@ -37,7 +38,7 @@ const addGiveaway = (message, args) => {
     }
 
     const content = 
-        `${t[0]}\n**${t[1]}** winner(s) **|** Duration: **${t[2]}**\n__**React with 🎉 to join**__`;
+        `${t[0]}\n**${t[1]}** winner(s) **|** Duration: **${t[2]}** hour(s)\n__**React with 🎉 to join**__`;
 
     const giveawayEmbed = embed({
         color: '#F4D03F',
@@ -46,7 +47,7 @@ const addGiveaway = (message, args) => {
         title: `🎉 **GIVE AWAY** 🎉`,
         content: content,
         message: message,
-        footer: `Requirement: 3000-man commander rank and above`
+        footer: `Requirement: 1000-man commander rank and above`
     });
     
     //message.delete();
