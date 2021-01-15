@@ -122,7 +122,7 @@ const filterParticipants = async (message, list, totalWinner) => {
             let roles = u._roles;
 
             // Check 2k commander rank  
-            if (roles.indexOf('400134600397160458') !== -1) {
+            if (roles.indexOf('400134690268381185') !== -1) {
                 validParticipants.push(i);
             }
         })
