@@ -11,6 +11,7 @@ module.exports = {
         for (let chapter of chapterList)
             if (chapter.no === args[0]) {
                 const chapterEmbed = embed({
+                    author: 'false',
                     color: `#eedddd`,
                     title: `Chapter ${chapter.no}: ${chapter.title}`,
                     content: `[To Mangadex](${`https://mangadex.org/chapter/${chapter.id}`})`,
