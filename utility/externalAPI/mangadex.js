@@ -26,7 +26,7 @@ async function getChapter(chapterNo) {
 }    
 
 async function getPages(chapterID) {
-    const chapterAPI = `https://mangadex.org/api/chapter/${chapterID}`;
+    const chapterAPI = `https://api.mangadex.org/v2/chapter/${chapterID}?saver=true`;
 
     const searchPages = await axios.get(chapterAPI).catch((error) => {
         console.log(error);

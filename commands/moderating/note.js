@@ -59,7 +59,6 @@ module.exports = {
                                 let i = 0;
                                 const collector = msg.createReactionCollector(filter, { time });
                                 collector.on('collect', r => {
-                                    // i = onCollect(r.emoji, msg, i, getList(vArray, curr));
                                     if ((r.emoji.name === emojiPrevious)) {   
                                         if (curr - pagination < 0) {                                            
                                         } else {
