@@ -5,7 +5,7 @@ const emojiNext = '▶️'; // unicode emoji are identified by the emoji itself
 const emojiPrevious = '◀️';
 const reactionArrow = [emojiPrevious, emojiNext];
 
-const time = 30000; // time limit: 1 min
+const time = 60000; // time limit: 1 min
 
 const filter = (reaction, user) => {
     return (!user.bot) && (reactionArrow.includes(reaction.emoji.name));
@@ -15,7 +15,7 @@ module.exports = {
 	name: 'manga',
     description: 'Get a chapter or page.',
     args: true,
-    cooldown: 30,
+    cooldown: 60,
     usage: '<chapter number> <chapter page>',
 	async execute(message, args) {
         const chapterNo = args[0];
@@ -52,26 +52,27 @@ module.exports = {
 
                 let curr = parseInt(pageNo - 1);
 
-                message.channel.send({ embed: chapterEmbed }).then(async msg => {
-                    msg.react(emojiPrevious)
-                       .then(msgReaction => msgReaction.message.react(emojiNext))
-                       .then(msgReaction => {
-                           const collector = msg.createReactionCollector(filter, { time });
-                           collector.on('collect', r => {
-                               if ((r.emoji.name === emojiPrevious)) {   
-                                    if (curr - 1 < 0) {   
-                                        curr = pageCount - 1;                           
-                                    } else {
-                                        --curr;
-                                    }                                   
+                message.channel.send({ embed: chapterEmbed })
+                    .then(async msg => {
+                                msg.react(emojiPrevious)
+                                    .then(msgReaction => msgReaction.message.react(emojiNext))
+                                    .then(msgReaction => {
+                                            const collector = msg.createReactionCollector(filter, { time });
+                                            collector.on('collect', r => {
+                                                if ((r.emoji.name === emojiPrevious)) {   
+                                                        if (curr - 1 < 0) {   
+                                                            curr = pageCount - 1;                           
+                                                        } else {
+                                                            --curr;
+                                                        }                                   
 
-                                } else if ((r.emoji.name === emojiNext)) {  
-                                    if (curr + 1 > pageCount - 1) {
-                                        curr = 0;
-                                    } else {
-                                        ++curr;
-                                    }         
-                                }
+                                                    } else if ((r.emoji.name === emojiNext)) {  
+                                                        if (curr + 1 > pageCount - 1) {
+                                                            curr = 0;
+                                                        } else {
+                                                            ++curr;
+                                                        }         
+                                                    }
 
                                 let currImg = `${server}${hash}/${pageList[curr]}`;
                                 chapterEmbed.setImage(currImg);
