@@ -50,22 +50,26 @@ scrapeSenseScan = async (client) => {
     
 }
 
+// The basic idea is to use Jquery on the korean site
+// and pop the most recent element on the chapter link list
+// .item-subject = target element
 getKoreanScan = async (client) => {
+    const { channels } = client;
     const axios = require('axios');
-    const cheerio = require('cheerio'); 
-    const url = 'https://manatoki95.net/comic/116795';
-    const spoilersLog = '810119301838274600';
-    const spoilersChannel = '427652466880938004';
+    const cheerio = require('cheerio');
+    const koreanSiteURL = 'https://manatoki95.net/comic/116795';
+    const koreanLogID = '810119301838274600';
+    const spoilerChannelID = '427652466880938004';
 
     try {
-        const koreanLog = await client.channels.fetch(spoilersLog);
-        const spoilerDestination = await client.channels.fetch(spoilersChannel);
+        const koreanLog = await channels.fetch(koreanLogID);
+        const spoilerDestination = await channels.fetch(spoilerChannelID);
 
         const lastMessage = await koreanLog.messages.fetch({limit: 1});
 
-        const getKoreanSite = await axios(url).then(response => response.data);
+        const koreanSite = await axios(koreanSiteURL).then(site => site.data);
 
-        const $ = cheerio.load(getKoreanSite);
+        const $ = cheerio.load(koreanSite);
 
         const latestLink = $('.item-subject')[0].attribs.href;
 
