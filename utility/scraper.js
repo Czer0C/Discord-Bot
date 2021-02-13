@@ -3,6 +3,7 @@ const Parser = require('rss-parser');
 const fs = require('fs');
 const log = require('../asset/log.json');
 const { rss } = require('../config.json');
+const { get } = require('http');
 
 scrapeSenseScan = async (client) => {
     let parser = new Parser();
@@ -48,6 +49,38 @@ scrapeSenseScan = async (client) => {
     
     
 }
+
+getKoreanScan = async (client) => {
+    const axios = require('axios');
+    const cheerio = require('cheerio'); 
+    const url = 'https://manatoki95.net/comic/116795';
+    const spoilersLog = '810119301838274600';
+    const spoilersChannel = '427652466880938004';
+
+    try {
+        const koreanLog = await client.channels.fetch(spoilersLog);
+        const spoilerDestination = await client.channels.fetch(spoilersChannel);
+
+        const lastMessage = await koreanLog.messages.fetch({limit: 1});
+
+        const getKoreanSite = await axios(url).then(response => response.data);
+
+        const $ = cheerio.load(getKoreanSite);
+
+        const latestLink = $('.item-subject')[0].attribs.href;
+
+        const checkLog = await lastMessage.values().next().value?.content;
+
+        if (!checkLog || !checkLog.includes(latestLink)) {
+            koreanLog.send(`<${latestLink}>`)
+            spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
+        }    
+    }
+    catch (error) {
+        console.log(error);
+    }    
+}
+
 
 scraper = async (client, keyword, count) => {
     const browser = await puppeteer.launch();
@@ -152,3 +185,4 @@ scraper3 = async() => {
 module.exports.scraper = scraper;
 module.exports.scraper2 = scraper2;
 module.exports.scrapeSenseScan = scrapeSenseScan;
+module.exports.getKoreanScan = getKoreanScan;

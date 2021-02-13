@@ -4,8 +4,9 @@ const { generalRole, staffRole } = require('../../config.json');
 module.exports = {
 	name: 'image',
     description: 'Return a pic.',
-    async execute (message, args, client, commandName) {
-        const image = imageList.find(i => i.name === commandName);
+    cooldown: 60,
+    async execute (message, args, client, commandName) {     
+        const image = imageList.find(i => i.name.toLocaleLowerCase() === commandName);
 
         if (image) {
             const imageEmbed = {
@@ -24,7 +25,7 @@ module.exports = {
             message.channel.send({ embed: imageEmbed });
         }
         else {
-            message.channel.send(`**An unexpected error has occurred** :x:`);
+            message.channel.send(`**Invalid command's name or usage** :x:`);
         }
             
     }

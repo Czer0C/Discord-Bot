@@ -15,26 +15,9 @@ const {
     getPages
 } = require('./utility/utility.js');
 const {
-    scraper,
-    scraper2,
-    scraper3,
+    getKoreanScan,
     scrapeSenseScan
 } = require('./utility/scraper.js');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const commandFiles = getAllFiles("commands");
 
@@ -52,20 +35,20 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-//setInterval(scraper, 60000, client, '킹덤');
+setInterval(getKoreanScan, 10000, client);
 setInterval(scrapeSenseScan, 10000, client);
 
 
 client.on('messageDelete', async (message) => {
-    const logs = message.guild.channels.cache.find(channel => channel.name === "bot-testing");
-    
+    const logs = message.guild.channels.cache.find(channel => channel.name === 'bot-testing');
+    if (!logs) {
+        return;
+    }
     const test = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'});
 
     const entry = 
             await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'})
                                 .then(audit => audit.entries.first())
-
-    
 
     let user = ""
     if (entry.extra.channel.id === message.channel.id
@@ -119,13 +102,10 @@ client.on('message', message => {
         client.commands.get(commandName) ||
         client.commands.find(cmd => cmd.aliases &&
                                     cmd.aliases.includes(commandName));
-
+    
+    
     if (!command) {
-        if (imageList.find(i => i.name === commandName)) {
-            command = client.commands.get("image");
-        } else {
-            return channel.send("**Invalid command's name or usage** ❌");
-        }            
+        command = client.commands.get("image");
     }
 
     if (command.guildOnly && channel.type !== 'text') {
@@ -167,7 +147,7 @@ client.on('message', message => {
         if (now < expirationTime) {
             let timeLeft = (expirationTime - now) / 1000;
             let reply = `** please wait ${timeLeft.toFixed(1)} more second(s)` +
-                        ` before reusing the \`${commandName}\` command** ⏳`;
+                        ` before reusing this command** ⏳`;
 
             return message.reply(reply);
         }

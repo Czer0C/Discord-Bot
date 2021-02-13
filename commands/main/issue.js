@@ -17,7 +17,7 @@ module.exports = {
             footer: false
         }
         const issueEmbed = embed(detail);
-        const channel = message.guild.channels.cache.get('504496908346195999');
+        const channel = message.guild.channels.cache.get('427652466880938004');
         channel.send(issueEmbed);
         message.delete();
 	},
