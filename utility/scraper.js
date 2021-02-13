@@ -59,7 +59,7 @@ getKoreanScan = async (client) => {
     const cheerio = require('cheerio');
     const koreanSiteURL = 'https://manatoki95.net/comic/116795';
     const koreanLogID = '810119301838274600';
-    const spoilerChannelID = '427652466880938004';
+    const spoilerChannelID = '400121599639945216'; 
 
     try {
         const koreanLog = await channels.fetch(koreanLogID);
