@@ -1,8 +1,11 @@
 const Discord = require('discord.js');
+
+require('dotenv').config();
+
 const imageList = require('./asset/imageList.json');
+
 const {
     prefix,
-    token,
     staffRole,
     modRole,
     adminRole
@@ -36,7 +39,7 @@ client.once('ready', () => {
 });
 
 setInterval(scrapKoreanScan, 10000, client);
-setInterval(scrapSenseScan, 5000, client);
+setInterval(scrapSenseScan, 10000, client);
 
 
 client.on('messageDelete', async (message) => {
@@ -164,4 +167,4 @@ client.on('message', message => {
     }
 });
 
-client.login(token);
+client.login(process.env.BOT_API_TOKEN);
