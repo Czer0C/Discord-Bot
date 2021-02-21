@@ -3,13 +3,12 @@ const { argsToString } = require('../../utility/utility.js');
 const { muteRole, staffRole, loggingChannel } = require('../../config.json');
 const fetch = require('node-fetch');
 
+const { firebaseAdmin } = require('../../asset/firebaseAPI');
 
 var admin = require("firebase-admin");
 
-var serviceAccount = require("../../asset/firebaseAdmin.json");
-
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(firebaseAdmin),
   databaseURL: "https://test-26288.firebaseio.com"
 });
 
@@ -34,17 +33,17 @@ module.exports = {
 	modOnly: false,
     staffOnly: true,
     usage: '<user ID> <charges> OR note view all OR note view <userID>',
-	execute(message, args) {       
+	async execute(message, args) {       
         
         if (args.length < 2) {
             let m = `**\`note view all\` to see full list of violations**\n` +
             `**\`note view <userID>\` to see individual violation**\n` + 
-            `**\`note <userID> <charges>\` to add or edit an entry**`
+            `**\`note <userID> <charges>\` to add or edit an entry**\n` + 
+            `**\`note <remove> <userID>\` to remove an entry**`
         
             return message.channel.send(m);
             
-        }     
-        else if (args[0] === 'view') {
+        } else if (args[0] === 'view') {
             db.ref('/violators').once("value", snapshot => {
                 let violators = snapshot.val();
                 
@@ -88,7 +87,7 @@ module.exports = {
                         msg = `<@${args[1]}>: ${violator.charge}\n`
                     }
                     else {
-                        msg = `**<@${args[1]}> has not been marked as violator yet!**`
+                        msg = `**<@${args[1]}> has not been marked as violator yet❗**`;
                     }
                     return message.channel.send(msg)
                 }
@@ -96,26 +95,42 @@ module.exports = {
             });
             
            
-        }
-        else {
+        } else if (args[0] === 'remove') {
+            let violatorID = args[1];
+
+            let guild = message.guild;
+
+            const violator = await guild.members.fetch(violatorID);
+
+            if (violator) {
+                const res = await db.ref('/violators/' + violatorID).remove();
+                return message.channel.send(
+                    `**${violator.nickname}'s entry has been removed**✅`
+                );
+            }
+            else {
+                return message.channel.send(`**${violatorID} is not a valid user ID in this server ❗**`)
+            }
+        } else {
             let violatorID = args[0]
             let charge = args.slice(1).reduce((line, arg) => line + ' ' + arg)
             
-            let guild = message.guild,
-            USER_ID = violatorID;
-          
-            if (guild.member(USER_ID)) {
+            let guild = message.guild;
+
+            const violator = await guild.members.fetch(violatorID);
+
+            if (violator) {
                 db.ref('/violators/'+ violatorID).set({ charge: charge }, (error) => {
                     if (error) {
-                        return message.channel.send("Something bad happened, try again later.")
+                        return message.channel.send("Something bad happened, try again later.");
                     }
                     else {
-                        return message.channel.send(`**<@${violatorID}>\'s entry has been submitted** ✅`)
+                        return message.channel.send(`**${violator.nickname}\'s entry has been submitted** ✅`);
                     }
                 })
             }
             else {
-                return message.channel.send(`**${violatorID} is not a valid user ID in this server, try again.**`)
+                return message.channel.send(`**${violatorID} is not a valid user ID in this server❗**`);
             }
             
         }

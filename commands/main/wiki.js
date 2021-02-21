@@ -6,6 +6,7 @@ module.exports = {
 	name: 'wiki',
     description: 'Look up stuff on Wikia.',
     args: true,
+    aliases: ['wikia'],
     usage: '<keyword>',
 	async execute(message, args) {
         const query = argsToString(args).slice(0, -1);
