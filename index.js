@@ -15,8 +15,8 @@ const {
     getPages
 } = require('./utility/utility.js');
 const {
-    getKoreanScan,
-    scrapeSenseScan
+    scrapKoreanScan,
+    scrapSenseScan
 } = require('./utility/scraper.js');
 
 const commandFiles = getAllFiles("commands");
@@ -35,8 +35,8 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-setInterval(getKoreanScan, 10000, client);
-setInterval(scrapeSenseScan, 10000, client);
+setInterval(scrapKoreanScan, 10000, client);
+setInterval(scrapSenseScan, 5000, client);
 
 
 client.on('messageDelete', async (message) => {
