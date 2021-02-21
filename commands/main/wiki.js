@@ -15,39 +15,20 @@ module.exports = {
 
         const query = 
         `https://kingdom.fandom.com/wiki/Special:Search?query=${keyword}&scope=internal&navigationSearch=true`;
-
-
-        // Look up page
-
-        try {
+        
+        try { // Look up direct page from keyword
             const formatKeyword = 
             keyword
             .replace(/(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase())
-            .replace(' ', '_');
+            .replace(/\s+/g, '_');
 
             const pageURL = `https://kingdom.fandom.com/wiki/${formatKeyword}`;
 
-            const page = await axios(pageURL).then(site => site.data);
-
-            const $ = cheerio.load(page);
-
-            const title = $('#firstHeading').text();
-
-            const quickInfo = $('.mw-parser-output');
-
-            const description = $('#toc').prev();
-
-            const pictureLink = quickInfo.find('img')[0].attribs.src;
-
-            const linkElements = description.children('a');
-
-            let links = [];
-
-            for (let i = 0; i < linkElements.length; i++) {
-                links.push(`https://kingdom.fandom.com${linkElements[i].attribs.href}`);
-            }
-
-            const wikiEmbedContent = htmlToDiscord(description.html(), links);
+            const {
+                title,
+                pictureLink,
+                wikiEmbedContent
+            } = await parseDirectPage(pageURL);
 
             const response = embed({
                 color: "#541f1f",
@@ -62,8 +43,8 @@ module.exports = {
 
             message.channel.send(response); 
             
-        } catch (error) {
-            if (error.response && error.response.status === 404) { // Fallback to searching for related articles
+        } catch (error) { // Fallback to searching for articles related to keyword
+            if (error.response && error.response.status === 404) { 
                 const searchResults = await axios(encodeURI(query)).then(site => site.data);
 
                 const $ = cheerio.load(searchResults);
@@ -96,9 +77,36 @@ module.exports = {
                 message.channel.send(response);   
             } else {
                 console.log(error);
-            }
-
-            
+                message.channel.send('Something went wrong, try again later❌');  
+            }            
         }                 
 	},
 };
+
+parseDirectPage = async (url, keyword) => {
+    const page = await axios(url).then(site => site.data);
+
+    const $ = cheerio.load(page);
+
+    const title = $('#firstHeading').text();
+
+    const description = $('#toc').prev();
+
+    const pictureLink = $('meta[property="og:image"]')[0].attribs.content;
+
+    const linkElements = description.children('a');
+
+    let links = [];
+
+    for (let i = 0; i < linkElements.length; i++) {
+        links.push(`https://kingdom.fandom.com${linkElements[i].attribs.href}`);
+    }
+
+    const wikiEmbedContent = htmlToDiscord(description.html(), links);
+
+    return {
+        title,
+        pictureLink,
+        wikiEmbedContent
+    }
+}
