@@ -4,12 +4,14 @@ embed = (detail) => {
     let {
         color, 
         author, 
+        URL,
         icon, 
         title, 
         content, 
         footer, 
         message,
-        image
+        image,
+        thumbnail
     } = detail;
     
     const colorRegex = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
@@ -28,8 +30,12 @@ embed = (detail) => {
                 .setDescription(content ? content : message.content)
 
     if (author !== "false") customEmbed.setAuthor(author, icon);
+
+    if (URL) customEmbed.setURL(URL);
     
-    if (image) customEmbed.setImage(image.proxyURL || image);       
+    if (image) customEmbed.setImage(image.proxyURL || image);  
+    
+    if (thumbnail) customEmbed.setThumbnail(thumbnail);
 
     if (footer) customEmbed.setFooter(footer);
     
