@@ -22,7 +22,7 @@ scrapSenseScan = async (client) => {
     const feed = await parser.parseURL(rss);
 
     const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
-
+    
     if (latestUpdateContent !== latestFeed.link) {
         const announcement =
             `${latestFeed.title} <@&${staffRole}>\n\n` +
