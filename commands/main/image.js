@@ -7,7 +7,7 @@ const { generalRole, staffRole } = require("../../config.json")
 module.exports = {
   name: "image",
   description: "Return a pic.",
-  cooldown: 60,
+  cooldown: 10,
   async execute(message, args, client, commandName) {
     const { channel } = message
 
