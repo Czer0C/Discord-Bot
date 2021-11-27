@@ -79,7 +79,7 @@ addNew = async (keyword, message) => {
         console.error(error)
         return throwError
       }
-      return `Command ${keyword} has been successfully added ✔`
+      return `Command ${keyword} has been successfully added ✅`
     } catch (error) {
       console.error(error)
       return throwError
@@ -117,7 +117,7 @@ editCommand = async (keyword, message) => {
         console.error(error)
         return throwError
       }
-      return `Command \`${keyword}\` has been successfully edited ✔`
+      return `Command \`${keyword}\` has been successfully edited ✅`
     } catch (error) {
       console.error(error)
       return throwError
@@ -135,7 +135,7 @@ deleteCommand = async (keyword) => {
 
   if (error) return error
 
-  return `Command ${keyword} has been successfully deleted ❌`
+  return `Command ${keyword} has been successfully deleted ✅`
 }
 
 checkNotExist = async (keyword) => {
