@@ -17,7 +17,7 @@ embed = (detail) => {
     const colorRegex = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
     if (!color || !color.match(colorRegex)) color = "#7289DA";
     
-    if (icon === true || icon === undefined) icon = message.author.displayAvatarURL({dynamic: true});
+    if (icon === true || icon === undefined) icon = message?.author.displayAvatarURL({dynamic: true});
     else if (icon === false) icon = null;
 
     if (footer === true || footer === undefined) footer = `${message.createdAt.toLocaleDateString()} • ${message.createdAt.toLocaleTimeString()}`;
