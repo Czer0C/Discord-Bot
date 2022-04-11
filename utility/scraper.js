@@ -60,6 +60,8 @@ scrapKoreanScan = async (client) => {
 
         const latestLink = $('.item-subject')[0].attribs.href;
 
+        //! latestLink.split('?')[0].split('/')[4]
+
         const checkLog = await lastMessage.values().next().value?.content;
 
         if (!checkLog || !checkLog.includes(latestLink)) {
