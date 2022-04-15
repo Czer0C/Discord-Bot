@@ -44,7 +44,7 @@ scrapKoreanScan = async (client) => {
     const { channels } = client;
     const axios = require('axios');
     const cheerio = require('cheerio');
-    const koreanSiteURL = 'https://manatoki95.net/comic/116795';
+    const koreanSiteURL = 'https://manatoki.net/comic/116795';
     const koreanLogID = '810119301838274600';
     const spoilerChannelID = '400121599639945216'; 
 
@@ -60,11 +60,13 @@ scrapKoreanScan = async (client) => {
 
         const latestLink = $('.item-subject')[0].attribs.href;
 
-        //! latestLink.split('?')[0].split('/')[4]
+       
 
         const checkLog = await lastMessage.values().next().value?.content;
 
-        if (!checkLog || !checkLog.includes(latestLink)) {
+        const id =  latestLink.split('?')[0].split('/')[4]
+
+        if (!checkLog || !checkLog.includes(id)) {
             koreanLog.send(`<${latestLink}>`)
             spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
         }    
