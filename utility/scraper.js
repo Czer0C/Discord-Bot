@@ -19,22 +19,28 @@ scrapSenseScan = async (client) => {
 
     const parser = new Parser();
 
-    const feed = await parser.parseURL(rss);
+    try {
+        const feed = await parser.parseURL(rss);
 
-    const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
+        const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
+
+        if (latestUpdateContent !== latestFeed.link) {
+            const announcement =
+                `${latestFeed.title} <@&${staffRole}>\n\n` +
+                `Read Online: ${latestFeed.link}\n\n` +
+                `Download: https://turnipfarmers.wordpress.com/\n\n` +
+                `Reddit Discussion: "pending"\n` +
+                ``;
     
-    if (latestUpdateContent !== latestFeed.link) {
-        const announcement =
-            `${latestFeed.title} <@&${staffRole}>\n\n` +
-            `Read Online: ${latestFeed.link}\n\n` +
-            `Download: https://turnipfarmers.wordpress.com/\n\n` +
-            `Reddit Discussion: "pending"\n` +
-            ``;
+            staffChannel.send(announcement);
+            logChannel.send(latestFeed.link); 
+            
+        } 
+    } catch (error) {
+        console.error(error)
+    }
 
-        staffChannel.send(announcement);
-        logChannel.send(latestFeed.link); 
-        
-    } 
+  
 }
 
 // The basic idea is to use Jquery on the korean site
@@ -58,17 +64,15 @@ scrapKoreanScan = async (client) => {
 
         const $ = cheerio.load(koreanSite);
 
-        const latestLink = $('.item-subject')[0].attribs.href;
-
-       
+        const latestLink = $('.item-subject')?.[0]?.attribs?.href;
 
         const checkLog = await lastMessage.values().next().value?.content;
 
-        const id =  latestLink.split('?')[0].split('/')[4]
-
+        const id = checkLog.split('?')[0].split('/')[4]
+       console.log(latestLink);
         if (!checkLog || !checkLog.includes(id)) {
-            koreanLog.send(`<${latestLink}>`)
-            spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
+            // koreanLog.send(`<${latestLink}>`)
+            // spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
         }    
     }
     catch (error) {
