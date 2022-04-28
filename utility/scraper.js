@@ -29,7 +29,6 @@ scrapSenseScan = async (client) => {
                 `${latestFeed.title} <@&${staffRole}>\n\n` +
                 `Read Online: ${latestFeed.link}\n\n` +
                 `Download: https://turnipfarmers.wordpress.com/\n\n` +
-                `Reddit Discussion: "pending"\n` +
                 ``;
     
             staffChannel.send(announcement);
