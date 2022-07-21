@@ -13,9 +13,9 @@ scrapSenseScan = async (client) => {
 
     const latestUpdateContent = latestUpdate.values().next().value?.content;
 
-    const staffChannelID = '400665733429985290';
+    const announcementID = '400121168218030082';
 
-    const staffChannel = await client.channels.fetch(staffChannelID);
+    const announcement = await client.channels.fetch(announcementID);
 
     const parser = new Parser();
 
@@ -31,7 +31,7 @@ scrapSenseScan = async (client) => {
                 `Download: https://turnipfarmers.wordpress.com/\n\n` +
                 ``;
     
-            staffChannel.send(announcement);
+            announcement.send(announcement);
             logChannel.send(latestFeed.link); 
             
         } 
@@ -49,7 +49,7 @@ scrapKoreanScan = async (client) => {
     const { channels } = client;
     const axios = require('axios');
     const cheerio = require('cheerio');
-    const koreanSiteURL = 'https://manatoki.net/comic/116795';
+    const koreanSiteURL = 'https://manatoki130.net/comic/116795';
     const koreanLogID = '810119301838274600';
     const spoilerChannelID = '400121599639945216'; 
 
