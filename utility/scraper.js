@@ -68,7 +68,7 @@ scrapKoreanScan = async (client) => {
         const checkLog = await lastMessage.values().next().value?.content;
 
         const id = checkLog.split('?')[0].split('/')[4]
-       console.log(latestLink);
+       
         if (!checkLog || !checkLog.includes(id)) {
             // koreanLog.send(`<${latestLink}>`)
             // spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
