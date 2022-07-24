@@ -15,23 +15,21 @@ scrapSenseScan = async (client) => {
 
     const announcementID = '400121168218030082';
 
-    const announcement = await client.channels.fetch(announcementID);
+    const destinationChannel = await client.channels.fetch(announcementID);
 
     const parser = new Parser();
-
+  
     try {
         const feed = await parser.parseURL(rss);
-
         const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
-
+        
         if (latestUpdateContent !== latestFeed.link) {
-            const announcement =
-                `${latestFeed.title} <@&${staffRole}>\n\n` +
-                `Read Online: ${latestFeed.link}\n\n` +
-                `Download: https://turnipfarmers.wordpress.com/\n\n` +
-                ``;
-    
-            announcement.send(announcement);
+            const msg =
+            `${latestFeed.title} @everyone\n\n` +
+            `Read Online: ${latestFeed.link}\n\n` +
+            `Download: https://turnipfarmers.wordpress.com/\n\n` +
+            ``;
+            destinationChannel.send(msg);
             logChannel.send(latestFeed.link); 
             
         } 
