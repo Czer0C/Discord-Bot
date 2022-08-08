@@ -6,7 +6,7 @@ const {
     staffRole,
 } = require('../config.json');
 
-const MANGADEX_URL = 'https://api.mangadex.org/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/feed?limit=96&includes[]=scanlation_group&includes[]=user&order[volume]=desc&order[chapter]=desc&offset=0&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic'
+const MANGADEX_URL = 'https://api.mangadex.org/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/feed?translatedLanguage[]=en&limit=4&includes[]=scanlation_group&includes[]=user&order[volume]=desc&order[chapter]=desc&offset=0&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic'
 
 scrapSenseScan = async (client) => {
     const logChannelID = '721933602635644998';
@@ -93,7 +93,6 @@ scrapMangadex = async (client) => {
 
     const latestChapter = list.filter( i => i.relationships[0].attributes?.name === 'Sense Scans')[0]
     
-
     //! Send to Log
 
      const logChannelID = '721933602635644998';
@@ -113,7 +112,6 @@ scrapMangadex = async (client) => {
     const destinationChannel = await client.channels.fetch(staffChannelID);
 
     const logContent = `Chapter ${latestChapter?.attributes?.chapter} : ${latestChapter?.id}`
-
 
     if (latestUpdateContent !== logContent) {
         const msg =
