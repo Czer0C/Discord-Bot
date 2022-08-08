@@ -108,6 +108,8 @@ scrapMangadex = async (client) => {
 
     const staffChannelID= '400665733429985290';
 
+    const staffRoleId = `<@&684289189390319638>`;
+
     const destinationChannel = await client.channels.fetch(staffChannelID);
 
     const logContent = `Chapter ${latestChapter?.attributes?.chapter} : ${latestChapter?.id}`
@@ -115,12 +117,11 @@ scrapMangadex = async (client) => {
 
     if (latestUpdateContent !== logContent) {
         const msg =
-        `${latestChapter?.attributes?.title} @staff\n\n` +
+        `${latestChapter?.attributes?.title} ${staffRoleId}\n\n` +
         `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1\n\n` +
         `Download: https://turnipfarmers.wordpress.com\n\n` +
         ``;
-        console.log(msg);
-        // destinationChannel.send(msg);
+        destinationChannel.send(msg);
         logChannel.send(logContent); 
     }
   } catch (error) {
