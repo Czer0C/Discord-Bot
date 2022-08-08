@@ -19,7 +19,8 @@ const {
 } = require('./utility/utility.js');
 const {
     scrapKoreanScan,
-    scrapSenseScan
+    scrapSenseScan,
+    scrapMangadex
 } = require('./utility/scraper.js');
 
 const commandFiles = getAllFiles("commands");
@@ -38,8 +39,9 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-setInterval(scrapKoreanScan, 10000, client);
-setInterval(scrapSenseScan, 10000, client);
+// setInterval(scrapKoreanScan, 10000, client);
+// setInterval(scrapSenseScan, 10000, client);
+setInterval(scrapMangadex, 60000, client);
 
 
 client.on('messageDelete', async (message) => {
