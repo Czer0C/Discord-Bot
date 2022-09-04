@@ -115,7 +115,8 @@ scrapMangadex = async (client) => {
 
     if (latestUpdateContent !== logContent) {
         const msg =
-        `${latestChapter?.attributes?.title} ${staffRoleId}\n\n` +
+        `${staffRoleId}\n\n`+        
+        `Chapter ${latestChapter?.attributes?.chapter}: ${latestChapter?.attributes?.title} \n\n` +
         `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1\n\n` +
         `Download: https://turnipfarmers.wordpress.com\n\n` +
         ``;
