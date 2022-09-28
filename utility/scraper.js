@@ -84,7 +84,6 @@ scrapKoreanScan = async (client) => {
 scrapMangadex = async (client) => {
 
     
-
   try {
 
     const { data } = await axios(MANGADEX_URL)
@@ -111,19 +110,24 @@ scrapMangadex = async (client) => {
 
     const destinationChannel = await client.channels.fetch(staffChannelID);
 
-    const logContent = `Chapter ${latestChapter?.attributes?.chapter} : ${latestChapter?.id}`
+    const logContent = `${latestChapter?.attributes?.chapter}`
 
 
     const title = `Chapter ${latestChapter?.attributes?.chapter}: ${latestChapter?.attributes?.title}`
 
 
-    if (latestUpdateContent !== logContent) {
-        const msg =
-        `${staffRoleId}\n\n`+        
-        `${title} \n\n` +
-        `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1\n\n` +
-        `Download: https://turnipfarmers.wordpress.com\n\n` +
-        ``;
+    const outdated = +`${latestChapter?.attributes?.chapter}` > +`${latestUpdateContent}`
+
+    const msg =
+    `${staffRoleId}\n\n`+        
+    `${title} \n\n` +
+    `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1\n\n` +
+    `Download: https://turnipfarmers.wordpress.com\n\n` +
+    ``;
+
+
+    if (outdated) {
+       
         destinationChannel.send(msg);
         logChannel.send(logContent); 
     }

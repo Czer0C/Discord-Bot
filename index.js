@@ -41,7 +41,7 @@ client.once('ready', () => {
 
 // setInterval(scrapKoreanScan, 10000, client);
 // setInterval(scrapSenseScan, 10000, client);
-setInterval(scrapMangadex, 60000, client);
+setInterval(scrapMangadex, 5000, client);
 
 
 client.on('messageDelete', async (message) => {
