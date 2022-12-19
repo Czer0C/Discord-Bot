@@ -121,8 +121,8 @@ scrapMangadex = async (client) => {
     const msg =
     `${staffRoleId}\n\n`+        
     `${title} \n\n` +
-    `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1\n\n` +
-    `Download: https://turnipfarmers.wordpress.com\n\n` +
+    `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1` +
+    // `Download: https://turnipfarmers.wordpress.com\n\n` +
     ``;
 
 
