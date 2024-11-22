@@ -3,8 +3,8 @@ const baseUrl = 'https://api.mangadex.org';
 
 module.exports = {
   name: 'chapter',
-  description: 'Get chapter link.',
-  usage: '<chapter number>',
+  description: 'Get chapter link. with optional language (default is English)',
+  usage: '<chapter number> <language code ISO>',
   aliases: ['ch', 'chap', 'read'],
   args: true,
   cooldown: 5,

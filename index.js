@@ -1,4 +1,10 @@
-const { GatewayIntentBits, Client, Collection } = require('discord.js');
+const {
+  GatewayIntentBits,
+  Client,
+  Collection,
+  Partials,
+  EmbedBuilder,
+} = require('discord.js');
 
 require('dotenv').config();
 
@@ -8,6 +14,7 @@ const { prefix, staffRole, modRole, adminRole } = require('./config.json');
 const { quote } = require('./utility/quote.js');
 const { getAllFiles } = require('./utility/utility.js');
 const { scrapMangadex } = require('./utility/scraper.js');
+const { embed } = require('./utility/embed.js');
 
 const commandFiles = getAllFiles('commands');
 
@@ -20,6 +27,7 @@ const client = new Client({
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMessageReactions,
   ],
+  partials: [Partials.Message],
 });
 
 client.commands = new Collection();
@@ -44,30 +52,38 @@ client.on('messageDelete', async (message) => {
     (channel) => channel.name === 'bot-testing',
   );
 
+  if (message.partial) {
+    logs.send(`A message was deleted, but it was not cached.`);
+    return;
+  }
+
   if (!logs) {
     return;
   }
 
-  const test = await message.guild.fetchAuditLogs({ type: 'MESSAGE_DELETE' });
+  const fetchedLogs = await message.guild.fetchAuditLogs();
 
-  const entry = await message.guild
-    .fetchAuditLogs({ type: 'MESSAGE_DELETE' })
-    .then((audit) => audit.entries.first());
+  const firstEntry = fetchedLogs.entries.first();
 
-  let user = '';
-  if (
-    entry.extra.channel.id === message.channel.id &&
-    entry.target.id === message.author.id &&
-    entry.createdTimestamp > Date.now() - 5000 &&
-    entry.extra.count >= 1
-  ) {
-    user = entry.executor.username;
-  } else {
-    user = message.author.username;
-  }
-  logs.send(
-    `A message by ${message.author.username} was deleted in <#${message.channel.id}> by ${user}`,
-  );
+  const logEmbed = new EmbedBuilder();
+
+  logEmbed
+    .setColor('LuminousVividPink')
+    .setAuthor({
+      name: message.author?.tag,
+      iconURL: message.author?.avatarURL(),
+    })
+    .setTitle(`<#${message.channel.id}>`)
+    .setDescription(message.content || '**Empty or bot message**')
+    .setFooter({
+      text: `Executor: ${firstEntry.executor.tag}`,
+      iconURL: firstEntry.executor.avatarURL(),
+    })
+    .setTimestamp();
+
+  logs.send({
+    embeds: [logEmbed],
+  });
 });
 
 client.on('messageCreate', (message) => {
