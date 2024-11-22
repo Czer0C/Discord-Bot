@@ -43,7 +43,7 @@ module.exports = {
                 logChannel.send(logEmbed);
             }).catch(error => {
                 console.log(error);
-                channel.send("**Something unexpected happened, try again later** ⚠️");
+                channel.send(`**Unexpected error: ** \n ${error?.message} ⚠️`);
             });           
         }
         else {

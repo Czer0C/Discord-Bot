@@ -23,7 +23,7 @@ embed = (detail) => {
   else if (icon === false) icon = null;
 
   if (footer === true || footer === undefined)
-    footer = `${message.createdAt.toLocaleDateString()} • ${message.createdAt.toLocaleTimeString()}`;
+    footer = `${new Date().toLocaleDateString()} • ${new Date().toLocaleTimeString()}`;
   else if (footer === false) footer = null;
 
   const customEmbed = new EmbedBuilder();
@@ -33,7 +33,6 @@ embed = (detail) => {
   if (title) {
     customEmbed.setTitle(title ? title : '');
   }
-
 
   customEmbed.setDescription(content ? content : message.content);
 
@@ -51,8 +50,10 @@ embed = (detail) => {
 
   if (thumbnail) customEmbed.setThumbnail(thumbnail);
 
-  if (footer) customEmbed.setFooter(footer);
-
+  customEmbed.setFooter(
+    typeof footer === 'string' ? { text: footer } : footer,
+  );
+  
   return {
     embeds: [customEmbed],
   };

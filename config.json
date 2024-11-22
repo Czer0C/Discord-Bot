@@ -1,12 +1,13 @@
 {
-	"prefix": "'",
-	"muteRole": "502081621613346826",
-	"adminRole": "400135368437137421",
-	"modRole": "400661526530359317",
-	"staffRole": "684289189390319638", 
-	"chatRole": "405600130860056577",
-	"generalRole": "400133699720708108",
+    "prefix": "'",
+    "muteRole": "502081621613346826",
+    "adminRole": "400135368437137421",
+    "modRole": "400661526530359317",
+    "staffRole": "684289189390319638",
+    "chatRole": "405600130860056577",
+    "generalRole": "400133699720708108",
     "loggingChannel": "427652466880938004",
     "rss": "http://sensescans.com/index.php?action=.xml;type=rss;board=45.0;sa=news",
-    "throwError": "An unexpected error has occurred ❌"
+    "throwError": "An unexpected error has occurred ❌",
+    "MANGADEX_SENSESCAN": "1071e71d-cc55-4fa6-81d1-4b5913a2fde5"
 }

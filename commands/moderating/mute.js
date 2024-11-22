@@ -55,9 +55,7 @@ module.exports = {
       })
       .catch((error) => {
         console.log(error.message);
-        message.channel.send(
-          '*Something unexpected happened, try again later* :x:',
-        );
+        message.channel.send(`**Unexpected error: ** \n ${error?.message} ⚠️`);
       });
   },
 };

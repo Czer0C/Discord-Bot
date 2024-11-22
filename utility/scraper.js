@@ -1,173 +1,161 @@
 const Parser = require('rss-parser');
-const axios = require("axios");
+const axios = require('axios');
 
 const { rss } = require('../config.json');
-const {
-    staffRole,
-} = require('../config.json');
+const { staffRole } = require('../config.json');
 
-const MANGADEX_URL = 'https://api.mangadex.org/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/feed?translatedLanguage[]=en&limit=4&includes[]=scanlation_group&includes[]=user&order[volume]=desc&order[chapter]=desc&offset=0&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic'
+const MANGADEX_URL =
+  'https://api.mangadex.org/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/feed?translatedLanguage[]=en&limit=5&includes[]=scanlation_group&includes[]=user&includes[]=1071e71d-cc55-4fa6-81d1-4b5913a2fde5&order[volume]=desc&order[chapter]=desc&offset=0&contentRating[]=safe&contentRating[]=suggestive&contentRating[]=erotica&contentRating[]=pornographic';
 
 scrapSenseScan = async (client) => {
-    const logChannelID = '721933602635644998';
+  const logChannelID = '721933602635644998';
 
-    const logChannel = await client.channels.fetch(logChannelID);
+  const logChannel = await client.channels.fetch(logChannelID);
 
-    const latestUpdate = await logChannel.messages.fetch( { limit: 1} );
+  const latestUpdate = await logChannel.messages.fetch({ limit: 1 });
 
-    const latestUpdateContent = latestUpdate.values().next().value?.content;
+  const latestUpdateContent = latestUpdate.values().next().value?.content;
 
-    const announcementID = '400121168218030082';
+  const announcementID = '400121168218030082';
 
-    const destinationChannel = await client.channels.fetch(announcementID);
+  const destinationChannel = await client.channels.fetch(announcementID);
 
-    const parser = new Parser();
-  
-    try {
-        const feed = await parser.parseURL(rss);
-        const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
-        
-        if (latestUpdateContent !== latestFeed.link) {
-            const msg =
-            `${latestFeed.title} @everyone\n\n` +
-            `Read Online: ${latestFeed.link}\n\n` +
-            `Download: https://turnipfarmers.wordpress.com/\n\n` +
-            ``;
-            destinationChannel.send(msg);
-            logChannel.send(latestFeed.link); 
-            
-        } 
-    } catch (error) {
-        console.error(error)
+  const parser = new Parser();
+
+  try {
+    const feed = await parser.parseURL(rss);
+    const latestFeed = feed.items.filter((i) => i.title.includes('Kingdom'))[0];
+
+    if (latestUpdateContent !== latestFeed.link) {
+      const msg =
+        `${latestFeed.title} @everyone\n\n` +
+        `Read Online: ${latestFeed.link}\n\n` +
+        `Download: https://turnipfarmers.wordpress.com/\n\n` +
+        ``;
+      destinationChannel.send(msg);
+      logChannel.send(latestFeed.link);
     }
-
-  
-}
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 // The basic idea is to use Jquery on the korean site
 // and pop the most recent element on the chapter link list
 // .item-subject = target element
 scrapKoreanScan = async (client) => {
-    const { channels } = client;
-    
-    const cheerio = require('cheerio');
-    const koreanSiteURL = 'https://manatoki130.net/comic/116795';
-    const koreanLogID = '810119301838274600';
-    const spoilerChannelID = '400121599639945216'; 
+  const { channels } = client;
 
-    try {
-        const koreanLog = await channels.fetch(koreanLogID);
-        const spoilerDestination = await channels.fetch(spoilerChannelID);
+  const cheerio = require('cheerio');
+  const koreanSiteURL = 'https://manatoki130.net/comic/116795';
+  const koreanLogID = '810119301838274600';
+  const spoilerChannelID = '400121599639945216';
 
-        const lastMessage = await koreanLog.messages.fetch({limit: 1});
+  try {
+    const koreanLog = await channels.fetch(koreanLogID);
+    const spoilerDestination = await channels.fetch(spoilerChannelID);
 
-        const koreanSite = await axios(koreanSiteURL).then(site => site.data);
+    const lastMessage = await koreanLog.messages.fetch({ limit: 1 });
 
-        const $ = cheerio.load(koreanSite);
+    const koreanSite = await axios(koreanSiteURL).then((site) => site.data);
 
-        const latestLink = $('.item-subject')?.[0]?.attribs?.href;
+    const $ = cheerio.load(koreanSite);
 
-        const checkLog = await lastMessage.values().next().value?.content;
+    const latestLink = $('.item-subject')?.[0]?.attribs?.href;
 
-        const id = checkLog.split('?')[0].split('/')[4]
-       
-        if (!checkLog || !checkLog.includes(id)) {
-            // koreanLog.send(`<${latestLink}>`)
-            // spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
-        }    
+    const checkLog = await lastMessage.values().next().value?.content;
+
+    const id = checkLog.split('?')[0].split('/')[4];
+
+    if (!checkLog || !checkLog.includes(id)) {
+      // koreanLog.send(`<${latestLink}>`)
+      // spoilerDestination.send(`Latest Korean Scan: ${latestLink}`)
     }
-    catch (error) {
-        console.log(error);
-    }    
-}
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 scrapMangadex = async (client) => {
-
-    
   try {
+    const { data } = await axios(MANGADEX_URL);
 
-    const { data } = await axios(MANGADEX_URL)
+    const list = data?.data || [];
 
-    const list = data?.data || []
+    const latestChapter = list[0];
 
-    const latestChapter = list.filter( i => i.relationships[0].attributes?.name === 'Sense Scans')[0]
-    
     //! Send to Log
 
-     const logChannelID = '721933602635644998';
+    const logChannelID = '721933602635644998';
 
     const logChannel = await client.channels.fetch(logChannelID);
 
-    const latestUpdate = await logChannel.messages.fetch( { limit: 1} );
+    const latestUpdate = await logChannel.messages.fetch({ limit: 1 });
 
     const latestUpdateContent = latestUpdate.values().next().value?.content;
 
     // const announcementID = '400121168218030082';
 
-    const staffChannelID= '400665733429985290';
+    const staffChannelID = '400665733429985290';
 
     const staffRoleId = `<@&684289189390319638>`;
 
     const destinationChannel = await client.channels.fetch(staffChannelID);
 
-    const logContent = `${latestChapter?.attributes?.chapter}`
+    const logContent = `${latestChapter?.attributes?.chapter}`;
 
+    const title = `Chapter ${latestChapter?.attributes?.chapter}: ${latestChapter?.attributes?.title}`;
 
-    const title = `Chapter ${latestChapter?.attributes?.chapter}: ${latestChapter?.attributes?.title}`
-
-
-    const outdated = +`${latestChapter?.attributes?.chapter}` > +`${latestUpdateContent}`
+    const outdated =
+      +`${latestChapter?.attributes?.chapter}` > +`${latestUpdateContent}`;
 
     const msg =
-    `${staffRoleId}\n\n`+        
-    `${title} \n\n` +
-    `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1` +
-    // `Download: https://turnipfarmers.wordpress.com\n\n` +
-    ``;
-
+      `${staffRoleId}\n\n` +
+      `${title} \n\n` +
+      `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1` +
+      // `Download: https://turnipfarmers.wordpress.com\n\n` +
+      ``;
 
     if (outdated) {
-       
-        destinationChannel.send(msg);
-        logChannel.send(logContent); 
+      destinationChannel.send(msg);
+      logChannel.send(logContent);
     }
   } catch (error) {
     // console.error('Scraping Mangadex Failed:\n',error?.message, '\n', error?.response?.statusText)
   }
 
+  // const logChannelID = '721933602635644998';
 
-    // const logChannelID = '721933602635644998';
+  // const logChannel = await client.channels.fetch(logChannelID);
 
-    // const logChannel = await client.channels.fetch(logChannelID);
+  // const latestUpdate = await logChannel.messages.fetch( { limit: 1} );
 
-    // const latestUpdate = await logChannel.messages.fetch( { limit: 1} );
+  // const latestUpdateContent = latestUpdate.values().next().value?.content;
 
-    // const latestUpdateContent = latestUpdate.values().next().value?.content;
+  // const announcementID = '400121168218030082';
 
-    // const announcementID = '400121168218030082';
+  // const destinationChannel = await client.channels.fetch(announcementID);
 
-    // const destinationChannel = await client.channels.fetch(announcementID);
+  // const parser = new Parser();
 
-    // const parser = new Parser();
-  
-    // try {
-    //     const feed = await parser.parseURL(rss);
-    //     const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
-        
-    //     if (latestUpdateContent !== latestFeed.link) {
-    //         const msg =
-    //         `${latestFeed.title} @everyone\n\n` +
-    //         `Read Online: ${latestFeed.link}\n\n` +
-    //         `Download: https://turnipfarmers.wordpress.com/\n\n` +
-    //         ``;
-    //         destinationChannel.send(msg);
-    //         logChannel.send(latestFeed.link); 
-            
-    //     } 
-    // } catch (error) {
-    //     console.error(error)
-    // }
-}
+  // try {
+  //     const feed = await parser.parseURL(rss);
+  //     const latestFeed = feed.items.filter(i => i.title.includes('Kingdom'))[0];
+
+  //     if (latestUpdateContent !== latestFeed.link) {
+  //         const msg =
+  //         `${latestFeed.title} @everyone\n\n` +
+  //         `Read Online: ${latestFeed.link}\n\n` +
+  //         `Download: https://turnipfarmers.wordpress.com/\n\n` +
+  //         ``;
+  //         destinationChannel.send(msg);
+  //         logChannel.send(latestFeed.link);
+
+  //     }
+  // } catch (error) {
+  //     console.error(error)
+  // }
+};
 
 module.exports.scrapSenseScan = scrapSenseScan;
 module.exports.scrapKoreanScan = scrapKoreanScan;

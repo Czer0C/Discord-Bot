@@ -6,12 +6,8 @@ const imageList = require('./asset/imageList.json');
 
 const { prefix, staffRole, modRole, adminRole } = require('./config.json');
 const { quote } = require('./utility/quote.js');
-const { getAllFiles, getPages } = require('./utility/utility.js');
-const {
-  scrapKoreanScan,
-  scrapSenseScan,
-  scrapMangadex,
-} = require('./utility/scraper.js');
+const { getAllFiles } = require('./utility/utility.js');
+const { scrapMangadex } = require('./utility/scraper.js');
 
 const commandFiles = getAllFiles('commands');
 
@@ -41,7 +37,7 @@ client.once('ready', () => {
 
 // setInterval(scrapKoreanScan, 10000, client);
 // setInterval(scrapSenseScan, 10000, client);
-setInterval(scrapMangadex, 5000, client);
+setInterval(scrapMangadex, 30000, client);
 
 client.on('messageDelete', async (message) => {
   const logs = message.guild.channels.cache.find(
@@ -112,7 +108,6 @@ client.on('messageCreate', (message) => {
   if (!command) {
     command = client.commands.get('image');
   }
-
 
   if (command.guildOnly && !VALID_CHANNEL_TYPES.includes(channel.type)) {
     return message.reply("I can't execute that command inside DMs!");

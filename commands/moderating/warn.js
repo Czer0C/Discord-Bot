@@ -42,6 +42,7 @@ module.exports = {
         })
 
 		message.channel.send(warnEmbed);
+        
 		logChannel.send(warnReportEmbed);
 	},
 };
