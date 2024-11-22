@@ -7,7 +7,7 @@ const MANGADEX_URL =
 module.exports = {
   name: 'mangadex',
   description: 'Show status of mangadex',
-  aliases: ['md', 'dex'],
+  aliases: ['md', 'dex', 'scan'],
   async execute(message) {
     try {
       const { data } = await axios(MANGADEX_URL);
