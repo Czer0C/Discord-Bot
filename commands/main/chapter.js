@@ -1,27 +1,50 @@
-const { embed } = require('../../utility/embed.js');
-const chapterList = require('../../asset/chapterList.json');
+const axios = require('axios');
+const baseUrl = 'https://api.mangadex.org';
 
 module.exports = {
-	name: 'chapter',
-    description: 'Get chapter link.',
-    usage: '<chapter number>',
-    aliases: ['ch', 'chap'],
-    args: true,
-	async execute(message, args) {
-        for (let chapter of chapterList)
-            if (chapter.no === args[0]) {
-                const chapterEmbed = embed({
-                    author: 'false',
-                    color: `#eedddd`,
-                    title: `Chapter ${chapter.no}: ${chapter.title}`,
-                    content: `[To Mangadex](${`https://mangadex.org/chapter/${chapter.id}`})`,
-                    message: message,
-                    footer: false
-                });
-                
-                return message.channel.send(chapterEmbed);
-            }
+  name: 'chapter',
+  description: 'Get chapter link.',
+  usage: '<chapter number>',
+  aliases: ['ch', 'chap', 'read'],
+  args: true,
+  cooldown: 5,
+  async execute(message, args) {
+    const [chapter, lang = 'en'] = args;
 
-        message.channel.send("**Could not find that chapter** :x:");
-	},
+    try {
+      const resp = await axios({
+        method: 'GET',
+        url: `${baseUrl}/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/aggregate`,
+        params: {
+          translatedLanguage: [lang],
+        },
+      });
+
+      let all = [];
+
+      for (let i of Object.values(resp.data?.volumes)) {
+        const chapters = Object.values(i?.chapters).map((i) => ({
+          chapter: i.chapter,
+          id: i.id,
+        }));
+
+        all.push(...chapters);
+      }
+
+      const target = all.find((i) => i.chapter === chapter);
+
+      if (target) {
+        return message.channel.send(
+          `https://mangadex.org/chapter/${target.id}`,
+        );
+      } else {
+        return message.channel.send(
+          '**Could not find this chapter - Check chapter number or language code (*ISO*)** :x:',
+        );
+      }
+    } catch (error) {
+      console.error(error.message);
+      return message.channel.send('Error finding chapter: ' + error.message);
+    }
+  },
 };
