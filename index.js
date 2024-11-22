@@ -1,172 +1,172 @@
-const Discord = require('discord.js');
+const { GatewayIntentBits, Client, Collection } = require('discord.js');
 
 require('dotenv').config();
 
 const imageList = require('./asset/imageList.json');
 
+const { prefix, staffRole, modRole, adminRole } = require('./config.json');
+const { quote } = require('./utility/quote.js');
+const { getAllFiles, getPages } = require('./utility/utility.js');
 const {
-    prefix,
-    staffRole,
-    modRole,
-    adminRole
-} = require('./config.json');
-const {
-    quote
-} = require('./utility/quote.js');
-const {
-    getAllFiles,
-    getPages
-} = require('./utility/utility.js');
-const {
-    scrapKoreanScan,
-    scrapSenseScan,
-    scrapMangadex
+  scrapKoreanScan,
+  scrapSenseScan,
+  scrapMangadex,
 } = require('./utility/scraper.js');
 
-const commandFiles = getAllFiles("commands");
+const commandFiles = getAllFiles('commands');
 
-const client = new Discord.Client();
-client.commands = new Discord.Collection();
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildMessageReactions,
+  ],
+});
+
+client.commands = new Collection();
 
 for (let fileName of commandFiles) {
-    const command = require(fileName);
-    client.commands.set(command.name, command);
+  const command = require(fileName);
+  client.commands.set(command.name, command);
 }
 
-const cooldowns = new Discord.Collection();
+const cooldowns = new Collection();
 
 client.once('ready', () => {
-    console.log('Ready!');
+  console.log('Ready!');
 });
 
 // setInterval(scrapKoreanScan, 10000, client);
 // setInterval(scrapSenseScan, 10000, client);
 setInterval(scrapMangadex, 5000, client);
 
-
 client.on('messageDelete', async (message) => {
-    const logs = message.guild.channels.cache.find(channel => channel.name === 'bot-testing');
-    if (!logs) {
-        return;
-    }
-    const test = await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'});
+  const logs = message.guild.channels.cache.find(
+    (channel) => channel.name === 'bot-testing',
+  );
 
-    const entry = 
-            await message.guild.fetchAuditLogs({type: 'MESSAGE_DELETE'})
-                                .then(audit => audit.entries.first())
+  if (!logs) {
+    return;
+  }
 
-    let user = ""
-    if (entry.extra.channel.id === message.channel.id
-        && (entry.target.id === message.author.id)
-        && (entry.createdTimestamp > (Date.now() - 5000))
-        && (entry.extra.count >= 1)) {
-      user = entry.executor.username
-    } else { 
-      user = message.author.username
-    }
-    logs.send(`A message by ${message.author.username} was deleted in <#${message.channel.id}> by ${user}`);
-  })
+  const test = await message.guild.fetchAuditLogs({ type: 'MESSAGE_DELETE' });
 
-client.on('message', message => {
-    const {
-        channel,
-        content,
-        author,
-        member
-    } = message;
+  const entry = await message.guild
+    .fetchAuditLogs({ type: 'MESSAGE_DELETE' })
+    .then((audit) => audit.entries.first());
 
-    if (!author.bot && !member.roles.cache.has('684289189390319638')) {
-        return;
-    }
+  let user = '';
+  if (
+    entry.extra.channel.id === message.channel.id &&
+    entry.target.id === message.author.id &&
+    entry.createdTimestamp > Date.now() - 5000 &&
+    entry.extra.count >= 1
+  ) {
+    user = entry.executor.username;
+  } else {
+    user = message.author.username;
+  }
+  logs.send(
+    `A message by ${message.author.username} was deleted in <#${message.channel.id}> by ${user}`,
+  );
+});
 
-    if (channel.id === '713406898719817748' && content !== '.acknowledged') {
-        return message.delete();
-    }
+client.on('messageCreate', (message) => {
+  const { channel, content, author, member } = message;
 
-    if (!content.startsWith(prefix) || author.bot) {
-        quote(message).then(result => {
-            if (result.isMessageURL) {
-                if (result.embedQuote) {
-                    message.delete();
-                    return channel.send(result.embedQuote);
-                } else {
-                    return channel.send("**Invalid message link** ❌");
-                }
-            }
-        });
+  if (!author.bot && !member.roles.cache.has('684289189390319638')) {
+    return;
+  }
 
-        return;
-    }
+  if (channel.id === '713406898719817748' && content !== '.acknowledged') {
+    return message.delete();
+  }
 
-    
-    
-    const args = content.slice(prefix.length).split(/ +/);
-    const commandName = args.shift().toLowerCase();
-
-    let command = 
-        client.commands.get(commandName) ||
-        client.commands.find(cmd => cmd.aliases &&
-                                    cmd.aliases.includes(commandName));
-    
-    
-    if (!command) {
-        command = client.commands.get("image");
-    }
-
-    if (command.guildOnly && channel.type !== 'text') {
-        return message.reply('I can\'t execute that command inside DMs!');
-    }        
-
-    if (command.staffOnly) {
-        if (!member.roles.cache.has(staffRole)) {
-            return message.reply(` **only staff can use this command**⚠️`);
-        } else if (command.modOnly && !member.roles.cache.has(modRole)) {
-            return message.reply(' **only moderators can use this command**⚠️');
-        } else if (command.adminOnly && !member.roles.cache.has(adminRole)) {
-            return message.reply(' **only admins can use this command**⚠️');
+  if (!content.startsWith(prefix) || author.bot) {
+    quote(message).then((result) => {
+      if (result.isMessageURL) {
+        if (result.embedQuote) {
+          message.delete();
+          return channel.send(result.embedQuote);
+        } else {
+          return channel.send('**Invalid message link** ❌');
         }
+      }
+    });
+
+    return;
+  }
+
+  const args = content.slice(prefix.length).split(/ +/);
+  const commandName = args.shift().toLowerCase();
+
+  let command =
+    client.commands.get(commandName) ||
+    client.commands.find(
+      (cmd) => cmd.aliases && cmd.aliases.includes(commandName),
+    );
+
+  if (!command) {
+    command = client.commands.get('image');
+  }
+
+  if (command.guildOnly && channel.type !== 'text') {
+    return message.reply("I can't execute that command inside DMs!");
+  }
+
+  if (command.staffOnly) {
+    if (!member.roles.cache.has(staffRole)) {
+      return message.reply(` **only staff can use this command**⚠️`);
+    } else if (command.modOnly && !member.roles.cache.has(modRole)) {
+      return message.reply(' **only moderators can use this command**⚠️');
+    } else if (command.adminOnly && !member.roles.cache.has(adminRole)) {
+      return message.reply(' **only admins can use this command**⚠️');
+    }
+  }
+
+  if (command.args && !args.length) {
+    let reply = `** you didn't provide any arguments** ⚠️`;
+
+    if (command.usage) {
+      reply +=
+        `\n**The proper usage would be:** ` +
+        `\`${prefix}${command.name} ${command.usage}\``;
     }
 
-    if (command.args && !args.length) {
-        let reply = `** you didn't provide any arguments** ⚠️`;
+    return message.reply(reply);
+  }
 
-        if (command.usage) {
-            reply += `\n**The proper usage would be:** ` +
-                     `\`${prefix}${command.name} ${command.usage}\``;
-        }
+  if (!cooldowns.has(commandName)) {
+    cooldowns.set(commandName, new Collection());
+  }
 
-        return message.reply(reply);
+  const now = Date.now();
+  const timestamps = cooldowns.get(commandName);
+  const cooldownAmount = (command.cooldown || 2) * 1000;
+
+  if (timestamps.has(author.id)) {
+    let expirationTime = timestamps.get(author.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+      let timeLeft = (expirationTime - now) / 1000;
+      let reply =
+        `** please wait ${timeLeft.toFixed(1)} more second(s)` +
+        ` before reusing this command** ⏳`;
+
+      return message.reply(reply);
     }
+  }
 
-    if (!cooldowns.has(commandName)) {
-        cooldowns.set(commandName, new Discord.Collection());
-    }
-        
-    const now = Date.now();
-    const timestamps = cooldowns.get(commandName);
-    const cooldownAmount = (command.cooldown || 2) * 1000;
+  timestamps.set(author.id, now);
+  setTimeout(() => timestamps.delete(author.id), cooldownAmount);
 
-    if (timestamps.has(author.id)) {
-        let expirationTime = timestamps.get(author.id) + cooldownAmount;
-
-        if (now < expirationTime) {
-            let timeLeft = (expirationTime - now) / 1000;
-            let reply = `** please wait ${timeLeft.toFixed(1)} more second(s)` +
-                        ` before reusing this command** ⏳`;
-
-            return message.reply(reply);
-        }
-    }
-
-    timestamps.set(author.id, now);
-    setTimeout(() => timestamps.delete(author.id), cooldownAmount);
-
-    try {
-        command.execute(message, args, client, commandName);
-    } catch (error) {
-        console.error(error);
-        message.reply(' **an unexpected error has occurred** ❌');
-    }
+  try {
+    command.execute(message, args, client, commandName);
+  } catch (error) {
+    console.error(error);
+    message.reply(' **an unexpected error has occurred** ❌');
+  }
 });
 
 client.login(process.env.BOT_API_TOKEN);

@@ -132,7 +132,7 @@ scrapMangadex = async (client) => {
         logChannel.send(logContent); 
     }
   } catch (error) {
-    console.error(error);
+    // console.error('Scraping Mangadex Failed:\n',error?.message, '\n', error?.response?.statusText)
   }
 
 
