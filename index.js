@@ -15,6 +15,8 @@ const {
 
 const commandFiles = getAllFiles('commands');
 
+const VALID_CHANNEL_TYPES = [0, 2, 4, 5, 10, 11, 12, 13, 14, 15];
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -111,7 +113,8 @@ client.on('messageCreate', (message) => {
     command = client.commands.get('image');
   }
 
-  if (command.guildOnly && channel.type !== 'text') {
+
+  if (command.guildOnly && !VALID_CHANNEL_TYPES.includes(channel.type)) {
     return message.reply("I can't execute that command inside DMs!");
   }
 
