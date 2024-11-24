@@ -102,6 +102,19 @@ client.on('messageCreate', (message) => {
     return;
   }
 
+//   if (content === '!acknowledged') {
+//     if (channel.id === '713406898719817748') {
+//       member.roles
+//         .add('713406898719817748')
+//         .then(() => {
+//           //   channel.send(`Welcome to the server ${author}`);
+//         })
+//         .catch(console.error);
+//     }
+
+//     return message.delete();
+//   }
+
   if (channel.id === '713406898719817748' && content !== '.acknowledged') {
     return message.delete();
   }
@@ -122,6 +135,7 @@ client.on('messageCreate', (message) => {
   }
 
   const args = content.slice(prefix.length).split(/ +/);
+
   const commandName = args.shift().toLowerCase();
 
   let command =
