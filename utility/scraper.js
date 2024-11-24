@@ -2,7 +2,6 @@ const Parser = require('rss-parser');
 const axios = require('axios');
 
 const { rss } = require('../config.json');
-const { staffRole } = require('../config.json');
 const { filterSenseScans } = require('./utility');
 
 const MANGADEX_URL =
@@ -96,6 +95,10 @@ scrapMangadex = async (client) => {
 
     const latestUpdateContent = latestUpdate.values().next().value?.content;
 
+    const uploader = latestChapter.relationships?.find(
+      (i) => i.type === 'scanlation_group',
+    )?.attributes?.name;
+
     // const announcementID = '400121168218030082';
 
     const staffChannelID = '400665733429985290';
@@ -103,6 +106,8 @@ scrapMangadex = async (client) => {
     const staffRoleId = `<@&684289189390319638>`;
 
     const destinationChannel = await client.channels.fetch(staffChannelID);
+
+    // const testingChannel = await client.channels.fetch('427652466880938004');
 
     const logContent = `${latestChapter?.attributes?.chapter}`;
 
@@ -112,14 +117,15 @@ scrapMangadex = async (client) => {
       +`${latestChapter?.attributes?.chapter}` > +`${latestUpdateContent}`;
 
     const msg =
-      `${staffRoleId}\n\n` +
+      `@everyone\n\n` +
       `${title} \n\n` +
-      `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1` +
-      // `Download: https://turnipfarmers.wordpress.com\n\n` +
+      `Read Online: https://mangadex.org/chapter/${latestChapter?.id}/1\n` +
+      `Uploader: **${uploader}**` +
       ``;
 
     if (outdated) {
       destinationChannel.send(msg);
+
       logChannel.send(logContent);
     }
   } catch (error) {
