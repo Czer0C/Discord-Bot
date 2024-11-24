@@ -65,10 +65,12 @@ client.on('messageDelete', async (message) => {
 
   const firstEntry = fetchedLogs.entries.first();
 
-  const executor =
-    firstEntry.target.id !== message.author.id
-      ? message.author.tag
-      : firstEntry.executor.tag;
+  const isModDelete =
+    firstEntry.targetType === 'Message' &&
+    firstEntry.actionType === 'Delete' &&
+    firstEntry.targetId === message.author.id;
+
+  const executor = isModDelete ? firstEntry.executor.tag : message.author.tag;
 
   const logEmbed = new EmbedBuilder();
 
@@ -82,7 +84,9 @@ client.on('messageDelete', async (message) => {
     .setDescription(message.content || '**Empty or bot message**')
     .setFooter({
       text: `By: ${executor}`,
-      iconURL: firstEntry.executor.avatarURL(),
+      iconURL: isModDelete
+        ? firstEntry.executor.avatarURL()
+        : message.author.avatarURL(),
     })
     .setTimestamp();
 
