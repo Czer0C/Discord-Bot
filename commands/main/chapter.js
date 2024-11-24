@@ -1,5 +1,4 @@
 const axios = require('axios');
-const baseUrl = 'https://api.mangadex.org';
 
 module.exports = {
   name: 'chapter',
@@ -14,7 +13,7 @@ module.exports = {
     try {
       const resp = await axios({
         method: 'GET',
-        url: `${baseUrl}/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/aggregate`,
+        url: `https://api.mangadex.org/manga/077a3fed-1634-424f-be7a-9a96b7f07b78/aggregate`,
         params: {
           translatedLanguage: [lang],
         },

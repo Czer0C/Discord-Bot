@@ -1,21 +1,34 @@
-const http = require("http");
-const fs = require("fs");
-const htmlparser = require("htmlparser2");
+const http = require('http');
+const fs = require('fs');
+const htmlparser = require('htmlparser2');
+
+filterSenseScans = (list) =>
+  Array.isArray(list)
+    ? list.filter(({ relationships }) =>
+        Array.isArray(relationships)
+          ? relationships.some(
+              (r) =>
+                r?.type === 'scanlation_group' &&
+                r?.attributes?.name === 'Sense Scans',
+            )
+          : false,
+      )
+    : [];
 
 checkMessageURL = (URL) => {
   let result = {
     url: URL,
-    server: "",
-    channel: "",
-    message: "",
+    server: '',
+    channel: '',
+    message: '',
     isValid: false,
   };
 
   if (
-    URL.startsWith("https://discordapp.com/channels/") ||
-    URL.startsWith("https://discord.com/channels/")
+    URL.startsWith('https://discordapp.com/channels/') ||
+    URL.startsWith('https://discord.com/channels/')
   ) {
-    let ids = URL.split("/");
+    let ids = URL.split('/');
     result.server = ids[4];
     result.channel = ids[5];
     result.message = ids[6];
@@ -31,8 +44,8 @@ getAllFiles = (dirPath, arrayOfFiles) => {
   arrayOfFiles = arrayOfFiles || [];
 
   files.forEach(function (file) {
-    if (fs.statSync(dirPath + "/" + file).isDirectory()) {
-      arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles);
+    if (fs.statSync(dirPath + '/' + file).isDirectory()) {
+      arrayOfFiles = getAllFiles(dirPath + '/' + file, arrayOfFiles);
     } else {
       arrayOfFiles.push(`./${dirPath}/${file}`);
     }
@@ -58,8 +71,8 @@ processArguments = (args) => {
 };
 
 argsToString = (args) => {
-  let result = "";
-  for (let i = 0; i < args.length; i++) result += args[i] + " ";
+  let result = '';
+  for (let i = 0; i < args.length; i++) result += args[i] + ' ';
   return result;
 };
 
@@ -69,208 +82,210 @@ getASOT = (link) => {
   let result = [];
 
   http.get(link, (res) => {
-    res.setEncoding("utf8");
-    res.on("data", (body) => {
+    res.setEncoding('utf8');
+    res.on('data', (body) => {
       let t = body.toString();
       t.replace(urlRegex, function (url) {
-        if (url.includes(".mp3")) result.push(url);
+        if (url.includes('.mp3')) result.push(url);
       });
     });
-    res.on("end", () => {
+    res.on('end', () => {
       return result;
     });
   });
 };
 
-standardize = (str) => {console.log(str)
+standardize = (str) => {
+  console.log(str);
   return str
     .replace(/[\u2018\u2019]/g, "'") // smart single quotes
     .replace(/[\u201C\u201D]/g, '"'); // smart double quotes;
 };
 
-escapeFormatting = (text = "", isMarkdown = false, keepLinks = false) => {
-  if (!isMarkdown) text = text.replace(/[()\\]/g, "\\$&");
-  if (!keepLinks) text = text.replace(/\/\//g, "\\$&");
-  return text.replace(/[`_*~:<>{}@|]/g, "\\$&");
+escapeFormatting = (text = '', isMarkdown = false, keepLinks = false) => {
+  if (!isMarkdown) text = text.replace(/[()\\]/g, '\\$&');
+  if (!keepLinks) text = text.replace(/\/\//g, '\\$&');
+  return text.replace(/[`_*~:<>{}@|]/g, '\\$&');
 };
-htmlToDiscord = (html, pagelink = "", ...escapeArgs) => {
-  var text = "";
+
+htmlToDiscord = (html, pagelink = '', ...escapeArgs) => {
+  var text = '';
   var code = false;
-  var href = "";
-  var ignoredTag = "";
+  var href = '';
+  var ignoredTag = '';
   var listlevel = -1;
   var parser = new htmlparser.Parser({
     onopentag: (tagname, attribs) => {
       if (ignoredTag || code) return;
-      if (tagname === "sup" && attribs.class === "reference")
-        ignoredTag = "sup";
-      if (tagname === "span" && attribs.class === "smwttcontent")
-        ignoredTag = "span";
-      if (tagname === "code") {
+      if (tagname === 'sup' && attribs.class === 'reference')
+        ignoredTag = 'sup';
+      if (tagname === 'span' && attribs.class === 'smwttcontent')
+        ignoredTag = 'span';
+      if (tagname === 'code') {
         code = true;
-        text += "`";
+        text += '`';
       }
-      if (tagname === "pre") {
+      if (tagname === 'pre') {
         code = true;
-        text += "```\n";
+        text += '```\n';
       }
-      if (tagname === "b") text += "**";
-      if (tagname === "i") text += "*";
-      if (tagname === "s") text += "~~";
-      if (tagname === "u") text += "__";
-      if (tagname === "br") {
-        text += "\n";
-        if (listlevel > -1) text += "\u200b ".repeat(4 * listlevel + 3);
+      if (tagname === 'b') text += '**';
+      if (tagname === 'i') text += '*';
+      if (tagname === 's') text += '~~';
+      if (tagname === 'u') text += '__';
+      if (tagname === 'br') {
+        text += '\n';
+        if (listlevel > -1) text += '\u200b '.repeat(4 * listlevel + 3);
       }
-      if (tagname === "hr") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "─".repeat(10) + "\n";
+      if (tagname === 'hr') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '─'.repeat(10) + '\n';
       }
-      if (tagname === "p" && !text.endsWith("\n")) text += "\n";
-      if (tagname === "ul") listlevel++;
-      if (tagname === "li") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        if (attribs.class !== "mw-empty-elt") {
-          if (listlevel > -1) text += "\u200b ".repeat(4 * listlevel);
-          text += "• ";
+      if (tagname === 'p' && !text.endsWith('\n')) text += '\n';
+      if (tagname === 'ul') listlevel++;
+      if (tagname === 'li') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        if (attribs.class !== 'mw-empty-elt') {
+          if (listlevel > -1) text += '\u200b '.repeat(4 * listlevel);
+          text += '• ';
         }
       }
-      if (tagname === "dl") listlevel++;
-      if (tagname === "dt") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        if (attribs.class !== "mw-empty-elt") {
-          if (listlevel > -1) text += "\u200b ".repeat(4 * listlevel);
-          text += "**";
+      if (tagname === 'dl') listlevel++;
+      if (tagname === 'dt') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        if (attribs.class !== 'mw-empty-elt') {
+          if (listlevel > -1) text += '\u200b '.repeat(4 * listlevel);
+          text += '**';
         }
       }
-      if (tagname === "dd") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        if (listlevel > -1 && attribs.class !== "mw-empty-elt")
-          text += "\u200b ".repeat(4 * (listlevel + 1));
+      if (tagname === 'dd') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        if (listlevel > -1 && attribs.class !== 'mw-empty-elt')
+          text += '\u200b '.repeat(4 * (listlevel + 1));
       }
-      if (tagname === "img") {
+      if (tagname === 'img') {
         if (attribs.alt && attribs.src) {
           let showAlt = true;
-          if (attribs["data-image-name"] === attribs.alt) showAlt = false;
+          if (attribs['data-image-name'] === attribs.alt) showAlt = false;
           else {
             let regex = new RegExp(
-              "/([\\da-f])/\\1[\\da-f]/" +
-                attribs.alt.replace(/ /g, "_").replace(/\W/g, "\\$&") +
-                "(?:/|\\?|$)"
+              '/([\\da-f])/\\1[\\da-f]/' +
+                attribs.alt.replace(/ /g, '_').replace(/\W/g, '\\$&') +
+                '(?:/|\\?|$)',
             );
-            if (attribs.src.startsWith("data:") && attribs["data-src"])
-              attribs.src = attribs["data-src"];
+            if (attribs.src.startsWith('data:') && attribs['data-src'])
+              attribs.src = attribs['data-src'];
             if (
               regex.test(
-                attribs.src.replace(/(?:%[\dA-F]{2})+/g, partialURIdecode)
+                attribs.src.replace(/(?:%[\dA-F]{2})+/g, partialURIdecode),
               )
             )
               showAlt = false;
           }
           if (showAlt) {
             if (href && !code)
-              attribs.alt = attribs.alt.replace(/[\[\]]/g, "\\$&");
-            if (code) text += attribs.alt.replace(/`/g, "ˋ");
+              attribs.alt = attribs.alt.replace(/[\[\]]/g, '\\$&');
+            if (code) text += attribs.alt.replace(/`/g, 'ˋ');
             else text += escapeFormatting(attribs.alt, ...escapeArgs);
           }
         }
       }
-      if (tagname === "h1") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "***__";
+      if (tagname === 'h1') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '***__';
       }
-      if (tagname === "h2") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "**__";
+      if (tagname === 'h2') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '**__';
       }
-      if (tagname === "h3") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "**";
+      if (tagname === 'h3') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '**';
       }
-      if (tagname === "h4") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "__";
+      if (tagname === 'h4') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '__';
       }
-      if (tagname === "h5") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "*";
+      if (tagname === 'h5') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '*';
       }
-      if (tagname === "h6") {
-        text = text.replace(/ +$/, "");
-        if (!text.endsWith("\n")) text += "\n";
-        text += "";
+      if (tagname === 'h6') {
+        text = text.replace(/ +$/, '');
+        if (!text.endsWith('\n')) text += '\n';
+        text += '';
       }
       if (!pagelink) return;
       if (
-        tagname === "a" &&
+        tagname === 'a' &&
         attribs.href &&
-        attribs.class !== "new" &&
+        attribs.class !== 'new' &&
         /^(?:(?:https?:)?\/\/|\/|#)/.test(attribs.href)
       ) {
         href = new URL(attribs.href, pagelink).href;
-        if (text.endsWith("](<" + href.replace(/[()]/g, "\\$&") + ">)")) {
+        if (text.endsWith('](<' + href.replace(/[()]/g, '\\$&') + '>)')) {
           text = text.substring(
             0,
-            text.length - (href.replace(/[()]/g, "\\$&").length + 5)
+            text.length - (href.replace(/[()]/g, '\\$&').length + 5),
           );
-        } else text += "[";
+        } else text += '[';
       }
     },
     ontext: (htmltext) => {
       if (!ignoredTag) {
-        if (href && !code) htmltext = htmltext.replace(/[\[\]]/g, "\\$&");
-        if (code) text += htmltext.replace(/`/g, "ˋ");
+        if (href && !code) htmltext = htmltext.replace(/[\[\]]/g, '\\$&');
+        if (code) text += htmltext.replace(/`/g, 'ˋ');
         else text += escapeFormatting(htmltext, ...escapeArgs);
       }
     },
     onclosetag: (tagname) => {
       if (tagname === ignoredTag) {
-        ignoredTag = "";
+        ignoredTag = '';
         return;
       }
       if (code) {
-        if (tagname === "code") {
+        if (tagname === 'code') {
           code = false;
-          text += "`";
+          text += '`';
         }
-        if (tagname === "pre") {
+        if (tagname === 'pre') {
           code = false;
-          text += "\n```";
+          text += '\n```';
         }
         return;
       }
-      if (tagname === "b") text += "**";
-      if (tagname === "i") text += "*";
-      if (tagname === "s") text += "~~";
-      if (tagname === "u") text += "__";
-      if (tagname === "ul") listlevel--;
-      if (tagname === "dl") listlevel--;
-      if (tagname === "dt") text += "**";
-      if (tagname === "h1") text += "__***";
-      if (tagname === "h2") text += "__**";
-      if (tagname === "h3") text += "**";
-      if (tagname === "h4") text += "__";
-      if (tagname === "h5") text += "*";
-      if (tagname === "h6") text += "";
+      if (tagname === 'b') text += '**';
+      if (tagname === 'i') text += '*';
+      if (tagname === 's') text += '~~';
+      if (tagname === 'u') text += '__';
+      if (tagname === 'ul') listlevel--;
+      if (tagname === 'dl') listlevel--;
+      if (tagname === 'dt') text += '**';
+      if (tagname === 'h1') text += '__***';
+      if (tagname === 'h2') text += '__**';
+      if (tagname === 'h3') text += '**';
+      if (tagname === 'h4') text += '__';
+      if (tagname === 'h5') text += '*';
+      if (tagname === 'h6') text += '';
       if (!pagelink) return;
-      if (tagname === "a" && href) {
-        if (text.endsWith("[")) text = text.substring(0, text.length - 1);
-        else text += "](<" + href.replace(/[()]/g, "\\$&") + ">)";
-        href = "";
+      if (tagname === 'a' && href) {
+        if (text.endsWith('[')) text = text.substring(0, text.length - 1);
+        else text += '](<' + href.replace(/[()]/g, '\\$&') + '>)';
+        href = '';
       }
     },
     oncomment: (commenttext) => {
       if (pagelink && /^LINK'" \d+:\d+$/.test(commenttext)) {
-        text += "*UNKNOWN LINK*";
+        text += '*UNKNOWN LINK*';
       }
     },
   });
@@ -287,3 +302,4 @@ module.exports.getASOT = getASOT;
 module.exports.getAllFiles = getAllFiles;
 module.exports.escapeFormatting = escapeFormatting;
 module.exports.htmlToDiscord = htmlToDiscord;
+module.exports.filterSenseScans = filterSenseScans;

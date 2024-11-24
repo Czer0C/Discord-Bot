@@ -45,7 +45,7 @@ client.once('ready', () => {
 
 // setInterval(scrapKoreanScan, 10000, client);
 // setInterval(scrapSenseScan, 10000, client);
-setInterval(scrapMangadex, 30000, client);
+setInterval(scrapMangadex, 5000, client);
 
 client.on('messageDelete', async (message) => {
   const logs = message.guild.channels.cache.find(
