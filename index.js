@@ -65,6 +65,11 @@ client.on('messageDelete', async (message) => {
 
   const firstEntry = fetchedLogs.entries.first();
 
+  const executor =
+    firstEntry.target.id !== message.author.id
+      ? message.author.tag
+      : firstEntry.executor.tag;
+
   const logEmbed = new EmbedBuilder();
 
   logEmbed
@@ -76,7 +81,7 @@ client.on('messageDelete', async (message) => {
     .setTitle(`<#${message.channel.id}>`)
     .setDescription(message.content || '**Empty or bot message**')
     .setFooter({
-      text: `Executor: ${firstEntry.executor.tag}`,
+      text: `By: ${executor}`,
       iconURL: firstEntry.executor.avatarURL(),
     })
     .setTimestamp();
