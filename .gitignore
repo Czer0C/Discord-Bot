@@ -33,6 +33,7 @@ bower_components
 
 # Lock files
 package-lock.json
+pnpm-lock.yaml
 yarn.lock
 
 # node-waf configuration

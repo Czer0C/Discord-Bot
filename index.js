@@ -102,18 +102,18 @@ client.on('messageCreate', (message) => {
     return;
   }
 
-//   if (content === '!acknowledged') {
-//     if (channel.id === '713406898719817748') {
-//       member.roles
-//         .add('713406898719817748')
-//         .then(() => {
-//           //   channel.send(`Welcome to the server ${author}`);
-//         })
-//         .catch(console.error);
-//     }
+  //   if (content === '!acknowledged') {
+  //     if (channel.id === '713406898719817748') {
+  //       member.roles
+  //         .add('713406898719817748')
+  //         .then(() => {
+  //           //   channel.send(`Welcome to the server ${author}`);
+  //         })
+  //         .catch(console.error);
+  //     }
 
-//     return message.delete();
-//   }
+  //     return message.delete();
+  //   }
 
   if (channel.id === '713406898719817748' && content !== '.acknowledged') {
     return message.delete();
@@ -148,11 +148,11 @@ client.on('messageCreate', (message) => {
     command = client.commands.get('image');
   }
 
-  if (command.guildOnly && !VALID_CHANNEL_TYPES.includes(channel.type)) {
+  if (command?.guildOnly && !VALID_CHANNEL_TYPES.includes(channel.type)) {
     return message.reply("I can't execute that command inside DMs!");
   }
 
-  if (command.staffOnly) {
+  if (command?.staffOnly) {
     if (!member.roles.cache.has(staffRole)) {
       return message.reply(` **only staff can use this command**⚠️`);
     } else if (command.modOnly && !member.roles.cache.has(modRole)) {
@@ -162,13 +162,13 @@ client.on('messageCreate', (message) => {
     }
   }
 
-  if (command.args && !args.length) {
+  if (command?.args && !args.length) {
     let reply = `** you didn't provide any arguments** ⚠️`;
 
-    if (command.usage) {
+    if (command?.usage) {
       reply +=
         `\n**The proper usage would be:** ` +
-        `\`${prefix}${command.name} ${command.usage}\``;
+        `\`${prefix}${command?.name} ${command?.usage}\``;
     }
 
     return message.reply(reply);
@@ -180,7 +180,7 @@ client.on('messageCreate', (message) => {
 
   const now = Date.now();
   const timestamps = cooldowns.get(commandName);
-  const cooldownAmount = (command.cooldown || 2) * 1000;
+  const cooldownAmount = (command?.cooldown || 2) * 1000;
 
   if (timestamps.has(author.id)) {
     let expirationTime = timestamps.get(author.id) + cooldownAmount;
@@ -202,6 +202,7 @@ client.on('messageCreate', (message) => {
     command.execute(message, args, client, commandName);
   } catch (error) {
     console.error(error);
+
     message.reply(' **an unexpected error has occurred** ❌');
   }
 });
